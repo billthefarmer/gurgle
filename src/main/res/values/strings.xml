@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="app_name">Gurgle</string>
+  <string name="help">Help</string>
+
+  <string name="num_1">1</string>
+  <string name="num_2">2</string>
+  <string name="num_3">3</string>
+  <string name="num_4">4</string>
+  <string name="num_5">5</string>
+
+</resources>

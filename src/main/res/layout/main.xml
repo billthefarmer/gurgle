@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:orientation="vertical"
+    tools:ignore="RtlHardcoded">
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="ContentDescription">
+
+    <EditText
+        android:id="@+id/letter1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_1"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_2"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_3"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_4"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_5"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="ContentDescription">
+
+    <EditText
+        android:id="@+id/letter21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_1"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_2"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_3"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_4"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_5"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="ContentDescription">
+
+    <EditText
+        android:id="@+id/letter31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_1"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_2"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_3"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_4"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_5"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="ContentDescription">
+
+    <EditText
+        android:id="@+id/letter41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_1"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_2"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_3"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_4"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_5"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="ContentDescription">
+
+    <EditText
+        android:id="@+id/letter51"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_1"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter52"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_2"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter53"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_3"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter54"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_4"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/letter55"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:background="@drawable/box"
+        android:hint="@string/num_5"
+        android:imeOptions="actionNext"
+        android:inputType="textCapCharacters"
+        android:maxLength="1"
+        android:selectAllOnFocus="true"
+        android:importantForAutofill="no"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+</LinearLayout>

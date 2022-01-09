@@ -30,6 +30,12 @@ proguard/
 # Log Files
 *.log
 
+# Emacs backups
+*~
+
+# Data folder
+data/
+
 # Android Studio Navigation editor temp files
 .navigation/
 
