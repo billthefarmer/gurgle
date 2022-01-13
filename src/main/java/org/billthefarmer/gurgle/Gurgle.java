@@ -26,6 +26,7 @@ package org.billthefarmer.gurgle;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -38,6 +39,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Arrays;
 
 // Gurgle class
 public class Gurgle extends Activity
@@ -71,7 +74,7 @@ public class Gurgle extends Activity
         // Get preferences
         // SharedPreferences preferences =
         //     PreferenceManager.getDefaultSharedPreferences(this);
-        // boolean dark = preferences.getBoolean(Main.PREF_DARK, false);
+        // boolean dark = preferences.getBoolean(Gurgle.PREF_DARK, true);
 
         // if (!dark)
         //     setTheme(R.style.AppTheme);
@@ -100,7 +103,10 @@ public class Gurgle extends Activity
             ViewGroup group = (ViewGroup) findViewById(id);
             display[row] = new TextView[group.getChildCount()];
             for (int i = 0; i < group.getChildCount(); i++)
+            {
                 display[row][i] = (TextView) group.getChildAt(i);
+                display[row][i].setOnClickListener((v) -> search(v));
+            }
             row++;
         }
 
@@ -131,6 +137,10 @@ public class Gurgle extends Activity
         {
         case R.id.refresh:
             refresh();
+            break;
+
+        case R.id.help:
+            help();
             break;
 
         default:
@@ -197,6 +207,32 @@ public class Gurgle extends Activity
     private void refresh()
     {
         recreate();
+    }
+
+    // search
+    private void search(View v)
+    {
+        ViewGroup p = (ViewGroup) v.getParent();
+        int row = Arrays.binarySearch(ROWS, p.getId());
+        StringBuilder guess = new StringBuilder();
+        for (TextView t: display[row])
+            guess.append(t.getText());
+        if (guess.length() != display[row].length)
+        {
+            showToast(R.string.finish);
+            return;
+        }
+
+        Intent intent = new Intent(this, Search.class);
+        intent.putExtra(WORD, guess.toString());
+        startActivity(intent);
+    }
+
+    // On help click
+    private void help()
+    {
+        Intent intent = new Intent(this, Help.class);
+        startActivity(intent);
     }
 
     // Show toast.

@@ -2,9 +2,17 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
   <item
       android:id="@+id/refresh"
       android:icon="@drawable/ic_action_refresh"
       android:showAsAction="ifRoom"
       android:title="@string/refresh" />
+
+  <item
+      android:id="@+id/help"
+      android:icon="@drawable/ic_action_help"
+      android:showAsAction="ifRoom"
+      android:title="@string/help" />
+
 </menu>

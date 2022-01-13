@@ -22,7 +22,8 @@
         android:name="Gurgle"
         android:label="@string/app_name"
         android:exported="true"
-        android:windowSoftInputMode="stateHidden">
+        android:screenOrientation="portrait"
+        tools:ignore="LockedOrientationActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
         <category android:name="android.intent.category.LAUNCHER" />
