@@ -23,6 +23,12 @@
 
 package org.billthefarmer.gurgle;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
+
 public class Words
 {
     public static final String WORDS[] =
@@ -359,4 +365,40 @@ public class Words
         "wrote", "wrung", "wryly", "yacht", "yearn", "yeast", "yield",
         "young", "youth", "zebra", "zesty", "zonal"
     };
+
+    private static final int MAX_USED = 256;
+
+    private static Random random;
+    private static List<String> used;
+
+    private Words() {}
+
+    // getWord
+    public static String getWord()
+    {
+        String word;
+
+        if (random == null)
+            random = new Random(new Date().getTime());
+
+        for (word = WORDS[random.nextInt(WORDS.length)]; hasBeenUsed(word); );
+
+        return word.toUpperCase(Locale.getDefault());
+    }
+
+    // hasBeenUsed
+    private static boolean hasBeenUsed(String word)
+    {
+        if (used == null)
+            used = new ArrayList<String>();
+
+        while (used.size() > MAX_USED)
+            used.remove(0);
+
+        if (used.contains(word))
+            return true;
+
+        used.add(word);
+        return false;
+    }
 }

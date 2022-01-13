@@ -10,14 +10,15 @@
     tools:ignore="RtlHardcoded">
 
   <LinearLayout
+      android:id="@+id/row1"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:layout_marginTop="8dp"
+      android:layout_marginTop="24dp"
       android:gravity="center"
       android:orientation="horizontal"
-      tools:ignore="ContentDescription">
+      tools:ignore="HardcodedText">
 
-    <EditText
+    <TextView
         android:id="@+id/letter1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,15 +27,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_1"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -44,15 +40,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_2"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,15 +53,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_3"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -80,15 +66,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_4"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -98,25 +79,21 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_5"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
 
   <LinearLayout
+      android:id="@+id/row2"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:gravity="center"
       android:orientation="horizontal"
-      tools:ignore="ContentDescription">
+      tools:ignore="HardcodedText">
 
-    <EditText
+    <TextView
         android:id="@+id/letter21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -125,15 +102,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_1"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -143,15 +115,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_2"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -161,15 +128,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_3"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter24"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -179,15 +141,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_4"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -197,25 +154,21 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_5"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
 
   <LinearLayout
+      android:id="@+id/row3"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:gravity="center"
       android:orientation="horizontal"
-      tools:ignore="ContentDescription">
+      tools:ignore="HardcodedText">
 
-    <EditText
+    <TextView
         android:id="@+id/letter31"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -224,15 +177,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_1"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter32"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -242,15 +190,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_2"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter33"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -260,15 +203,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_3"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter34"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -278,15 +216,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_4"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter35"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -296,25 +229,21 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_5"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
 
   <LinearLayout
+      android:id="@+id/row4"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:gravity="center"
       android:orientation="horizontal"
-      tools:ignore="ContentDescription">
+      tools:ignore="HardcodedText">
 
-    <EditText
+    <TextView
         android:id="@+id/letter41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -323,15 +252,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_1"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -341,15 +265,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_2"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -359,15 +278,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_3"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -377,15 +291,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_4"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -395,25 +304,21 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_5"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
 
   <LinearLayout
+      android:id="@+id/row5"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_marginTop="8dp"
       android:gravity="center"
       android:orientation="horizontal"
-      tools:ignore="ContentDescription">
+      tools:ignore="HardcodedText">
 
-    <EditText
+    <TextView
         android:id="@+id/letter51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -422,15 +327,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_1"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter52"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -440,15 +340,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_2"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -458,15 +353,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_3"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter54"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -476,15 +366,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_4"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <EditText
+    <TextView
         android:id="@+id/letter55"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -494,13 +379,452 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:hint="@string/num_5"
-        android:imeOptions="actionNext"
-        android:inputType="textCapCharacters"
-        android:maxLength="1"
-        android:selectAllOnFocus="true"
-        android:importantForAutofill="no"
+        android:minWidth="35sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/keys1"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/Q"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Q"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/W"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="W"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/E"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="E"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="R"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/T"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="T"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/Y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Y"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/U"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="U"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/I"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="I"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/O"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="O"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/P"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="P"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/keys2"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/A"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="A"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/S"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="S"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/D"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="D"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/F"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="F"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/G"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="G"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/H"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="H"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/J"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="J"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/K"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="K"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/L"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="L"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:id="@+id/keys3"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/Z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Z"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/X"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="X"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="C"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/V"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="V"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="B"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/N"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="N"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/M"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="M"
+        android:minWidth="31sp"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+
+    <TextView
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Enter"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:text="Back"
+        android:background="@drawable/key"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="24dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="ContentDescription">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_launcher" />
 
   </LinearLayout>
 
