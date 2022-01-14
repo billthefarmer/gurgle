@@ -1,5 +1,5 @@
 # ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Gurgle
-
+Fairly simple android word game.
 ![Gurgle](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle.png) ![Help](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle-help.png)
 
 ## Guess those words
