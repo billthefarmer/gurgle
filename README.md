@@ -1,6 +1,8 @@
 # ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Gurgle
 
-## Guess the word
+![Gurgle](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle.png)
+
+## Guess those words
 Tap letters on the keyboard to enter a guess. Use the **Back** key to
 backspace. When you have finished a guess, tap the **Enter** key.
 
@@ -14,7 +16,3 @@ from the top if you run out of guesses.
 Tap the **Refresh** button in the toolbar to clear the display and
 guess another word. Words are chosen at random from a list, and are
 checked that they haven't been used recently.
-
-## Word search
-Tap on a letter in a word to search for that word on
-[DuckDuckGo](https://duckduckgo.com).

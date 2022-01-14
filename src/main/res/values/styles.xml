@@ -6,15 +6,7 @@
       replaced by AppBaseTheme from res/values-vXX/styles.xml on newer
       devices.
   -->
-  <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-    <!--
-        Theme customizations available in newer API levels can go in
-        res/values-vXX/styles.xml, while customizations related to
-        backward-compatibility can go here.
-    -->
-  </style>
-
-  <style name="AppDarkBaseTheme" parent="android:Theme.Holo">
+  <style name="AppBaseTheme" parent="android:Theme.Holo">
     <!--
         Theme customizations available in newer API levels can go in
         res/values-vXX/styles.xml, while customizations related to
@@ -27,22 +19,6 @@
     <!--
         All customizations that are NOT specific to a particular
         API-level can go here.
-    -->
-    <!--
-    <item name="action_clear">@drawable/ic_action_cancel</item>
-    <item name="action_search">@drawable/ic_action_search</item>
-    -->
-  </style>
-
-  <!-- Application theme. -->
-  <style name="AppDarkTheme" parent="AppDarkBaseTheme">
-    <!--
-        All customizations that are NOT specific to a particular
-        API-level can go here.
-    -->
-    <!--
-    <item name="action_clear">@drawable/ic_action_cancel_dark</item>
-    <item name="action_search">@drawable/ic_action_search_dark</item>
     -->
   </style>
 

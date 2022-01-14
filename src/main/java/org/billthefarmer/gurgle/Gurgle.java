@@ -71,14 +71,6 @@ public class Gurgle extends Activity
     {
         super.onCreate(savedInstanceState);
 
-        // Get preferences
-        // SharedPreferences preferences =
-        //     PreferenceManager.getDefaultSharedPreferences(this);
-        // boolean dark = preferences.getBoolean(Gurgle.PREF_DARK, true);
-
-        // if (!dark)
-        //     setTheme(R.style.AppTheme);
-
         setContentView(R.layout.main);
 
         for (int id: KEYBOARD)
@@ -103,10 +95,8 @@ public class Gurgle extends Activity
             ViewGroup group = (ViewGroup) findViewById(id);
             display[row] = new TextView[group.getChildCount()];
             for (int i = 0; i < group.getChildCount(); i++)
-            {
                 display[row][i] = (TextView) group.getChildAt(i);
-                display[row][i].setOnClickListener((v) -> search(v));
-            }
+
             row++;
         }
 
@@ -206,26 +196,18 @@ public class Gurgle extends Activity
     // refresh
     private void refresh()
     {
-        recreate();
-    }
-
-    // search
-    private void search(View v)
-    {
-        ViewGroup p = (ViewGroup) v.getParent();
-        int row = Arrays.binarySearch(ROWS, p.getId());
-        StringBuilder guess = new StringBuilder();
-        for (TextView t: display[row])
-            guess.append(t.getText());
-        if (guess.length() != display[row].length)
+        for (TextView r[]: display)
         {
-            showToast(R.string.finish);
-            return;
+            for (TextView t: r)
+            {
+                t.setText("");
+                t.setTextColor(0xffffffff);
+            }
         }
 
-        Intent intent = new Intent(this, Search.class);
-        intent.putExtra(WORD, guess.toString());
-        startActivity(intent);
+        word = Words.getWord();
+        letter = 0;
+        row = 0;
     }
 
     // On help click

@@ -48,14 +48,6 @@ public class Help extends Activity
     {
         super.onCreate(savedInstanceState);
 
-        // Get preferences
-        // SharedPreferences preferences =
-        //     PreferenceManager.getDefaultSharedPreferences(this);
-        // boolean dark = preferences.getBoolean(Main.PREF_DARK, false);
-
-        // if (!dark)
-        //     setTheme(R.style.AppTheme);
-
         setContentView(R.layout.help);
 
         TextView view = findViewById(R.id.help);
