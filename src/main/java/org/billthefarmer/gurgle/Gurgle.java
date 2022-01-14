@@ -55,7 +55,7 @@ public class Gurgle extends Activity
 
     public static final int ROWS[] =
     {
-        R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5
+        R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
     };
 
     private TextView display[][];
