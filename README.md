@@ -1,4 +1,4 @@
-# ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Gurgle
+# ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Gurgle [![.github/workflows/build.yml](https://github.com/billthefarmer/gurgle/actions/workflows/build.yml/badge.svg)](https://github.com/billthefarmer/gurgle/actions/workflows/build.yml)
 
 Fairly simple android word game.
 
