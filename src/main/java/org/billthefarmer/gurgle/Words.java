@@ -2,7 +2,7 @@
 //
 //  Gurgle - An android word game.
 //
-//  Copyright (C) 2021	Bill Farmer
+//  Copyright (C) 2022	Bill Farmer
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -23,14 +23,23 @@
 
 package org.billthefarmer.gurgle;
 
-import java.util.ArrayList;
+import android.util.Log;
+
+import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
+import java.util.Deque;
+import java.util.HashSet;
 import java.util.Locale;
 import java.util.Random;
+import java.util.Set;
 
 public class Words
 {
+    // TAG
+    public static final String TAG = "Words";
+
+    // WORDS
     public static final String WORDS[] =
     {
         "aback", "abase", "abate", "abbey", "abbot", "abhor", "abide",
@@ -369,7 +378,8 @@ public class Words
     private static final int MAX_USED = 256;
 
     private static Random random;
-    private static List<String> used;
+    private static Deque<String> used;
+    private static Set<String> words;
 
     private Words() {}
 
@@ -390,15 +400,28 @@ public class Words
     private static boolean hasBeenUsed(String word)
     {
         if (used == null)
-            used = new ArrayList<String>();
+            used = new ArrayDeque<String>();
 
         while (used.size() > MAX_USED)
-            used.remove(0);
+            used.remove();
 
         if (used.contains(word))
             return true;
 
         used.add(word);
         return false;
+    }
+
+    // isWord
+    public static boolean isWord(String word)
+    {
+        if (words == null)
+        {
+            words = new HashSet<String>(Arrays.asList(WORDS));
+            words.addAll(Arrays.asList(Obscure.WORDS));
+            words.addAll(Arrays.asList(Obscurer.WORDS));
+        }
+
+        return words.contains(word.toLowerCase(Locale.getDefault()));
     }
 }

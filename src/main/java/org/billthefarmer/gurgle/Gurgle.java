@@ -25,11 +25,15 @@ package org.billthefarmer.gurgle;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.text.SpannableStringBuilder;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -40,13 +44,17 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 // Gurgle class
 public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
-    public static final String WORD = "word";
 
     public static final int KEYBOARD[] =
     {
@@ -59,6 +67,7 @@ public class Gurgle extends Activity
     };
 
     private TextView display[][];
+    private Map<String, TextView> keyboard;
     private Toast toast;
     private String word;
     private int letter;
@@ -73,13 +82,15 @@ public class Gurgle extends Activity
 
         setContentView(R.layout.main);
 
+        keyboard = new HashMap<String, TextView>();
         for (int id: KEYBOARD)
         {
             ViewGroup group = (ViewGroup) findViewById(id);
             for (int i = 0; i < group.getChildCount(); i++)
             {
-                View view = group.getChildAt(i);
-                view.setOnClickListener((v) -> keyClicked(v));
+                TextView text = (TextView) group.getChildAt(i);
+                text.setOnClickListener((v) -> keyClicked(v));
+                keyboard.put(text.getText().toString(), text);
             }
         }
 
@@ -133,6 +144,10 @@ public class Gurgle extends Activity
             help();
             break;
 
+        case R.id.about:
+            about();
+            break;
+
         default:
             return false;
         }
@@ -166,16 +181,31 @@ public class Gurgle extends Activity
         for (TextView t: display[row])
             guess.append(t.getText());
 
-        if (BuildConfig.DEBUG)
-            Log.d(TAG, word + ", " + guess);
+        if (!Words.isWord(guess.toString()))
+        {
+            showToast(R.string.not_list);
+            return;
+        }
 
         for (int i = 0; i < display[row].length; i++)
-            if (word.substring(i, i + 1)
-                .contentEquals(guess.substring(i, i + 1)))
-                display[row][i].setTextColor(0xff00ff00);
+        {
+            String wordLetter = word.substring(i, i + 1);
+            String guessLetter = guess.substring(i, i + 1);
 
-            else if (word.contains(guess.substring(i, i + 1)))
+            if (wordLetter.contentEquals(guessLetter))
+            {
+                display[row][i].setTextColor(0xff00ff00);
+                keyboard.get(guessLetter).setTextColor(0xff00ff00);
+            }
+
+            else if (word.contains(guessLetter))
+            {
                 display[row][i].setTextColor(0xffffff00);
+                TextView t = keyboard.get(guessLetter);
+                if (t.getTextColors().getDefaultColor() != 0xff00ff00)
+                    t.setTextColor(0xffffff00);
+            }
+        }
 
         letter = 0;
         row = (row + 1) % ROWS.length;
@@ -205,6 +235,9 @@ public class Gurgle extends Activity
             }
         }
 
+        for (TextView t: keyboard.values().toArray(new TextView[0]))
+                t.setTextColor(0xffffffff);
+
         word = Words.getWord();
         letter = 0;
         row = 0;
@@ -215,6 +248,45 @@ public class Gurgle extends Activity
     {
         Intent intent = new Intent(this, Help.class);
         startActivity(intent);
+    }
+
+    // about
+    @SuppressWarnings("deprecation")
+    private boolean about()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.app_name);
+
+        DateFormat dateFormat = DateFormat.getDateTimeInstance();
+        SpannableStringBuilder spannable =
+            new SpannableStringBuilder(getText(R.string.version));
+        Pattern pattern = Pattern.compile("%s");
+        Matcher matcher = pattern.matcher(spannable);
+        if (matcher.find())
+            spannable.replace(matcher.start(), matcher.end(),
+                              BuildConfig.VERSION_NAME);
+        matcher.reset(spannable);
+        if (matcher.find())
+            spannable.replace(matcher.start(), matcher.end(),
+                              dateFormat.format(BuildConfig.BUILT));
+        builder.setMessage(spannable);
+
+        // Add the button
+        builder.setPositiveButton(android.R.string.ok, null);
+
+        // Create the AlertDialog
+        Dialog dialog = builder.show();
+
+        // Set movement method
+        TextView text = dialog.findViewById(android.R.id.message);
+        if (text != null)
+        {
+            text.setTextAppearance(builder.getContext(),
+                                   android.R.style.TextAppearance_Small);
+            text.setMovementMethod(LinkMovementMethod.getInstance());
+        }
+
+        return true;
     }
 
     // Show toast.
