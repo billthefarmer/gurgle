@@ -88,9 +88,11 @@ public class Gurgle extends Activity
             ViewGroup group = (ViewGroup) findViewById(id);
             for (int i = 0; i < group.getChildCount(); i++)
             {
-                TextView text = (TextView) group.getChildAt(i);
-                text.setOnClickListener((v) -> keyClicked(v));
-                keyboard.put(text.getText().toString(), text);
+                View view = group.getChildAt(i);
+                view.setOnClickListener((v) -> keyClicked(v));
+                if (view instanceof TextView)
+                    keyboard.put(((TextView) view).getText().toString(),
+                                 (TextView) view);
             }
         }
 
