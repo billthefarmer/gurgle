@@ -30,6 +30,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
@@ -44,6 +46,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import android.support.v4.content.FileProvider;
+
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -55,6 +63,10 @@ import java.util.regex.Pattern;
 public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
+    public static final String GURGLE_IMAGE = "Gurgle.png";
+    public static final String IMAGE_PNG = "image/png";
+    public static final String FILE_PROVIDER =
+        "org.billthefarmer.gurgle.fileprovider";
 
     public static final int KEYBOARD[] =
     {
@@ -89,10 +101,12 @@ public class Gurgle extends Activity
             for (int i = 0; i < group.getChildCount(); i++)
             {
                 View view = group.getChildAt(i);
-                view.setOnClickListener((v) -> keyClicked(v));
                 if (view instanceof TextView)
+                {
+                    view.setOnClickListener((v) -> keyClicked(v));
                     keyboard.put(((TextView) view).getText().toString(),
                                  (TextView) view);
+                }
             }
         }
 
@@ -100,6 +114,8 @@ public class Gurgle extends Activity
         view.setOnClickListener((v) -> enterClicked(v));
         view = findViewById(R.id.back);
         view.setOnClickListener((v) -> backspaceClicked(v));
+        view = findViewById(R.id.gurgle);
+        view.setOnClickListener((v) -> enterClicked(v));
 
         display = new TextView[ROWS.length][];
         int row = 0;
@@ -140,6 +156,10 @@ public class Gurgle extends Activity
         {
         case R.id.refresh:
             refresh();
+            break;
+
+        case R.id.share:
+            share();
             break;
 
         case R.id.help:
@@ -243,6 +263,37 @@ public class Gurgle extends Activity
         word = Words.getWord();
         letter = 0;
         row = 0;
+    }
+
+    // share
+    @SuppressWarnings("deprecation")
+    private void share()
+    {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        String title = getString(R.string.app_name);
+        intent.putExtra(Intent.EXTRA_TITLE, title);
+        intent.putExtra(Intent.EXTRA_SUBJECT, title);
+        intent.setType(IMAGE_PNG);
+
+        View root = findViewById(R.id.gurgle).getRootView();
+        root.setDrawingCacheEnabled(true);
+        Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
+        root.setDrawingCacheEnabled(false);
+
+        File image = new File(getCacheDir(), GURGLE_IMAGE);
+        try (BufferedOutputStream out = new
+             BufferedOutputStream(new FileOutputStream(image)))
+        {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+        }
+
+        catch (Exception e) {}
+
+        Uri imageUri = FileProvider
+            .getUriForFile(this, FILE_PROVIDER, image);
+        intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+        intent.putExtra(Intent.EXTRA_TEXT, word);
+        startActivity(Intent.createChooser(intent, null));
     }
 
     // On help click
