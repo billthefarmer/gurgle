@@ -2,7 +2,7 @@
 //
 //  Gurgle - An android word game.
 //
-//  Copyright (C) 2021	Bill Farmer
+//  Copyright (C) 2022	Bill Farmer
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -115,7 +115,7 @@ public class Gurgle extends Activity
         view = findViewById(R.id.back);
         view.setOnClickListener((v) -> backspaceClicked(v));
         view = findViewById(R.id.gurgle);
-        view.setOnClickListener((v) -> enterClicked(v));
+        view.setOnClickListener((v) -> about());
 
         display = new TextView[ROWS.length][];
         int row = 0;
@@ -309,6 +309,7 @@ public class Gurgle extends Activity
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.app_name);
+        builder.setIcon(R.drawable.ic_launcher);
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance();
         SpannableStringBuilder spannable =
