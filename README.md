@@ -2,6 +2,10 @@
 
 Fairly simple android word game.
 
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png"
+     alt="Get it on F-Droid"
+     height="80">](https://f-droid.org/packages/org.billthefarmer.gurgle/)
+
 ![Gurgle](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle.png) ![Help](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle-help.png)
 
 ## Guess those words
