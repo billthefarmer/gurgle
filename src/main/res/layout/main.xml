@@ -494,455 +494,470 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/keys1"
-        android:layout_width="fill_parent"
+    <HorizontalScrollView
+        android:id="@+id/scroll"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:ignore="HardcodedText">
+        android:layout_gravity="center">
 
-      <TextView
-          android:id="@+id/Q"
+      <LinearLayout
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="Q"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          android:orientation="vertical">
 
-      <TextView
-          android:id="@+id/W"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="W"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+        <LinearLayout
+            android:id="@+id/keys1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="HardcodedText">
 
-      <TextView
-          android:id="@+id/E"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="E"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/Q"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="Q"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/R"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="R"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/W"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="W"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/T"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="T"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/E"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="E"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/Y"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="Y"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/R"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="R"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/U"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="U"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/T"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="T"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/I"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="I"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/Y"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="Y"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/O"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="O"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/U"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="U"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/P"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="P"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/I"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="I"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    </LinearLayout>
+          <TextView
+              android:id="@+id/O"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="O"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
-        android:id="@+id/keys2"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:ignore="HardcodedText">
+          <TextView
+              android:id="@+id/P"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="P"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/A"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="A"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+        </LinearLayout>
 
-      <TextView
-          android:id="@+id/S"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="S"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+        <LinearLayout
+            android:id="@+id/keys2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="HardcodedText">
 
-      <TextView
-          android:id="@+id/D"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="D"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/A"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="A"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/F"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="F"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/S"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="S"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/G"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="G"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/D"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="D"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/H"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="H"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/F"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="F"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/J"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="J"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/G"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="G"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/K"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="K"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/H"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="H"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/L"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="L"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/J"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="J"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    </LinearLayout>
+          <TextView
+              android:id="@+id/K"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="K"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
-        android:id="@+id/keys3"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="6dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:ignore="HardcodedText">
+          <TextView
+              android:id="@+id/L"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="L"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <ImageView
-          android:id="@+id/enter"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:paddingLeft="4dp"
-          android:paddingRight="4dp"
-          android:paddingTop="7dp"
-          android:paddingBottom="7dp"
-          android:minWidth="46sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          tools:ignore="ContentDescription"
-          android:src="@drawable/ic_enter" />
+        </LinearLayout>
 
-      <TextView
-          android:id="@+id/Z"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="Z"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+        <LinearLayout
+            android:id="@+id/keys3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            tools:ignore="HardcodedText">
 
-      <TextView
-          android:id="@+id/X"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="X"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <ImageView
+              android:id="@+id/enter"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:paddingLeft="4dp"
+              android:paddingRight="4dp"
+              android:paddingTop="7dp"
+              android:paddingBottom="7dp"
+              android:minWidth="46sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              tools:ignore="ContentDescription"
+              android:src="@drawable/ic_enter" />
 
-      <TextView
-          android:id="@+id/C"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="C"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/Z"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="Z"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/V"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="V"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/X"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="X"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/B"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="B"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/C"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="C"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/N"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="N"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/V"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="V"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <TextView
-          android:id="@+id/M"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="6dp"
-          android:paddingRight="6dp"
-          android:paddingTop="4dp"
-          android:paddingBottom="4dp"
-          android:text="M"
-          android:minWidth="31sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          android:textAppearance="?android:attr/textAppearanceLarge" />
+          <TextView
+              android:id="@+id/B"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="B"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-      <ImageView
-          android:id="@+id/back"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="4dp"
-          android:paddingLeft="4dp"
-          android:paddingRight="4dp"
-          android:paddingTop="7dp"
-          android:paddingBottom="7dp"
-          android:minWidth="46sp"
-          android:background="@drawable/key"
-          android:gravity="center"
-          tools:ignore="ContentDescription"
-          android:src="@drawable/ic_backspace" />
+          <TextView
+              android:id="@+id/N"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="N"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    </LinearLayout>
+          <TextView
+              android:id="@+id/M"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="6dp"
+              android:paddingRight="6dp"
+              android:paddingTop="4dp"
+              android:paddingBottom="4dp"
+              android:text="M"
+              android:minWidth="31sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              android:textAppearance="?android:attr/textAppearanceLarge" />
+
+          <ImageView
+              android:id="@+id/back"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginLeft="4dp"
+              android:paddingLeft="4dp"
+              android:paddingRight="4dp"
+              android:paddingTop="7dp"
+              android:paddingBottom="7dp"
+              android:minWidth="46sp"
+              android:background="@drawable/key"
+              android:gravity="center"
+              tools:ignore="ContentDescription"
+              android:src="@drawable/ic_backspace" />
+
+        </LinearLayout>
+
+      </LinearLayout>
+
+    </HorizontalScrollView>
 
     <LinearLayout
         android:layout_width="fill_parent"

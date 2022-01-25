@@ -213,19 +213,26 @@ public class Gurgle extends Activity
         {
             String wordLetter = word.substring(i, i + 1);
             String guessLetter = guess.substring(i, i + 1);
+            TextView key = keyboard.get(guessLetter);
 
             if (wordLetter.contentEquals(guessLetter))
             {
                 display[row][i].setTextColor(0xff00ff00);
-                keyboard.get(guessLetter).setTextColor(0xff00ff00);
+                key.setTextColor(0xff00ff00);
             }
 
             else if (word.contains(guessLetter))
             {
                 display[row][i].setTextColor(0xffffff00);
-                TextView t = keyboard.get(guessLetter);
-                if (t.getTextColors().getDefaultColor() != 0xff00ff00)
-                    t.setTextColor(0xffffff00);
+                if (key.getTextColors().getDefaultColor() != 0xff00ff00)
+                    key.setTextColor(0xffffff00);
+            }
+
+            else
+            {
+                display[row][i].setTextColor(0x7fffffff);
+                if (key.getTextColors().getDefaultColor() != 0xff00ff00)
+                    key.setTextColor(0x7fffffff);
             }
         }
 

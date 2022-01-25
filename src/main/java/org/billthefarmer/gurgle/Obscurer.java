@@ -25,6 +25,7 @@ package org.billthefarmer.gurgle;
 
 public class Obscurer
 {
+    // WORDS
     public static final String WORDS[] =
     {
         "maare","maars","mabes","macas","maced","macer","maces",
