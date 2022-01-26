@@ -9,7 +9,8 @@
 
   <string name="press">Tap enter</string>
   <string name="finish">Finish the word first</string>
-  <string name="not_list">Not in word list</string>
+  <string name="not_solved">Guess the word first</string>
+  <string name="not_listed">Not in word list</string>
 
   <string name="version" formatted="false"><a
   href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nBuilt

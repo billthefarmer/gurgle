@@ -55,6 +55,7 @@ import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -63,6 +64,7 @@ import java.util.regex.Pattern;
 public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
+    public static final String WORD = "word";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String IMAGE_PNG = "image/png";
     public static final String FILE_PROVIDER =
@@ -82,6 +84,7 @@ public class Gurgle extends Activity
     private Map<String, TextView> keyboard;
     private Toast toast;
     private String word;
+    private boolean solved;
     private int letter;
     private int row;
 
@@ -115,7 +118,7 @@ public class Gurgle extends Activity
         view = findViewById(R.id.back);
         view.setOnClickListener((v) -> backspaceClicked(v));
         view = findViewById(R.id.gurgle);
-        view.setOnClickListener((v) -> about());
+        view.setOnClickListener((v) -> search());
 
         display = new TextView[ROWS.length][];
         int row = 0;
@@ -130,6 +133,7 @@ public class Gurgle extends Activity
         }
 
         word = Words.getWord();
+        solved = false;
         letter = 0;
         row = 0;
     }
@@ -205,9 +209,12 @@ public class Gurgle extends Activity
 
         if (!Words.isWord(guess.toString()))
         {
-            showToast(R.string.not_list);
+            showToast(R.string.not_listed);
             return;
         }
+
+        if (word.contentEquals(guess))
+            solved = true;
 
         for (int i = 0; i < display[row].length; i++)
         {
@@ -268,6 +275,7 @@ public class Gurgle extends Activity
                 t.setTextColor(0xffffffff);
 
         word = Words.getWord();
+        solved = false;
         letter = 0;
         row = 0;
     }
@@ -307,6 +315,21 @@ public class Gurgle extends Activity
     private void help()
     {
         Intent intent = new Intent(this, Help.class);
+        startActivity(intent);
+    }
+
+    // Search
+    private void search()
+    {
+        if (!solved)
+        {
+            showToast(R.string.not_solved);
+            return;
+        }
+
+        // Start the web search
+        Intent intent = new Intent(this, Search.class);
+        intent.putExtra(WORD, word.toLowerCase(Locale.getDefault()));
         startActivity(intent);
     }
 
