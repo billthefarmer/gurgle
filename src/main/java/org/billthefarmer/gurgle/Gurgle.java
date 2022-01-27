@@ -88,6 +88,7 @@ public class Gurgle extends Activity
     private Toast toast;
     private String word;
     private boolean solved;
+    private int language;
     private int letter;
     private int row;
 
@@ -153,6 +154,24 @@ public class Gurgle extends Activity
         return true;
     }
 
+    // onPrepareOptionsMenu
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        switch (language)
+        {
+        case ENGLISH:
+            menu.findItem(R.id.english).setChecked(true);
+            break;
+
+        case ITALIAN:
+            menu.findItem(R.id.italian).setChecked(true);
+            break;
+        }
+
+        return true;
+    }
+
     // On options item selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -167,6 +186,16 @@ public class Gurgle extends Activity
 
         case R.id.share:
             share();
+            break;
+
+        case R.id.english:
+            language = ENGLISH;
+            Words.setLanguage(language);
+            break;
+
+        case R.id.italian:
+            language = ITALIAN;
+            Words.setLanguage(language);
             break;
 
         case R.id.help:

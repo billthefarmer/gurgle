@@ -396,12 +396,12 @@ public class Words
         switch (language)
         {
         default:
-        case ENGLISH:
+        case Gurgle.ENGLISH:
             for (word = WORDS[random.nextInt(WORDS.length)];
                  hasBeenUsed(word); );
             break;
 
-        case ITALIAN:
+        case Gurgle.ITALIAN:
             for (word = Italian.WORDS[random.nextInt(Italian.WORDS.length)];
                  hasBeenUsed(word); );
             break;
@@ -438,9 +438,19 @@ public class Words
     {
         if (words == null)
         {
-            words = new HashSet<String>(Arrays.asList(WORDS));
-            words.addAll(Arrays.asList(Obscure.WORDS));
-            words.addAll(Arrays.asList(Obscurer.WORDS));
+            switch (language)
+            {
+            default:
+            case Gurgle.ENGLISH:
+                words = new HashSet<String>(Arrays.asList(WORDS));
+                words.addAll(Arrays.asList(Obscure.WORDS));
+                words.addAll(Arrays.asList(Obscurer.WORDS));
+                break;
+
+            case Gurgle.ITALIAN:
+                words = new HashSet<String>(Arrays.asList(Italian.WORDS));
+                break;
+            }
         }
 
         return words.contains(word.toLowerCase(Locale.getDefault()));
