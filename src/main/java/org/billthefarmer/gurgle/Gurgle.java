@@ -80,6 +80,9 @@ public class Gurgle extends Activity
         R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
     };
 
+    public static final int ENGLISH = 0;
+    public static final int ITALIAN = 1;
+
     private TextView display[][];
     private Map<String, TextView> keyboard;
     private Toast toast;
@@ -307,7 +310,8 @@ public class Gurgle extends Activity
         Uri imageUri = FileProvider
             .getUriForFile(this, FILE_PROVIDER, image);
         intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-        intent.putExtra(Intent.EXTRA_TEXT, word);
+        if (solved)
+            intent.putExtra(Intent.EXTRA_TEXT, word);
         startActivity(Intent.createChooser(intent, null));
     }
 

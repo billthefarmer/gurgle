@@ -381,6 +381,8 @@ public class Words
     private static Deque<String> used;
     private static Set<String> words;
 
+    private static int language = Gurgle.ENGLISH;
+
     private Words() {}
 
     // getWord
@@ -391,7 +393,19 @@ public class Words
         if (random == null)
             random = new Random(new Date().getTime());
 
-        for (word = WORDS[random.nextInt(WORDS.length)]; hasBeenUsed(word); );
+        switch (language)
+        {
+        default:
+        case ENGLISH:
+            for (word = WORDS[random.nextInt(WORDS.length)];
+                 hasBeenUsed(word); );
+            break;
+
+        case ITALIAN:
+            for (word = Italian.WORDS[random.nextInt(Italian.WORDS.length)];
+                 hasBeenUsed(word); );
+            break;
+        }
 
         return word.toUpperCase(Locale.getDefault());
     }
@@ -410,6 +424,13 @@ public class Words
 
         used.add(word);
         return false;
+    }
+
+    // setLanguage
+    public static void setLanguage(int l)
+    {
+        language = l;
+        words = null;
     }
 
     // isWord
