@@ -307,7 +307,8 @@ public class Gurgle extends Activity
         Uri imageUri = FileProvider
             .getUriForFile(this, FILE_PROVIDER, image);
         intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-        intent.putExtra(Intent.EXTRA_TEXT, word);
+        if (BuildConfig.DEBUG)
+            intent.putExtra(Intent.EXTRA_TEXT, word);
         startActivity(Intent.createChooser(intent, null));
     }
 
@@ -323,7 +324,7 @@ public class Gurgle extends Activity
     {
         if (!solved)
         {
-            showToast(R.string.not_solved);
+            showToast(R.string.guess);
             return;
         }
 
