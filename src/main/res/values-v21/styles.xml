@@ -10,4 +10,12 @@
     <!-- API 21 theme customizations can go here. -->
   </style>
 
+  <style name="AppCyanBaseTheme" parent="android:Theme.Material">
+    <!-- API 21 theme customizations can go here. -->
+  </style>
+
+  <style name="AppOrangeBaseTheme" parent="android:Theme.Material">
+    <!-- API 21 theme customizations can go here. -->
+  </style>
+
 </resources>

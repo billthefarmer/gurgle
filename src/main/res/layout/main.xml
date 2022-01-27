@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="?attr/back"
     android:fillViewport="true">
 
   <LinearLayout
@@ -31,7 +32,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -45,7 +46,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -59,7 +60,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -73,7 +74,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -87,7 +88,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -111,7 +112,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -125,7 +126,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -139,7 +140,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -153,7 +154,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -167,7 +168,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -191,7 +192,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -205,7 +206,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -219,7 +220,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -233,7 +234,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -247,7 +248,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -271,7 +272,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -285,7 +286,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -299,7 +300,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -313,7 +314,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -327,7 +328,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -351,7 +352,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -365,7 +366,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -379,7 +380,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -393,7 +394,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -407,7 +408,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -431,7 +432,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -445,7 +446,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -459,7 +460,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -473,7 +474,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -487,7 +488,7 @@
           android:paddingRight="8dp"
           android:paddingTop="4dp"
           android:paddingBottom="4dp"
-          android:background="@drawable/box"
+          android:background="?attr/box"
           android:minWidth="35sp"
           android:gravity="center"
           android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -524,7 +525,7 @@
               android:paddingBottom="4dp"
               android:text="Q"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -539,7 +540,7 @@
               android:paddingBottom="4dp"
               android:text="W"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -554,7 +555,7 @@
               android:paddingBottom="4dp"
               android:text="E"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -569,7 +570,7 @@
               android:paddingBottom="4dp"
               android:text="R"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -584,7 +585,7 @@
               android:paddingBottom="4dp"
               android:text="T"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -599,7 +600,7 @@
               android:paddingBottom="4dp"
               android:text="Y"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -614,7 +615,7 @@
               android:paddingBottom="4dp"
               android:text="U"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -629,7 +630,7 @@
               android:paddingBottom="4dp"
               android:text="I"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -644,7 +645,7 @@
               android:paddingBottom="4dp"
               android:text="O"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -659,7 +660,7 @@
               android:paddingBottom="4dp"
               android:text="P"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -684,7 +685,7 @@
               android:paddingBottom="4dp"
               android:text="A"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -699,7 +700,7 @@
               android:paddingBottom="4dp"
               android:text="S"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -714,7 +715,7 @@
               android:paddingBottom="4dp"
               android:text="D"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -729,7 +730,7 @@
               android:paddingBottom="4dp"
               android:text="F"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -744,7 +745,7 @@
               android:paddingBottom="4dp"
               android:text="G"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -759,7 +760,7 @@
               android:paddingBottom="4dp"
               android:text="H"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -774,7 +775,7 @@
               android:paddingBottom="4dp"
               android:text="J"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -789,7 +790,7 @@
               android:paddingBottom="4dp"
               android:text="K"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -804,7 +805,7 @@
               android:paddingBottom="4dp"
               android:text="L"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -828,7 +829,7 @@
               android:paddingTop="7dp"
               android:paddingBottom="7dp"
               android:minWidth="46sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               tools:ignore="ContentDescription"
               android:src="@drawable/ic_enter" />
@@ -844,7 +845,7 @@
               android:paddingBottom="4dp"
               android:text="Z"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -859,7 +860,7 @@
               android:paddingBottom="4dp"
               android:text="X"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -874,7 +875,7 @@
               android:paddingBottom="4dp"
               android:text="C"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -889,7 +890,7 @@
               android:paddingBottom="4dp"
               android:text="V"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -904,7 +905,7 @@
               android:paddingBottom="4dp"
               android:text="B"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -919,7 +920,7 @@
               android:paddingBottom="4dp"
               android:text="N"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -934,7 +935,7 @@
               android:paddingBottom="4dp"
               android:text="M"
               android:minWidth="31sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -948,7 +949,7 @@
               android:paddingTop="7dp"
               android:paddingBottom="7dp"
               android:minWidth="46sp"
-              android:background="@drawable/key"
+              android:background="?attr/key"
               android:gravity="center"
               tools:ignore="ContentDescription"
               android:src="@drawable/ic_backspace" />
