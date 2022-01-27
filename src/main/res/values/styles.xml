@@ -20,6 +20,12 @@
         All customizations that are NOT specific to a particular
         API-level can go here.
     -->
+
+    <item name="back">?android:attr/colorBackground</item>
+    <item name="bar">?android:attr/actionBarStyle</item>
+    <item name="box">@drawable/box</item>
+    <item name="key">@drawable/key</item>
+
   </style>
 
 </resources>

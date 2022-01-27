@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <declare-styleable name="Editor">
+
+    <attr name="back" format="reference" />
+    <attr name="bar" format="reference" />
+
+    <attr name="box" format="reference" />
+    <attr name="key" format="reference" />
+
+  </declare-styleable>
+
+</resources>
