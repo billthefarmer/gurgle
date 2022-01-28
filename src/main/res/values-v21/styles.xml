@@ -17,6 +17,13 @@
 
   </style>
 
+  <style name="AppMagentaBaseTheme" parent="android:Theme.Material">
+    <!-- API 21 theme customizations can go here. -->
+
+    <item name="android:actionBarStyle">@style/actionBarMagentaStyle</item>
+
+  </style>
+
   <style name="AppOrangeBaseTheme" parent="android:Theme.Material">
     <!-- API 21 theme customizations can go here. -->
 
@@ -31,10 +38,24 @@
 
   </style>
 
+  <style name="AppRedBaseTheme" parent="android:Theme.Material">
+    <!-- API 21 theme customizations can go here. -->
+
+    <item name="android:actionBarStyle">@style/actionBarRedStyle</item>
+
+  </style>
+
   <style name="actionBarCyanStyle"
          parent="android:style/Widget.Material.ActionBar">
 
     <item name="android:background">@color/dark_cyan</item>
+
+  </style>
+
+  <style name="actionBarMagentaStyle"
+         parent="android:style/Widget.Material.ActionBar">
+
+    <item name="android:background">@color/dark_magenta</item>
 
   </style>
 
@@ -49,6 +70,13 @@
          parent="android:style/Widget.Material.ActionBar">
 
     <item name="android:background">@color/dark_purple</item>
+
+  </style>
+
+  <style name="actionBarRedStyle"
+         parent="android:style/Widget.Material.ActionBar">
+
+    <item name="android:background">@color/dark_red</item>
 
   </style>
 

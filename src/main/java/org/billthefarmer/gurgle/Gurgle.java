@@ -72,12 +72,12 @@ public class Gurgle extends Activity
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
-    private static final int DARK    = 1;
-    private static final int CYAN    = 2;
-    private static final int MAGENTA = 3;
-    private static final int ORANGE  = 4;
-    private static final int PURPLE  = 5;
-    private static final int RED     = 6;
+    public static final int DARK    = 1;
+    public static final int CYAN    = 2;
+    public static final int MAGENTA = 3;
+    public static final int ORANGE  = 4;
+    public static final int PURPLE  = 5;
+    public static final int RED     = 6;
 
     public static final int KEYBOARD[] =
     {
@@ -121,8 +121,20 @@ public class Gurgle extends Activity
             setTheme(R.style.AppCyanTheme);
             break;
 
+        case MAGENTA:
+            setTheme(R.style.AppMagentaTheme);
+            break;
+
         case ORANGE:
             setTheme(R.style.AppOrangeTheme);
+            break;
+
+        case PURPLE:
+            setTheme(R.style.AppPurpleTheme);
+            break;
+
+        case RED:
+            setTheme(R.style.AppRedTheme);
             break;
         }
 
@@ -210,29 +222,6 @@ public class Gurgle extends Activity
         return true;
     }
 
-    // onPrepareOptionsMenu
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu)
-    {
-
-        switch (theme)
-        {
-        case DARK:
-            menu.findItem(R.id.dark).setChecked(true);
-            break;
-
-        case CYAN:
-            menu.findItem(R.id.cyan).setChecked(true);
-            break;
-
-        case ORANGE:
-            menu.findItem(R.id.orange).setChecked(true);
-            break;
-        }
-
-        return true;
-    }
-
     // On options item selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -257,8 +246,20 @@ public class Gurgle extends Activity
             theme(CYAN);
             break;
 
+        case R.id.magenta:
+            theme(MAGENTA);
+            break;
+
         case R.id.orange:
             theme(ORANGE);
+            break;
+
+        case R.id.purple:
+            theme(PURPLE);
+            break;
+
+        case R.id.red:
+            theme(RED);
             break;
 
         case R.id.help:

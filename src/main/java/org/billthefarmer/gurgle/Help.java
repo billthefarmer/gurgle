@@ -48,6 +48,39 @@ public class Help extends Activity
     {
         super.onCreate(savedInstanceState);
 
+        SharedPreferences preferences =
+            PreferenceManager.getDefaultSharedPreferences(this);
+
+        int theme = preferences.getInt(Gurgle.PREF_THEME, Gurgle.DARK);
+
+        switch (theme)
+        {
+        default:
+        case Gurgle.DARK:
+            setTheme(R.style.AppTheme);
+            break;
+
+        case Gurgle.CYAN:
+            setTheme(R.style.AppCyanTheme);
+            break;
+
+        case Gurgle.MAGENTA:
+            setTheme(R.style.AppMagentaTheme);
+            break;
+
+        case Gurgle.ORANGE:
+            setTheme(R.style.AppOrangeTheme);
+            break;
+
+        case Gurgle.PURPLE:
+            setTheme(R.style.AppPurpleTheme);
+            break;
+
+        case Gurgle.RED:
+            setTheme(R.style.AppRedTheme);
+            break;
+        }
+
         setContentView(R.layout.help);
 
         TextView view = findViewById(R.id.help);
