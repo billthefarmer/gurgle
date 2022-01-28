@@ -27,8 +27,7 @@ guess another word. Words are chosen at random from a list, and are
 checked that they haven't been used recently.
 
 ## Meaning
-Tap any of the display letters once the word has been guessed to
-display the meaning of the word.
+Tap the word once it has been guessed to display the meaning.
 
 ## Cheat
 Use my [Crossword](https://github.com/billthefarmer/crossword) app to
