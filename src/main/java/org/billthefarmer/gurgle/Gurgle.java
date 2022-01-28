@@ -66,6 +66,7 @@ public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
     public static final String WORD = "word";
+    public static final String LANGUAGE = "language";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String IMAGE_PNG = "image/png";
     public static final String PREF_THEME = "pref_theme";
@@ -144,6 +145,10 @@ public class Gurgle extends Activity
 
         setContentView(R.layout.main);
 
+        if (savedInstanceState != null)
+            language = savedInstanceState.getInt(LANGUAGE);
+        setLanguage(language);
+
         keyboard = new HashMap<String, TextView>();
         for (int id: KEYBOARD)
         {
@@ -191,6 +196,8 @@ public class Gurgle extends Activity
     public void onRestoreInstanceState(Bundle savedInstanceState)
     {
         super.onRestoreInstanceState(savedInstanceState);
+
+        setLanguage(savedInstanceState.getInt(LANGUAGE));
     }
 
     // onPause
@@ -212,6 +219,8 @@ public class Gurgle extends Activity
     public void onSaveInstanceState(Bundle outState)
     {
         super.onSaveInstanceState(outState);
+
+        outState.putInt(LANGUAGE, language);
     }
 
     // On create options menu
@@ -222,24 +231,6 @@ public class Gurgle extends Activity
         // is present.
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main, menu);
-
-        return true;
-    }
-
-    // onPrepareOptionsMenu
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu)
-    {
-        switch (language)
-        {
-        case ENGLISH:
-            menu.findItem(R.id.english).setChecked(true);
-            break;
-
-        case ITALIAN:
-            menu.findItem(R.id.italian).setChecked(true);
-            break;
-        }
 
         return true;
     }
@@ -261,13 +252,13 @@ public class Gurgle extends Activity
             break;
 
         case R.id.english:
-            language = ENGLISH;
-            Words.setLanguage(language);
+            setLanguage(ENGLISH);
             break;
 
         case R.id.italian:
-            language = ITALIAN;
-            Words.setLanguage(language);
+            setLanguage(ITALIAN);
+            break;
+
         case R.id.dark:
             theme(DARK);
             break;
@@ -446,6 +437,25 @@ public class Gurgle extends Activity
         theme = t;
         if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
             recreate();
+    }
+
+    // setLanguage
+    private void setLanguage(int l)
+    {
+        language = l;
+        Words.setLanguage(l);
+
+        switch (l)
+        {
+        default:
+        case ENGLISH:
+            getActionBar().setSubtitle(R.string.english);
+            break;
+
+        case ITALIAN:
+            getActionBar().setSubtitle(R.string.italian);
+            break;
+        }
     }
 
     // help
