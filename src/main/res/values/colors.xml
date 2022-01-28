@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <color name="cyan">#ff60e8ff</color>
+  <color name="dark_cyan">#ff5696a1</color>
+  <color name="orange">#fff35b1f</color>
+  <color name="dark_orange">#fff34712</color>
+  <color name="purple">#ff242d48</color>
+  <color name="dark_purple">#ff2d3d72</color>
+
+</resources>

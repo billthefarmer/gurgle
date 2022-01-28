@@ -7,6 +7,11 @@
   <string name="share">Share</string>
   <string name="about">About</string>
 
+  <string name="theme">Theme</string>
+  <string name="dark">Dark</string>
+  <string name="cyan">Cyan</string>
+  <string name="orange">Orange</string>
+
   <string name="press">Tap enter</string>
   <string name="finish">Finish the word first</string>
   <string name="guess">Guess the word first</string>

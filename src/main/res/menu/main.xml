@@ -16,6 +16,33 @@
       android:title="@string/share" />
 
   <item
+      android:id="@+id/theme"
+      android:icon="@drawable/ic_action_theme"
+      android:showAsAction="ifRoom"
+      android:title="@string/theme">
+    <menu>
+      <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/dark"
+            android:showAsAction="never"
+            android:title="@string/dark" />
+
+        <item
+            android:id="@+id/cyan"
+            android:showAsAction="never"
+            android:title="@string/cyan" />
+
+        <item
+            android:id="@+id/orange"
+            android:showAsAction="never"
+            android:title="@string/orange" />
+
+      </group>
+    </menu>
+  </item>
+
+  <item
       android:id="@+id/help"
       android:icon="@drawable/ic_action_help"
       android:showAsAction="ifRoom"

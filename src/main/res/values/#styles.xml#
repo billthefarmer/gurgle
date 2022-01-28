@@ -83,6 +83,22 @@
 
   </style>
 
+  <!-- Application theme. -->
+  <style name="AppPurpleTheme" parent="AppPurpleBaseTheme">
+    <!--
+        All customizations that are NOT specific to a particular
+        API-level can go here.
+    -->
+
+    <item name="android:windowBackground">@color/purple</item>
+    <item name="android:textAppearanceLarge">
+      @style/textAppearanceLargeBold
+    </item>
+    <item name="box">@drawable/box_purple</item>
+    <item name="key">@drawable/key_purple</item>
+
+  </style>
+
   <style name="actionBarCyanStyle"
          parent="android:style/Widget.Holo.ActionBar">
 
@@ -94,6 +110,13 @@
          parent="android:style/Widget.Holo.ActionBar">
 
     <item name="android:background">@color/dark_orange</item>
+
+  </style>
+
+  <style name="actionBarPurpleStyle"
+         parent="android:style/Widget.Holo.ActionBar">
+
+    <item name="android:background">@color/dark_purple</item>
 
   </style>
 
