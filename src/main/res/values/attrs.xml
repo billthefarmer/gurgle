@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <declare-styleable name="Gurgle">
+
+    <attr name="box" format="reference" />
+    <attr name="key" format="reference" />
+
+  </declare-styleable>
+
+</resources>

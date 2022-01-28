@@ -32,6 +32,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
@@ -67,8 +68,16 @@ public class Gurgle extends Activity
     public static final String WORD = "word";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String IMAGE_PNG = "image/png";
+    public static final String PREF_THEME = "pref_theme";
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
+
+    public static final int DARK    = 1;
+    public static final int CYAN    = 2;
+    public static final int MAGENTA = 3;
+    public static final int ORANGE  = 4;
+    public static final int PURPLE  = 5;
+    public static final int RED     = 6;
 
     public static final int KEYBOARD[] =
     {
@@ -90,6 +99,7 @@ public class Gurgle extends Activity
     private boolean solved;
     private int language;
     private int letter;
+    private int theme;
     private int row;
 
     // On create
@@ -98,6 +108,39 @@ public class Gurgle extends Activity
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences preferences =
+            PreferenceManager.getDefaultSharedPreferences(this);
+
+        theme = preferences.getInt(PREF_THEME, DARK);
+
+        switch (theme)
+        {
+        default:
+        case DARK:
+            setTheme(R.style.AppTheme);
+            break;
+
+        case CYAN:
+            setTheme(R.style.AppCyanTheme);
+            break;
+
+        case MAGENTA:
+            setTheme(R.style.AppMagentaTheme);
+            break;
+
+        case ORANGE:
+            setTheme(R.style.AppOrangeTheme);
+            break;
+
+        case PURPLE:
+            setTheme(R.style.AppPurpleTheme);
+            break;
+
+        case RED:
+            setTheme(R.style.AppRedTheme);
+            break;
+        }
 
         setContentView(R.layout.main);
 
@@ -121,8 +164,6 @@ public class Gurgle extends Activity
         view.setOnClickListener((v) -> enterClicked(v));
         view = findViewById(R.id.back);
         view.setOnClickListener((v) -> backspaceClicked(v));
-        view = findViewById(R.id.gurgle);
-        view.setOnClickListener((v) -> search());
 
         display = new TextView[ROWS.length][];
         int row = 0;
@@ -131,7 +172,10 @@ public class Gurgle extends Activity
             ViewGroup group = (ViewGroup) findViewById(id);
             display[row] = new TextView[group.getChildCount()];
             for (int i = 0; i < group.getChildCount(); i++)
+            {
                 display[row][i] = (TextView) group.getChildAt(i);
+                display[row][i].setOnClickListener((v) -> search());
+            }
 
             row++;
         }
@@ -140,6 +184,34 @@ public class Gurgle extends Activity
         solved = false;
         letter = 0;
         row = 0;
+    }
+
+    // onRestoreInstanceState
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    // onPause
+    @Override
+    public void onPause()
+    {
+        super.onPause();
+
+        SharedPreferences preferences =
+            PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+
+        editor.putInt(PREF_THEME, theme);
+        editor.apply();
+    }
+
+    // onSaveInstanceState
+    @Override
+    public void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
     }
 
     // On create options menu
@@ -196,6 +268,28 @@ public class Gurgle extends Activity
         case R.id.italian:
             language = ITALIAN;
             Words.setLanguage(language);
+        case R.id.dark:
+            theme(DARK);
+            break;
+
+        case R.id.cyan:
+            theme(CYAN);
+            break;
+
+        case R.id.magenta:
+            theme(MAGENTA);
+            break;
+
+        case R.id.orange:
+            theme(ORANGE);
+            break;
+
+        case R.id.purple:
+            theme(PURPLE);
+            break;
+
+        case R.id.red:
+            theme(RED);
             break;
 
         case R.id.help:
@@ -322,7 +416,7 @@ public class Gurgle extends Activity
         intent.putExtra(Intent.EXTRA_SUBJECT, title);
         intent.setType(IMAGE_PNG);
 
-        View root = findViewById(R.id.gurgle).getRootView();
+        View root = findViewById(android.R.id.content).getRootView();
         root.setDrawingCacheEnabled(true);
         Bitmap bitmap = Bitmap.createBitmap(root.getDrawingCache());
         root.setDrawingCacheEnabled(false);
@@ -339,24 +433,34 @@ public class Gurgle extends Activity
         Uri imageUri = FileProvider
             .getUriForFile(this, FILE_PROVIDER, image);
         intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-        if (solved)
+
+        if (BuildConfig.DEBUG)
             intent.putExtra(Intent.EXTRA_TEXT, word);
+
         startActivity(Intent.createChooser(intent, null));
     }
 
-    // On help click
+    // theme
+    private void theme(int t)
+    {
+        theme = t;
+        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
+            recreate();
+    }
+
+    // help
     private void help()
     {
         Intent intent = new Intent(this, Help.class);
         startActivity(intent);
     }
 
-    // Search
+    // search
     private void search()
     {
         if (!solved)
         {
-            showToast(R.string.not_solved);
+            showToast(R.string.guess);
             return;
         }
 
@@ -406,7 +510,7 @@ public class Gurgle extends Activity
         return true;
     }
 
-    // Show toast.
+    // showToast
     void showToast(int key)
     {
         String text = getString(key);

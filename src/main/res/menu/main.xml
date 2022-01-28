@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="AlwaysShowAction">
 
   <item
       android:id="@+id/refresh"
       android:icon="@drawable/ic_action_refresh"
-      android:showAsAction="ifRoom"
+      android:showAsAction="always"
       android:title="@string/refresh" />
 
   <item
       android:id="@+id/share"
       android:icon="@drawable/ic_action_share"
-      android:showAsAction="ifRoom"
+      android:showAsAction="always"
       android:title="@string/share" />
+
+  <item
+      android:id="@+id/theme"
+      android:icon="@drawable/ic_action_theme"
+      android:showAsAction="always"
+      android:title="@string/theme">
+    <menu>
+
+        <item
+            android:id="@+id/dark"
+            android:showAsAction="never"
+            android:title="@string/dark" />
+
+        <item
+            android:id="@+id/cyan"
+            android:showAsAction="never"
+            android:title="@string/cyan" />
+
+        <item
+            android:id="@+id/magenta"
+            android:showAsAction="never"
+            android:title="@string/magenta" />
+
+        <item
+            android:id="@+id/orange"
+            android:showAsAction="never"
+            android:title="@string/orange" />
+
+        <item
+            android:id="@+id/purple"
+            android:showAsAction="never"
+            android:title="@string/purple" />
+
+        <item
+            android:id="@+id/red"
+            android:showAsAction="never"
+            android:title="@string/red" />
+
+    </menu>
+  </item>
 
   <item
       android:id="@+id/help"

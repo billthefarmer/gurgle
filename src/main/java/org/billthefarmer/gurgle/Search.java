@@ -50,13 +50,38 @@ public class Search extends Activity
     {
         super.onCreate(savedInstanceState);
 
-        // Get preferences
-        // SharedPreferences preferences =
-        //     PreferenceManager.getDefaultSharedPreferences(this);
-        // boolean dark = preferences.getBoolean(Main.PREF_DARK, false);
+        SharedPreferences preferences =
+            PreferenceManager.getDefaultSharedPreferences(this);
 
-        // if (!dark)
-        //     setTheme(R.style.AppTheme);
+        int theme = preferences.getInt(Gurgle.PREF_THEME, Gurgle.DARK);
+
+        switch (theme)
+        {
+        default:
+        case Gurgle.DARK:
+            setTheme(R.style.AppTheme);
+            break;
+
+        case Gurgle.CYAN:
+            setTheme(R.style.AppCyanTheme);
+            break;
+
+        case Gurgle.MAGENTA:
+            setTheme(R.style.AppMagentaTheme);
+            break;
+
+        case Gurgle.ORANGE:
+            setTheme(R.style.AppOrangeTheme);
+            break;
+
+        case Gurgle.PURPLE:
+            setTheme(R.style.AppPurpleTheme);
+            break;
+
+        case Gurgle.RED:
+            setTheme(R.style.AppRedTheme);
+            break;
+        }
 
         // Set content
         setContentView(R.layout.search);

@@ -26,6 +26,9 @@ Tap the **Refresh** button in the toolbar to clear the display and
 guess another word. Words are chosen at random from a list, and are
 checked that they haven't been used recently.
 
+## Meaning
+Tap the word once it has been guessed to display the meaning.
+
 ## Cheat
 Use my [Crossword](https://github.com/billthefarmer/crossword) app to
 cheat.
