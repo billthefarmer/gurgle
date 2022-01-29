@@ -26,10 +26,12 @@ package org.billthefarmer.gurgle;
 import android.util.Log;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Deque;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 import java.util.Set;
@@ -379,6 +381,7 @@ public class Words
 
     private static Random random;
     private static Deque<String> used;
+    private static List<String> guess;
     private static Set<String> words;
 
     private static int language = Gurgle.ENGLISH;
@@ -397,14 +400,35 @@ public class Words
         {
         default:
         case Gurgle.ENGLISH:
-            for (word = WORDS[random.nextInt(WORDS.length)];
+            if (guess == null)
+                guess = new ArrayList<String>(Arrays.asList(WORDS));
+            for (word = guess.get(random.nextInt(guess.size()));
                  hasBeenUsed(word); );
             break;
 
         case Gurgle.ITALIAN:
-            for (word = Italian.WORDS[random.nextInt(Italian.WORDS.length)];
+            if (guess == null)
+                guess = new ArrayList<String>(Arrays.asList(Italian.WORDS));
+            for (word = guess.get(random.nextInt(guess.size()));
                  hasBeenUsed(word); );
             break;
+
+        case Gurgle.SPANISH:
+            if (guess == null)
+                guess = new ArrayList<String>(Arrays.asList(Spanish.WORDS));
+            for (word = guess.get(random.nextInt(guess.size()));
+                 hasBeenUsed(word); );
+            break;
+
+        case Gurgle.PORTUGUESE:
+            if (guess == null)
+            {
+                guess = new ArrayList<String>(Arrays.asList(Portuguese.WORDS));
+                guess.addAll(Arrays.asList(Portugueser.WORDS));
+                guess.addAll(Arrays.asList(Portugueserer.WORDS));
+            }
+            for (word = guess.get(random.nextInt(guess.size()));
+                 hasBeenUsed(word); );
         }
 
         return word.toUpperCase(Locale.getDefault());
@@ -430,6 +454,7 @@ public class Words
     public static void setLanguage(int l)
     {
         language = l;
+        guess = null;
         words = null;
     }
 
@@ -448,7 +473,15 @@ public class Words
                 break;
 
             case Gurgle.ITALIAN:
-                words = new HashSet<String>(Arrays.asList(Italian.WORDS));
+                words = new HashSet<String>(guess);
+                break;
+
+            case Gurgle.SPANISH:
+                words = new HashSet<String>(guess);
+                break;
+
+            case Gurgle.PORTUGUESE:
+                words = new HashSet<String>(guess);
                 break;
             }
         }

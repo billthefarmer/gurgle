@@ -90,8 +90,10 @@ public class Gurgle extends Activity
         R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
     };
 
-    public static final int ENGLISH = 0;
-    public static final int ITALIAN = 1;
+    public static final int ENGLISH    = 0;
+    public static final int ITALIAN    = 1;
+    public static final int SPANISH    = 2;
+    public static final int PORTUGUESE = 3;
 
     private TextView display[][];
     private Map<String, TextView> keyboard;
@@ -257,6 +259,14 @@ public class Gurgle extends Activity
 
         case R.id.italian:
             setLanguage(ITALIAN);
+            break;
+
+        case R.id.spanish:
+            setLanguage(SPANISH);
+            break;
+
+        case R.id.portuguese:
+            setLanguage(PORTUGUESE);
             break;
 
         case R.id.dark:
@@ -461,6 +471,14 @@ public class Gurgle extends Activity
 
         case ITALIAN:
             getActionBar().setSubtitle(R.string.italian);
+            break;
+
+        case SPANISH:
+            getActionBar().setSubtitle(R.string.spanish);
+            break;
+
+        case PORTUGUESE:
+            getActionBar().setSubtitle(R.string.portuguese);
             break;
         }
     }
