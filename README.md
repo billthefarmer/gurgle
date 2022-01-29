@@ -8,6 +8,10 @@ Fairly simple android word game.
 
 ![Gurgle](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle.png) ![Help](https://github.com/billthefarmer/billthefarmer.github.io/raw/master/images/Gurgle-help.png)
 
+ * Multiple coloured themes
+ * Multiple languages
+ * Look up word meaning
+
 ## Guess those words
 Tap letters on the keyboard to enter a guess. Use the **Back** key to
 backspace. When you have finished a guess, tap the **Enter** key. If
@@ -28,6 +32,12 @@ checked that they haven't been used recently.
 
 ## Meaning
 Tap the word once it has been guessed to display the meaning.
+
+## Themes
+Select coloured theme from the **Theme** button in the toolbar.
+
+## Language
+Select **Language** from the menu.
 
 ## Cheat
 Use my [Crossword](https://github.com/billthefarmer/crossword) app to

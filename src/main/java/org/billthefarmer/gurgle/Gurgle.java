@@ -147,7 +147,7 @@ public class Gurgle extends Activity
 
         if (savedInstanceState != null)
             language = savedInstanceState.getInt(LANGUAGE);
-        setLanguage(language);
+        setLanguage();
 
         keyboard = new HashMap<String, TextView>();
         for (int id: KEYBOARD)
@@ -443,9 +443,16 @@ public class Gurgle extends Activity
     private void setLanguage(int l)
     {
         language = l;
-        Words.setLanguage(l);
+        setLanguage();
+        refresh();
+    }
 
-        switch (l)
+    // setLanguage
+    private void setLanguage()
+    {
+        Words.setLanguage(language);
+
+        switch (language)
         {
         default:
         case ENGLISH:
