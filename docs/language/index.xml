@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Language on Gurgle</title>
+    <link>https://billthefarmer.github.io/gurgle/language/</link>
+    <description>Recent content in Language on Gurgle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-gb</language>
+    <copyright>Copyright &amp;copy; 2022 Bill Farmer</copyright>
+    <lastBuildDate>Sat, 29 Jan 2022 10:51:22 +0000</lastBuildDate><atom:link href="https://billthefarmer.github.io/gurgle/language/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
