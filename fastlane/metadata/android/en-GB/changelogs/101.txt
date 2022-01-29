@@ -1,2 +1,3 @@
-* Add themes
+* Add coloured themes
 * Add word meaning display
+* Add Italian language
