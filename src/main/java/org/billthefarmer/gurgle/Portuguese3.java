@@ -23,11 +23,12 @@
 
 package org.billthefarmer.gurgle;
 
-public class Portugueserer
+public class Portuguese3
 {
     // WORDS
     public static final String WORDS[] =
     {
+        /*
         "orlou", "ornai", "ornam", "ornar", "ornas", "ornei", "ornem",
         "ornes", "orneu", "ornis", "ornou", "oromo", "oropa", "orque",
         "orqui", "orseu", "orson", "ortas", "ortiz", "ortol", "ortos",
@@ -782,5 +783,6 @@ public class Portugueserer
         "zupas", "zupei", "zupem", "zupes", "zupou", "zuque", "zuras",
         "zurca", "zurpa", "zurra", "zurre", "zurro", "zurza", "zurze",
         "zurzi", "zurzo"
+        */
     };
 }

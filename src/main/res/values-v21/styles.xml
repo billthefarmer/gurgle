@@ -17,10 +17,10 @@
 
   </style>
 
-  <style name="AppMagentaBaseTheme" parent="android:Theme.Material">
+  <style name="AppBlueBaseTheme" parent="android:Theme.Material">
     <!-- API 21 theme customizations can go here. -->
 
-    <item name="android:actionBarStyle">@style/actionBarMagentaStyle</item>
+    <item name="android:actionBarStyle">@style/actionBarBlueStyle</item>
 
   </style>
 
@@ -48,35 +48,35 @@
   <style name="actionBarCyanStyle"
          parent="android:style/Widget.Material.ActionBar">
 
-    <item name="android:background">@color/dark_cyan</item>
+    <item name="android:background">@color/cyan_action_bar</item>
 
   </style>
 
-  <style name="actionBarMagentaStyle"
+  <style name="actionBarBlueStyle"
          parent="android:style/Widget.Material.ActionBar">
 
-    <item name="android:background">@color/dark_magenta</item>
+    <item name="android:background">@color/blue_action_bar</item>
 
   </style>
 
   <style name="actionBarOrangeStyle"
          parent="android:style/Widget.Material.ActionBar">
 
-    <item name="android:background">@color/dark_orange</item>
+    <item name="android:background">@color/orange_action_bar</item>
 
   </style>
 
   <style name="actionBarPurpleStyle"
          parent="android:style/Widget.Material.ActionBar">
 
-    <item name="android:background">@color/dark_purple</item>
+    <item name="android:background">@color/purple_action_bar</item>
 
   </style>
 
   <style name="actionBarRedStyle"
          parent="android:style/Widget.Material.ActionBar">
 
-    <item name="android:background">@color/dark_red</item>
+    <item name="android:background">@color/red_action_bar</item>
 
   </style>
 

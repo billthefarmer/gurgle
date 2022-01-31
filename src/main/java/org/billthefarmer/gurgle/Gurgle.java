@@ -65,20 +65,22 @@ import java.util.regex.Pattern;
 public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
+    public static final String ROW = "row";
     public static final String WORD = "word";
-    public static final String LANGUAGE = "language";
+    public static final String LETTER = "letter";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String IMAGE_PNG = "image/png";
     public static final String PREF_THEME = "pref_theme";
+    public static final String PREF_LANG = "pref_lang";
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
-    public static final int DARK    = 1;
-    public static final int CYAN    = 2;
-    public static final int MAGENTA = 3;
-    public static final int ORANGE  = 4;
-    public static final int PURPLE  = 5;
-    public static final int RED     = 6;
+    public static final int DARK   = 1;
+    public static final int CYAN   = 2;
+    public static final int BLUE   = 3;
+    public static final int ORANGE = 4;
+    public static final int PURPLE = 5;
+    public static final int RED    = 6;
 
     public static final int KEYBOARD[] =
     {
@@ -90,10 +92,10 @@ public class Gurgle extends Activity
         R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
     };
 
-    public static final int ENGLISH    = 0;
-    public static final int ITALIAN    = 1;
-    public static final int SPANISH    = 2;
-    public static final int PORTUGUESE = 3;
+    public static final int ENGLISH = 0;
+    public static final int ITALIAN = 1;
+    public static final int SPANISH = 2;
+    public static final int CATALAN = 3;
 
     private TextView display[][];
     private Map<String, TextView> keyboard;
@@ -116,6 +118,7 @@ public class Gurgle extends Activity
             PreferenceManager.getDefaultSharedPreferences(this);
 
         theme = preferences.getInt(PREF_THEME, DARK);
+        language = preferences.getInt(PREF_LANG, ENGLISH);
 
         switch (theme)
         {
@@ -128,8 +131,8 @@ public class Gurgle extends Activity
             setTheme(R.style.AppCyanTheme);
             break;
 
-        case MAGENTA:
-            setTheme(R.style.AppMagentaTheme);
+        case BLUE:
+            setTheme(R.style.AppBlueTheme);
             break;
 
         case ORANGE:
@@ -147,8 +150,6 @@ public class Gurgle extends Activity
 
         setContentView(R.layout.main);
 
-        if (savedInstanceState != null)
-            language = savedInstanceState.getInt(LANGUAGE);
         setLanguage();
 
         keyboard = new HashMap<String, TextView>();
@@ -199,7 +200,8 @@ public class Gurgle extends Activity
     {
         super.onRestoreInstanceState(savedInstanceState);
 
-        setLanguage(savedInstanceState.getInt(LANGUAGE));
+        row = savedInstanceState.getInt(ROW);
+        letter = savedInstanceState.getInt(LETTER);
     }
 
     // onPause
@@ -213,6 +215,7 @@ public class Gurgle extends Activity
         SharedPreferences.Editor editor = preferences.edit();
 
         editor.putInt(PREF_THEME, theme);
+        editor.putInt(PREF_LANG, language);
         editor.apply();
     }
 
@@ -222,7 +225,8 @@ public class Gurgle extends Activity
     {
         super.onSaveInstanceState(outState);
 
-        outState.putInt(LANGUAGE, language);
+        outState.putInt(ROW, row);
+        outState.putInt(LETTER, letter);
     }
 
     // On create options menu
@@ -265,8 +269,8 @@ public class Gurgle extends Activity
             setLanguage(SPANISH);
             break;
 
-        case R.id.portuguese:
-            setLanguage(PORTUGUESE);
+        case R.id.catalan:
+            setLanguage(CATALAN);
             break;
 
         case R.id.dark:
@@ -277,8 +281,8 @@ public class Gurgle extends Activity
             theme(CYAN);
             break;
 
-        case R.id.magenta:
-            theme(MAGENTA);
+        case R.id.blue:
+            theme(BLUE);
             break;
 
         case R.id.orange:
@@ -477,8 +481,8 @@ public class Gurgle extends Activity
             getActionBar().setSubtitle(R.string.spanish);
             break;
 
-        case PORTUGUESE:
-            getActionBar().setSubtitle(R.string.portuguese);
+        case CATALAN:
+            getActionBar().setSubtitle(R.string.catalan);
             break;
         }
     }

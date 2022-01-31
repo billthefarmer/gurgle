@@ -14,7 +14,7 @@
     -->
   </style>
 
-  <style name="AppCyanBaseTheme" parent="android:Theme.Holo">
+  <style name="AppCyanBaseTheme" parent="AppBaseTheme">
     <!--
         Theme customizations available in newer API levels can go in
         res/values-vXX/styles.xml, while customizations related to
@@ -25,18 +25,18 @@
 
   </style>
 
-  <style name="AppMagentaBaseTheme" parent="android:Theme.Holo">
+  <style name="AppBlueBaseTheme" parent="AppBaseTheme">
     <!--
         Theme customizations available in newer API levels can go in
         res/values-vXX/styles.xml, while customizations related to
         backward-compatibility can go here.
     -->
 
-    <item name="android:actionBarStyle">@style/actionBarMagentaStyle</item>
+    <item name="android:actionBarStyle">@style/actionBarBlueStyle</item>
 
   </style>
 
-  <style name="AppOrangeBaseTheme" parent="android:Theme.Holo">
+  <style name="AppOrangeBaseTheme" parent="AppBaseTheme">
     <!--
         Theme customizations available in newer API levels can go in
         res/values-vXX/styles.xml, while customizations related to
@@ -44,6 +44,20 @@
     -->
 
     <item name="android:actionBarStyle">@style/actionBarOrangeStyle</item>
+
+  </style>
+
+  <style name="AppPurpleBaseTheme" parent="AppBaseTheme">
+    <!-- API 21 theme customizations can go here. -->
+
+    <item name="android:actionBarStyle">@style/actionBarPurpleStyle</item>
+
+  </style>
+
+  <style name="AppRedBaseTheme" parent="AppBaseTheme">
+    <!-- API 21 theme customizations can go here. -->
+
+    <item name="android:actionBarStyle">@style/actionBarRedStyle</item>
 
   </style>
 
@@ -57,8 +71,11 @@
     <item name="android:textAppearanceLarge">
       @style/textAppearanceLargeBold
     </item>
-    <item name="box">@drawable/box</item>
-    <item name="key">@drawable/key</item>
+
+    <item name="box_bgcolour">@color/dark_box_background</item>
+    <item name="box_bdcolour">@color/dark_box_border</item>
+    <item name="key_normal">@color/dark_key_normal</item>
+    <item name="key_pressed">@color/dark_key_pressed</item>
 
   </style>
 
@@ -69,28 +86,34 @@
         API-level can go here.
     -->
 
-    <item name="android:windowBackground">@color/cyan</item>
+    <item name="android:windowBackground">@color/cyan_background</item>
     <item name="android:textAppearanceLarge">
       @style/textAppearanceLargeBold
     </item>
-    <item name="box">@drawable/box_cyan</item>
-    <item name="key">@drawable/key_cyan</item>
+
+    <item name="box_bgcolour">@color/cyan_box_background</item>
+    <item name="box_bdcolour">@color/cyan_box_border</item>
+    <item name="key_normal">@color/cyan_key_normal</item>
+    <item name="key_pressed">@color/cyan_key_pressed</item>
 
   </style>
 
   <!-- Application theme. -->
-  <style name="AppMagentaTheme" parent="AppMagentaBaseTheme">
+  <style name="AppBlueTheme" parent="AppBlueBaseTheme">
     <!--
         All customizations that are NOT specific to a particular
         API-level can go here.
     -->
 
-    <item name="android:windowBackground">@color/magenta</item>
+    <item name="android:windowBackground">@color/blue_background</item>
     <item name="android:textAppearanceLarge">
       @style/textAppearanceLargeBold
     </item>
-    <item name="box">@drawable/box_magenta</item>
-    <item name="key">@drawable/key_magenta</item>
+    
+    <item name="box_bgcolour">@color/blue_box_background</item>
+    <item name="box_bdcolour">@color/blue_box_border</item>
+    <item name="key_normal">@color/blue_key_normal</item>
+    <item name="key_pressed">@color/blue_key_pressed</item>
 
   </style>
 
@@ -101,12 +124,15 @@
         API-level can go here.
     -->
 
-    <item name="android:windowBackground">@color/orange</item>
+    <item name="android:windowBackground">@color/orange_background</item>
     <item name="android:textAppearanceLarge">
       @style/textAppearanceLargeBold
     </item>
-    <item name="box">@drawable/box_orange</item>
-    <item name="key">@drawable/key_orange</item>
+    
+    <item name="box_bgcolour">@color/orange_box_background</item>
+    <item name="box_bdcolour">@color/orange_box_border</item>
+    <item name="key_normal">@color/orange_key_normal</item>
+    <item name="key_pressed">@color/orange_key_pressed</item>
 
   </style>
 
@@ -117,12 +143,15 @@
         API-level can go here.
     -->
 
-    <item name="android:windowBackground">@color/purple</item>
+    <item name="android:windowBackground">@color/purple_background</item>
     <item name="android:textAppearanceLarge">
       @style/textAppearanceLargeBold
     </item>
-    <item name="box">@drawable/box_purple</item>
-    <item name="key">@drawable/key_purple</item>
+    
+    <item name="box_bgcolour">@color/purple_box_background</item>
+    <item name="box_bdcolour">@color/purple_box_border</item>
+    <item name="key_normal">@color/purple_key_normal</item>
+    <item name="key_pressed">@color/purple_key_pressed</item>
 
   </style>
 
@@ -133,47 +162,50 @@
         API-level can go here.
     -->
 
-    <item name="android:windowBackground">@color/red</item>
+    <item name="android:windowBackground">@color/red_background</item>
     <item name="android:textAppearanceLarge">
       @style/textAppearanceLargeBold
     </item>
-    <item name="box">@drawable/box_red</item>
-    <item name="key">@drawable/key_red</item>
+    
+    <item name="box_bgcolour">@color/red_box_background</item>
+    <item name="box_bdcolour">@color/red_box_border</item>
+    <item name="key_normal">@color/red_key_normal</item>
+    <item name="key_pressed">@color/red_key_pressed</item>
 
   </style>
 
   <style name="actionBarCyanStyle"
          parent="android:style/Widget.Holo.ActionBar">
 
-    <item name="android:background">@color/dark_cyan</item>
+    <item name="android:background">@color/cyan_action_bar</item>
 
   </style>
 
-  <style name="actionBarMagentaStyle"
+  <style name="actionBarBlueStyle"
          parent="android:style/Widget.Holo.ActionBar">
 
-    <item name="android:background">@color/dark_magenta</item>
+    <item name="android:background">@color/blue_action_bar</item>
 
   </style>
 
   <style name="actionBarOrangeStyle"
          parent="android:style/Widget.Holo.ActionBar">
 
-    <item name="android:background">@color/dark_orange</item>
+    <item name="android:background">@color/orange_action_bar</item>
 
   </style>
 
   <style name="actionBarPurpleStyle"
          parent="android:style/Widget.Holo.ActionBar">
 
-    <item name="android:background">@color/dark_purple</item>
+    <item name="android:background">@color/purple_action_bar</item>
 
   </style>
 
   <style name="actionBarRedStyle"
          parent="android:style/Widget.Holo.ActionBar">
 
-    <item name="android:background">@color/dark_red</item>
+    <item name="android:background">@color/red_action_bar</item>
 
   </style>
 

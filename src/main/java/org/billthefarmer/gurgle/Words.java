@@ -420,15 +420,16 @@ public class Words
                  hasBeenUsed(word); );
             break;
 
-        case Gurgle.PORTUGUESE:
+        case Gurgle.CATALAN:
             if (guess == null)
             {
-                guess = new ArrayList<String>(Arrays.asList(Portuguese.WORDS));
-                guess.addAll(Arrays.asList(Portugueser.WORDS));
-                guess.addAll(Arrays.asList(Portugueserer.WORDS));
-            }
+                guess = new ArrayList<String>(Arrays.asList(Catalan1.WORDS));
+                guess.addAll(new ArrayList<String>
+                             (Arrays.asList(Catalan2.WORDS)));
+            }                
             for (word = guess.get(random.nextInt(guess.size()));
                  hasBeenUsed(word); );
+            break;
         }
 
         return word.toUpperCase(Locale.getDefault());
@@ -468,8 +469,8 @@ public class Words
             default:
             case Gurgle.ENGLISH:
                 words = new HashSet<String>(Arrays.asList(WORDS));
-                words.addAll(Arrays.asList(Obscure.WORDS));
-                words.addAll(Arrays.asList(Obscurer.WORDS));
+                words.addAll(Arrays.asList(English1.WORDS));
+                words.addAll(Arrays.asList(English2.WORDS));
                 break;
 
             case Gurgle.ITALIAN:
@@ -480,7 +481,7 @@ public class Words
                 words = new HashSet<String>(guess);
                 break;
 
-            case Gurgle.PORTUGUESE:
+            case Gurgle.CATALAN:
                 words = new HashSet<String>(guess);
                 break;
             }

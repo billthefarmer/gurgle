@@ -23,7 +23,7 @@
 
 package org.billthefarmer.gurgle;
 
-public class Obscure
+public class English1
 {
     // WORDS
     public static final String WORDS[] =

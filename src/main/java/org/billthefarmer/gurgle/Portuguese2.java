@@ -23,11 +23,12 @@
 
 package org.billthefarmer.gurgle;
 
-public class Portugueser
+public class Portuguese2
 {
     // WORDS
     public static final String WORDS[] =
     {
+        /*
         "evava", "evaza", "evaze", "evazo", "eveia", "eveis", "evemo",
         "eveus", "evigo", "evipa", "evira", "evire", "eviro", "evita",
         "evite", "evito", "evoca", "evoco", "evola", "evole", "evolo",
@@ -783,5 +784,6 @@ public class Portugueser
         "orfno", "orgia", "orgie", "orgio", "oribi", "orica", "orico",
         "oriel", "orita", "orite", "oriza", "orjal", "orkut", "orlai",
         "orlam", "orlar", "orlas", "orlei", "orlem", "orles", "orlon",
+        */
     };
 }

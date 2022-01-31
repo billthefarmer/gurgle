@@ -3,8 +3,10 @@
 
   <declare-styleable name="Gurgle">
 
-    <attr name="box" format="reference" />
-    <attr name="key" format="reference" />
+    <attr name="box_bgcolour"  format="reference" />
+    <attr name="box_bdcolour"  format="reference" />
+    <attr name="key_normal"  format="reference" />
+    <attr name="key_pressed"  format="reference" />
 
   </declare-styleable>
 

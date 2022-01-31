@@ -34,9 +34,9 @@
             android:title="@string/cyan" />
 
         <item
-            android:id="@+id/magenta"
+            android:id="@+id/blue"
             android:showAsAction="never"
-            android:title="@string/magenta" />
+            android:title="@string/blue" />
 
         <item
             android:id="@+id/orange"
@@ -84,9 +84,9 @@
           android:title="@string/spanish" />
 
       <item
-          android:id="@+id/portuguese"
+          android:id="@+id/catalan"
           android:showAsAction="never"
-          android:title="@string/portuguese" />
+          android:title="@string/catalan" />
 
     </menu>
   </item>

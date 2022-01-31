@@ -64,8 +64,8 @@ public class Help extends Activity
             setTheme(R.style.AppCyanTheme);
             break;
 
-        case Gurgle.MAGENTA:
-            setTheme(R.style.AppMagentaTheme);
+        case Gurgle.BLUE:
+            setTheme(R.style.AppBlueTheme);
             break;
 
         case Gurgle.ORANGE:
