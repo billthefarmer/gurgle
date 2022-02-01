@@ -190,7 +190,7 @@ public class Gurgle extends Activity
 
         Words.getWord();
 
-        id (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG)
             word = "DOGMA"; // Testing
 
         solved = false;
