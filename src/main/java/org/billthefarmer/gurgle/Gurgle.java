@@ -188,7 +188,11 @@ public class Gurgle extends Activity
             row++;
         }
 
-        word = Words.getWord();
+        Words.getWord();
+
+        id (BuildConfig.DEBUG)
+            word = "DOGMA"; // Testing
+
         solved = false;
         letter = 0;
         row = 0;
@@ -449,6 +453,8 @@ public class Gurgle extends Activity
     private void theme(int t)
     {
         theme = t;
+        refresh();
+
         if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
             recreate();
     }
