@@ -8,76 +8,15 @@
   -->
   <style name="AppBaseTheme" parent="android:Theme.Material">
     <!-- API 21 theme customizations can go here. -->
-  </style>
 
-  <style name="AppCyanBaseTheme" parent="android:Theme.Material">
-    <!-- API 21 theme customizations can go here. -->
-
-    <item name="android:actionBarStyle">@style/actionBarCyanStyle</item>
+    <item name="android:textAppearanceLarge">
+      @style/textAppearanceLargeBold
+    </item>
 
   </style>
 
-  <style name="AppBlueBaseTheme" parent="android:Theme.Material">
-    <!-- API 21 theme customizations can go here. -->
-
-    <item name="android:actionBarStyle">@style/actionBarBlueStyle</item>
-
-  </style>
-
-  <style name="AppOrangeBaseTheme" parent="android:Theme.Material">
-    <!-- API 21 theme customizations can go here. -->
-
-    <item name="android:actionBarStyle">@style/actionBarOrangeStyle</item>
-
-  </style>
-
-  <style name="AppPurpleBaseTheme" parent="android:Theme.Material">
-    <!-- API 21 theme customizations can go here. -->
-
-    <item name="android:actionBarStyle">@style/actionBarPurpleStyle</item>
-
-  </style>
-
-  <style name="AppRedBaseTheme" parent="android:Theme.Material">
-    <!-- API 21 theme customizations can go here. -->
-
-    <item name="android:actionBarStyle">@style/actionBarRedStyle</item>
-
-  </style>
-
-  <style name="actionBarCyanStyle"
+  <style name="ActionBarBaseStyle"
          parent="android:style/Widget.Material.ActionBar">
-
-    <item name="android:background">@color/cyan_action_bar</item>
-
-  </style>
-
-  <style name="actionBarBlueStyle"
-         parent="android:style/Widget.Material.ActionBar">
-
-    <item name="android:background">@color/blue_action_bar</item>
-
-  </style>
-
-  <style name="actionBarOrangeStyle"
-         parent="android:style/Widget.Material.ActionBar">
-
-    <item name="android:background">@color/orange_action_bar</item>
-
-  </style>
-
-  <style name="actionBarPurpleStyle"
-         parent="android:style/Widget.Material.ActionBar">
-
-    <item name="android:background">@color/purple_action_bar</item>
-
-  </style>
-
-  <style name="actionBarRedStyle"
-         parent="android:style/Widget.Material.ActionBar">
-
-    <item name="android:background">@color/red_action_bar</item>
-
   </style>
 
 </resources>
