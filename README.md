@@ -40,5 +40,6 @@ Select coloured theme from the **Theme** button in the toolbar.
 Select **Language** from the menu.
 
 ## Cheat
-Use my [Crossword](https://github.com/billthefarmer/crossword) app to
+Use my [Crossword](https://github.com/billthefarmer/crossword) or
+[WordleSolver](https://github.com/billthefarmer/wordlesolver) app to
 cheat.
