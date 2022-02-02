@@ -5,6 +5,8 @@
   <string name="help">Help</string>
   <string name="refresh">Refresh</string>
   <string name="share">Share</string>
+  <string name="image">Image</string>
+  <string name="seed">Seed</string>
   <string name="about">About</string>
 
   <string name="language">Language</string>

@@ -14,7 +14,21 @@
       android:id="@+id/share"
       android:icon="@drawable/ic_action_share"
       android:showAsAction="always"
-      android:title="@string/share" />
+      android:title="@string/share">
+    <menu>
+
+        <item
+            android:id="@+id/image"
+            android:showAsAction="never"
+            android:title="@string/image" />
+
+        <item
+            android:id="@+id/seed"
+            android:showAsAction="never"
+            android:title="@string/seed" />
+
+    </menu>
+  </item>
 
   <item
       android:id="@+id/theme"

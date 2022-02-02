@@ -459,6 +459,25 @@ public class Words
         words = null;
     }
 
+    // getSeed
+    public static long getSeed()
+    {
+        long seed = new Date().getTime();
+
+        random = new Random(seed);
+        if (used != null)
+            used.clear();
+        return seed;
+    }
+
+    // setSeed
+    public static void setSeed(long seed)
+    {
+        random = new Random(seed);
+        if (used != null)
+            used.clear();
+    }
+
     // isWord
     public static boolean isWord(String word)
     {

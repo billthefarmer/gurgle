@@ -28,15 +28,22 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -48,6 +55,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import android.support.v4.content.FileProvider;
+
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.qrcode.encoder.ByteMatrix;
+import com.google.zxing.qrcode.encoder.QRCode;
+import com.google.zxing.qrcode.encoder.Encoder;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -70,6 +83,7 @@ public class Gurgle extends Activity
     public static final String LETTER = "letter";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String IMAGE_PNG = "image/png";
+    public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
     public static final String PREF_LANG = "pref_lang";
     public static final String FILE_PROVIDER =
@@ -96,6 +110,8 @@ public class Gurgle extends Activity
     public static final int ITALIAN = 1;
     public static final int SPANISH = 2;
     public static final int CATALAN = 3;
+
+    public static final int BITMAP_SCALE = 8;
 
     private TextView display[][];
     private Map<String, TextView> keyboard;
@@ -257,8 +273,12 @@ public class Gurgle extends Activity
             refresh();
             break;
 
-        case R.id.share:
-            share();
+        case R.id.image:
+            shareImage();
+            break;
+
+        case R.id.seed:
+            showSeed();
             break;
 
         case R.id.english:
@@ -415,9 +435,9 @@ public class Gurgle extends Activity
         row = 0;
     }
 
-    // share
+    // shareImage
     @SuppressWarnings("deprecation")
-    private void share()
+    private void shareImage()
     {
         Intent intent = new Intent(Intent.ACTION_SEND);
         String title = getString(R.string.app_name);
@@ -447,6 +467,104 @@ public class Gurgle extends Activity
             intent.putExtra(Intent.EXTRA_TEXT, word);
 
         startActivity(Intent.createChooser(intent, null));
+    }
+
+    // showSeed
+    private void showSeed()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.app_name);
+        builder.setIcon(R.drawable.ic_launcher);
+
+        long seed = Words.getSeed();
+        byte bytes[] = String.valueOf(seed).getBytes();
+        String base64 = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+        builder.setMessage(base64);
+        builder.setPositiveButton(R.string.share, (dialog, id)->
+        {
+            switch(id)
+            {
+            case DialogInterface.BUTTON_POSITIVE:
+                shareSeed(base64);
+                break;
+            }
+        });
+
+        builder.setNeutralButton(android.R.string.ok, null);
+        Dialog dialog = builder.show();
+        TextView text = (TextView) dialog.findViewById(android.R.id.message);
+        if (text != null)
+        {
+            ViewGroup.MarginLayoutParams layout =
+                (ViewGroup.MarginLayoutParams) text.getLayoutParams();
+            layout.topMargin += 32;
+            text.setLayoutParams(layout);
+            text.setGravity(Gravity.CENTER);
+            text.setTextIsSelectable(true);
+            Drawable drawable = getDrawable(base64);
+            text.setCompoundDrawablesWithIntrinsicBounds(null, null,
+                                                         null, drawable);
+        }
+    }
+
+    private void shareSeed(String base64)
+    {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        String title = getString(R.string.app_name);
+        String seed = getString(R.string.seed);
+        intent.putExtra(Intent.EXTRA_TITLE, title);
+        intent.putExtra(Intent.EXTRA_SUBJECT, seed);
+        intent.setType(TEXT_PLAIN);
+        intent.putExtra(Intent.EXTRA_TEXT, base64);
+
+        startActivity(Intent.createChooser(intent, null));
+    }
+
+    // getDrawable
+    private Drawable getDrawable(String base64)
+    {
+        Bitmap bitmap = getBitmap(base64);
+        return new BitmapDrawable(getResources(), bitmap);
+    }
+
+    // getBitmap
+    private Bitmap getBitmap(String base64)
+    {
+        try
+        {
+            QRCode code = Encoder.encode(base64, ErrorCorrectionLevel.Q);
+            ByteMatrix matrix = code.getMatrix();
+            byte bytes[][] = matrix.getArray();
+
+            int width = matrix.getWidth();
+            int height = matrix.getHeight();
+            int scale = (int) (BITMAP_SCALE *
+                               getResources().getDisplayMetrics().density);
+            Bitmap bitmap = Bitmap.createBitmap(width * scale,
+                                                height * scale,
+                                                Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            canvas.drawColor(Color.WHITE);
+            Paint paint = new Paint();
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.BLACK);
+            for (int y = 0; y < bytes.length; y++)
+            {
+                for (int x = 0; x < bytes[0].length; x++)
+                    if (bytes[x][y] == 1)
+                        canvas.drawRect(x * scale, y * scale,
+                                        (x * scale) + scale,
+                                        (y * scale) + scale,
+                                        paint);
+            }
+
+            return bitmap;
+        }
+
+        catch (Exception e) {}
+
+        return null;
     }
 
     // theme
