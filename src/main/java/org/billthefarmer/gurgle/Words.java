@@ -23,6 +23,7 @@
 
 package org.billthefarmer.gurgle;
 
+import android.util.Base64;
 import android.util.Log;
 
 import java.util.ArrayDeque;
@@ -460,20 +461,25 @@ public class Words
     }
 
     // getSeed
-    public static long getSeed()
+    public static String getCode()
     {
         long seed = new Date().getTime();
 
         random = new Random(seed);
         if (used != null)
             used.clear();
-        return seed;
+
+        byte bytes[] = String.valueOf(seed).getBytes();
+        return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
     // setSeed
-    public static void setSeed(long seed)
+    public static void setCode(String code)
     {
+        byte bytes[] = Base64.decode(code, Base64.DEFAULT);
+        long seed = Long.valueOf(new String(bytes));
         random = new Random(seed);
+
         if (used != null)
             used.clear();
     }

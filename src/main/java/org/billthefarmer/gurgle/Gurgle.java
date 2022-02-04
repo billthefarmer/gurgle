@@ -41,9 +41,9 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
-import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -57,10 +57,11 @@ import android.widget.Toast;
 import android.support.v4.content.FileProvider;
 
 import com.google.zxing.BarcodeFormat;
-import com.google.zxing.qrcode.encoder.ByteMatrix;
-import com.google.zxing.qrcode.encoder.QRCode;
-import com.google.zxing.qrcode.encoder.Encoder;
-import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeReader;
+import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -82,6 +83,7 @@ public class Gurgle extends Activity
     public static final String WORD = "word";
     public static final String LETTER = "letter";
     public static final String GURGLE_IMAGE = "Gurgle.png";
+    public static final String CODE_IMAGE = "Code.png";
     public static final String IMAGE_PNG = "image/png";
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
@@ -95,6 +97,8 @@ public class Gurgle extends Activity
     public static final int ORANGE = 4;
     public static final int PURPLE = 5;
     public static final int RED    = 6;
+
+    public static final int REQUEST_IMAGE = 1;
 
     public static final int KEYBOARD[] =
     {
@@ -277,8 +281,8 @@ public class Gurgle extends Activity
             shareImage();
             break;
 
-        case R.id.seed:
-            showSeed();
+        case R.id.code:
+            showCode();
             break;
 
         case R.id.english:
@@ -321,6 +325,14 @@ public class Gurgle extends Activity
             theme(RED);
             break;
 
+        case R.id.getText:
+            getText();
+            break;
+
+        case R.id.getImage:
+            getImage();
+            break;
+
         case R.id.help:
             help();
             break;
@@ -334,6 +346,42 @@ public class Gurgle extends Activity
         }
 
         return true;
+    }
+
+    // onNewIntent
+    @Override
+    public void onNewIntent(Intent intent)
+    {
+    }
+
+    // onActivityResult
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data)
+    {
+        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK)
+        {
+            Bundle extras = data.getExtras();
+            Bitmap bitmap = (Bitmap) extras.get("data");
+            // imageView.setImageBitmap(imageBitmap);
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            String title = getString(R.string.appName);
+            intent.putExtra(Intent.EXTRA_TITLE, title);
+            intent.setType(IMAGE_PNG);
+            File image = new File(getCacheDir(), CODE_IMAGE);
+            try (BufferedOutputStream out = new
+                 BufferedOutputStream(new FileOutputStream(image)))
+            {
+                bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+            }
+
+            catch (Exception e) {}
+
+            Uri imageUri = FileProvider
+                .getUriForFile(this, FILE_PROVIDER, image);
+            intent.putExtra(Intent.EXTRA_STREAM, imageUri);
+            startActivity(Intent.createChooser(intent, null));
+        }
     }
 
     // keyClicked
@@ -364,7 +412,7 @@ public class Gurgle extends Activity
 
         if (!Words.isWord(guess.toString()))
         {
-            showToast(R.string.not_listed);
+            showToast(R.string.notListed);
             return;
         }
 
@@ -440,7 +488,7 @@ public class Gurgle extends Activity
     private void shareImage()
     {
         Intent intent = new Intent(Intent.ACTION_SEND);
-        String title = getString(R.string.app_name);
+        String title = getString(R.string.appName);
         intent.putExtra(Intent.EXTRA_TITLE, title);
         intent.putExtra(Intent.EXTRA_SUBJECT, title);
         intent.setType(IMAGE_PNG);
@@ -469,30 +517,38 @@ public class Gurgle extends Activity
         startActivity(Intent.createChooser(intent, null));
     }
 
-    // showSeed
-    private void showSeed()
+    // showCode
+    private void showCode()
     {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.app_name);
-        builder.setIcon(R.drawable.ic_launcher);
-
-        long seed = Words.getSeed();
-        byte bytes[] = String.valueOf(seed).getBytes();
-        String base64 = Base64.encodeToString(bytes, Base64.DEFAULT);
-
-        builder.setMessage(base64);
-        builder.setPositiveButton(R.string.share, (dialog, id)->
+        String code = Words.getCode();
+        codeDialog(code, (dialog, id)->
         {
             switch(id)
             {
             case DialogInterface.BUTTON_POSITIVE:
-                shareSeed(base64);
+                shareCode(code);
+                break;
+
+            case DialogInterface.BUTTON_NEUTRAL:
+                shareQRCode(code);
                 break;
             }
         });
+    }
 
-        builder.setNeutralButton(android.R.string.ok, null);
+    // codeDialog
+    private void codeDialog(String code,
+                            DialogInterface.OnClickListener listener)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.appName);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setMessage(code);
+        builder.setPositiveButton(R.string.code, listener);
+        builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setNeutralButton(R.string.qrCode, listener);
         Dialog dialog = builder.show();
+
         TextView text = (TextView) dialog.findViewById(android.R.id.message);
         if (text != null)
         {
@@ -502,45 +558,69 @@ public class Gurgle extends Activity
             text.setLayoutParams(layout);
             text.setGravity(Gravity.CENTER);
             text.setTextIsSelectable(true);
-            Drawable drawable = getDrawable(base64);
+            Drawable drawable = getDrawable(code);
             text.setCompoundDrawablesWithIntrinsicBounds(null, null,
                                                          null, drawable);
         }
     }
 
-    private void shareSeed(String base64)
+    // shareCode
+    private void shareCode(String s)
     {
         Intent intent = new Intent(Intent.ACTION_SEND);
-        String title = getString(R.string.app_name);
-        String seed = getString(R.string.seed);
+        String title = getString(R.string.appName);
+        String code = getString(R.string.code);
         intent.putExtra(Intent.EXTRA_TITLE, title);
-        intent.putExtra(Intent.EXTRA_SUBJECT, seed);
+        intent.putExtra(Intent.EXTRA_SUBJECT, code);
+        intent.putExtra(Intent.EXTRA_TEXT, s);
         intent.setType(TEXT_PLAIN);
-        intent.putExtra(Intent.EXTRA_TEXT, base64);
+        startActivity(Intent.createChooser(intent, null));
+    }
 
+    // shareQRCode
+    private void shareQRCode(String s)
+    {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        String title = getString(R.string.appName);
+        String code = getString(R.string.code);
+        intent.putExtra(Intent.EXTRA_TITLE, title);
+        intent.putExtra(Intent.EXTRA_SUBJECT, code);
+        intent.setType(IMAGE_PNG);
+
+        Bitmap bitmap = getBitmap(s, BITMAP_SCALE);
+        File image = new File(getCacheDir(), CODE_IMAGE);
+        try (BufferedOutputStream out = new
+             BufferedOutputStream(new FileOutputStream(image)))
+        {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+        }
+
+        catch (Exception e) {}
+
+        Uri imageUri = FileProvider
+            .getUriForFile(this, FILE_PROVIDER, image);
+        intent.putExtra(Intent.EXTRA_STREAM, imageUri);
         startActivity(Intent.createChooser(intent, null));
     }
 
     // getDrawable
-    private Drawable getDrawable(String base64)
+    private Drawable getDrawable(String s)
     {
-        Bitmap bitmap = getBitmap(base64);
+        float density = getResources().getDisplayMetrics().density;
+        int scale = (int) (BITMAP_SCALE * density);
+        Bitmap bitmap = getBitmap(s, scale);
         return new BitmapDrawable(getResources(), bitmap);
     }
 
     // getBitmap
-    private Bitmap getBitmap(String base64)
+    private Bitmap getBitmap(String s, int scale)
     {
         try
         {
-            QRCode code = Encoder.encode(base64, ErrorCorrectionLevel.Q);
-            ByteMatrix matrix = code.getMatrix();
-            byte bytes[][] = matrix.getArray();
-
+            QRCodeWriter writer = new QRCodeWriter();
+            BitMatrix matrix = writer.encode(s, BarcodeFormat.QR_CODE, 0, 0);
             int width = matrix.getWidth();
             int height = matrix.getHeight();
-            int scale = (int) (BITMAP_SCALE *
-                               getResources().getDisplayMetrics().density);
             Bitmap bitmap = Bitmap.createBitmap(width * scale,
                                                 height * scale,
                                                 Bitmap.Config.ARGB_8888);
@@ -549,22 +629,59 @@ public class Gurgle extends Activity
             Paint paint = new Paint();
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.BLACK);
-            for (int y = 0; y < bytes.length; y++)
-            {
-                for (int x = 0; x < bytes[0].length; x++)
-                    if (bytes[x][y] == 1)
+            for (int y = 0; y < height; y++)
+                for (int x = 0; x < width; x++)
+                    if (matrix.get(x, y))
                         canvas.drawRect(x * scale, y * scale,
                                         (x * scale) + scale,
-                                        (y * scale) + scale,
-                                        paint);
-            }
-
+                                        (y * scale) + scale, paint);
             return bitmap;
         }
 
         catch (Exception e) {}
 
         return null;
+    }
+
+    // getText
+    private void getText()
+    {
+        textDialog((dialog, id) ->
+        {
+
+        });
+    }
+
+    // textDialog
+    private void textDialog(DialogInterface.OnClickListener listener)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(R.string.appName);
+        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setMessage(android.R.string.ok);
+        builder.setPositiveButton(android.R.string.ok, listener);
+        builder.setNegativeButton(android.R.string.cancel, null);
+        Dialog dialog = builder.show();
+
+        TextView text = (TextView) dialog.findViewById(android.R.id.message);
+        if (text != null)
+        {
+            text.setGravity(Gravity.CENTER);
+            text.setText("", TextView.BufferType.EDITABLE);
+            text.setTextIsSelectable(true);
+        }
+    }
+
+    // getImage
+    private void getImage()
+    {
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        try
+        {
+            startActivityForResult(intent, REQUEST_IMAGE);
+        }
+
+        catch (Exception e) {}
     }
 
     // theme
@@ -638,8 +755,8 @@ public class Gurgle extends Activity
     private boolean about()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.app_name);
-        builder.setIcon(R.drawable.ic_launcher);
+        builder.setTitle(R.string.appName);
+        builder.setIcon(R.mipmap.ic_launcher);
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance();
         SpannableStringBuilder spannable =

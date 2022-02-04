@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-  <string name="app_name">Gurgle</string>
+  <string name="appName">Gurgle</string>
   <string name="help">Help</string>
   <string name="refresh">Refresh</string>
   <string name="share">Share</string>
   <string name="image">Image</string>
-  <string name="seed">Seed</string>
+  <string name="code">Code</string>
+  <string name="qrCode">QR code</string>
+  <string name="getCode">Get code</string>
   <string name="about">About</string>
 
   <string name="language">Language</string>
@@ -26,7 +28,7 @@
   <string name="press">Tap enter</string>
   <string name="finish">Finish the word first</string>
   <string name="guess">Guess the word first</string>
-  <string name="not_listed">Not in word list</string>
+  <string name="notListed">Not in word list</string>
 
   <string name="version" formatted="false"><a
   href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nBuilt

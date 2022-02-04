@@ -23,9 +23,9 @@
             android:title="@string/image" />
 
         <item
-            android:id="@+id/seed"
+            android:id="@+id/code"
             android:showAsAction="never"
-            android:title="@string/seed" />
+            android:title="@string/code" />
 
     </menu>
   </item>
@@ -101,6 +101,25 @@
           android:id="@+id/catalan"
           android:showAsAction="never"
           android:title="@string/catalan" />
+
+    </menu>
+  </item>
+
+  <item
+      android:id="@+id/getCode"
+      android:showAsAction="never"
+      android:title="@string/getCode">
+    <menu>
+
+        <item
+            android:id="@+id/getText"
+            android:showAsAction="never"
+            android:title="@string/code" />
+
+        <item
+            android:id="@+id/getImage"
+            android:showAsAction="never"
+            android:title="@string/qrCode" />
 
     </menu>
   </item>
