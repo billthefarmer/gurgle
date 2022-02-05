@@ -9,6 +9,7 @@
   <string name="code">Code</string>
   <string name="qrCode">QR code</string>
   <string name="getCode">Get code</string>
+  <string name="enterCode">Enter code</string>
   <string name="about">About</string>
 
   <string name="language">Language</string>
@@ -29,6 +30,8 @@
   <string name="finish">Finish the word first</string>
   <string name="guess">Guess the word first</string>
   <string name="notListed">Not in word list</string>
+  <string name="newCode">New code set</string>
+  <string name="notRecognised">Code not recognised</string>
 
   <string name="version" formatted="false"><a
   href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nBuilt

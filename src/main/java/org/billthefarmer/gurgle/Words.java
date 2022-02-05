@@ -474,14 +474,24 @@ public class Words
     }
 
     // setSeed
-    public static void setCode(String code)
+    public static boolean setCode(String code)
     {
-        byte bytes[] = Base64.decode(code, Base64.DEFAULT);
-        long seed = Long.valueOf(new String(bytes));
-        random = new Random(seed);
+        try
+        {
+            byte bytes[] = Base64.decode(code, Base64.DEFAULT);
+            long seed = Long.valueOf(new String(bytes));
+            random = new Random(seed);
+        }
 
+        catch (Exception e)
+        {
+            return false;
+        }
+            
         if (used != null)
             used.clear();
+
+        return true;
     }
 
     // isWord

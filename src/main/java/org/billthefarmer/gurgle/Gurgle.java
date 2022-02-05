@@ -42,6 +42,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
@@ -51,15 +52,20 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import android.support.v4.content.FileProvider;
 
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.Binarizer;
+import com.google.zxing.BinaryBitmap;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.RGBLuminanceSource;
+import com.google.zxing.Result;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
 
@@ -81,6 +87,7 @@ public class Gurgle extends Activity
     public static final String TAG = "Gurgle";
     public static final String ROW = "row";
     public static final String WORD = "word";
+    public static final String SOLVED = "solved";
     public static final String LETTER = "letter";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String CODE_IMAGE = "Code.png";
@@ -208,6 +215,14 @@ public class Gurgle extends Activity
             row++;
         }
 
+        if (savedInstanceState != null)
+        {
+            row = savedInstanceState.getInt(ROW);
+            letter = savedInstanceState.getInt(LETTER);
+            solved = savedInstanceState.getBoolean(SOLVED);
+            word = savedInstanceState.getString(WORD);
+        }
+
         Words.getWord();
 
         if (BuildConfig.DEBUG)
@@ -226,6 +241,8 @@ public class Gurgle extends Activity
 
         row = savedInstanceState.getInt(ROW);
         letter = savedInstanceState.getInt(LETTER);
+        solved = savedInstanceState.getBoolean(SOLVED);
+        word = savedInstanceState.getString(WORD);
     }
 
     // onPause
@@ -251,6 +268,7 @@ public class Gurgle extends Activity
 
         outState.putInt(ROW, row);
         outState.putInt(LETTER, letter);
+        outState.putString(WORD, word);
     }
 
     // On create options menu
@@ -363,24 +381,32 @@ public class Gurgle extends Activity
         {
             Bundle extras = data.getExtras();
             Bitmap bitmap = (Bitmap) extras.get("data");
-            // imageView.setImageBitmap(imageBitmap);
-            Intent intent = new Intent(Intent.ACTION_SEND);
-            String title = getString(R.string.appName);
-            intent.putExtra(Intent.EXTRA_TITLE, title);
-            intent.setType(IMAGE_PNG);
-            File image = new File(getCacheDir(), CODE_IMAGE);
-            try (BufferedOutputStream out = new
-                 BufferedOutputStream(new FileOutputStream(image)))
+            int width = bitmap.getWidth();
+            int height = bitmap.getHeight();
+
+            int pixels[] = new int[width * height];
+            bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+            RGBLuminanceSource source = new
+                RGBLuminanceSource(width, height, pixels);
+            Binarizer binarizer = new HybridBinarizer(source);
+            BinaryBitmap image = new BinaryBitmap(binarizer);
+            QRCodeReader reader = new QRCodeReader();
+            try
             {
-                bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+                Result result = reader.decode(image);
+                String code = result.getText();
+
+                if (BuildConfig.DEBUG)
+                    Log.d(TAG, "Code " + code);
+
+                if (Words.setCode(code))
+                    showToast(R.string.newCode);
             }
 
-            catch (Exception e) {}
-
-            Uri imageUri = FileProvider
-                .getUriForFile(this, FILE_PROVIDER, image);
-            intent.putExtra(Intent.EXTRA_STREAM, imageUri);
-            startActivity(Intent.createChooser(intent, null));
+            catch (Exception e)
+            {
+                showToast(R.string.notRecognised);
+            }
         }
     }
 
@@ -542,7 +568,7 @@ public class Gurgle extends Activity
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.appName);
-        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setIcon(R.drawable.ic_launcher);
         builder.setMessage(code);
         builder.setPositiveButton(R.string.code, listener);
         builder.setNegativeButton(android.R.string.cancel, null);
@@ -648,7 +674,20 @@ public class Gurgle extends Activity
     {
         textDialog((dialog, id) ->
         {
+            switch(id)
+            {
+            case DialogInterface.BUTTON_POSITIVE:
+                TextView text = (TextView)
+                    ((Dialog) dialog).findViewById(R.id.code);
+                String code = text.getText().toString();
 
+                if (BuildConfig.DEBUG)
+                    Log.d(TAG, "Code " + code);
+
+                if (Words.setCode(code))
+                    showToast(R.string.newCode);
+                break;
+            }
         });
     }
 
@@ -656,20 +695,19 @@ public class Gurgle extends Activity
     private void textDialog(DialogInterface.OnClickListener listener)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(R.string.appName);
-        builder.setIcon(R.mipmap.ic_launcher);
-        builder.setMessage(android.R.string.ok);
+        builder.setTitle(R.string.enterCode);
+        builder.setIcon(R.drawable.ic_launcher);
         builder.setPositiveButton(android.R.string.ok, listener);
         builder.setNegativeButton(android.R.string.cancel, null);
-        Dialog dialog = builder.show();
 
-        TextView text = (TextView) dialog.findViewById(android.R.id.message);
-        if (text != null)
-        {
-            text.setGravity(Gravity.CENTER);
-            text.setText("", TextView.BufferType.EDITABLE);
-            text.setTextIsSelectable(true);
-        }
+        // Create edit text
+        EditText text = new EditText(builder.getContext());
+        text.setId(R.id.code);
+        text.setHint(R.string.code);
+        text.setInputType(InputType.TYPE_CLASS_TEXT);
+        AlertDialog dialog = builder.create();
+        dialog.setView(text, 40, 0, 40, 0);
+        dialog.show();
     }
 
     // getImage
@@ -756,7 +794,7 @@ public class Gurgle extends Activity
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.appName);
-        builder.setIcon(R.mipmap.ic_launcher);
+        builder.setIcon(R.drawable.ic_launcher);
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance();
         SpannableStringBuilder spannable =

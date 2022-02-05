@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
+    android:id="@+id/scroll"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -7,6 +8,7 @@
     android:fillViewport="true">
 
   <LinearLayout
+      android:id="@+id/layout"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:layout_marginLeft="8dp"
@@ -495,12 +497,13 @@
     </LinearLayout>
 
     <HorizontalScrollView
-        android:id="@+id/scroll"
+        android:id="@+id/hscroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center">
 
       <LinearLayout
+          android:id="@+id/keyboard"
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:orientation="vertical">
