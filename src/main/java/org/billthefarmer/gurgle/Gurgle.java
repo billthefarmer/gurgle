@@ -27,6 +27,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -69,13 +70,18 @@ import com.google.zxing.common.HybridBinarizer;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 
 import java.text.DateFormat;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -86,12 +92,17 @@ public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
     public static final String ROW = "row";
+    public static final String KEYS = "keys";
     public static final String WORD = "word";
     public static final String SOLVED = "solved";
     public static final String LETTER = "letter";
+    public static final String LETTERS = "letters";
+    public static final String COLOURS = "colours";
+    public static final String KEY_COLOURS = "keyColours";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String CODE_IMAGE = "Code.png";
     public static final String IMAGE_PNG = "image/png";
+    public static final String IMAGE_JPG = "image/jpg";
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
     public static final String PREF_LANG = "pref_lang";
@@ -218,16 +229,70 @@ public class Gurgle extends Activity
         if (savedInstanceState != null)
         {
             row = savedInstanceState.getInt(ROW);
+            word = savedInstanceState.getString(WORD);
             letter = savedInstanceState.getInt(LETTER);
             solved = savedInstanceState.getBoolean(SOLVED);
-            word = savedInstanceState.getString(WORD);
+
+            List<String> letters =
+                savedInstanceState.getStringArrayList(LETTERS);
+            List<Integer> colours =
+                savedInstanceState.getIntegerArrayList(COLOURS);
+
+            for (int i = 0; i < letters.size(); i++)
+            {
+                TextView text = display[i % display.length][i / display.length];
+                text.setText(letters.get(i));
+                text.setTextColor(colours.get(i));
+            }
+
+            List<String> keys =
+                savedInstanceState.getStringArrayList(KEYS);
+            List<Integer> keyColours =
+                savedInstanceState.getIntegerArrayList(KEY_COLOURS);
+
+            for (int i = 0; i < keys.size(); i++)
+            {
+                TextView key = keyboard.get(keys.get(i));
+                key.setTextColor(keyColours.get(i));
+            }
+
+            return;
         }
 
-        Words.getWord();
+        Intent intent = getIntent();
+        if (Intent.ACTION_SEND.contentEquals(intent.getAction()))
+        {
+            String type = intent.getType();
+            if (IMAGE_PNG.contentEquals(type) || IMAGE_JPG.contentEquals(type))
+            {
+                Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                if (uri != null)
+                {
+                    try (BufferedInputStream is = new BufferedInputStream
+                        (getContentResolver().openInputStream(uri)))
+                    {
+                        BitmapDrawable drawable =
+                            new BitmapDrawable(getResources(), is);
+                        Bitmap bitmap = drawable.getBitmap();
+                        decodeImage(bitmap);
+                    }
 
-        if (BuildConfig.DEBUG)
-            word = "DOGMA"; // Testing
+                    catch (Exception e) {}
+                }
+            }
 
+            else if (TEXT_PLAIN.contentEquals(type))
+            {
+                String code = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (Words.setCode(code))
+                    showToast(R.string.newCode);
+
+                else
+                    showToast(R.string.notRecognised);
+            }
+        }
+
+        word = Words.getWord();
         solved = false;
         letter = 0;
         row = 0;
@@ -240,9 +305,33 @@ public class Gurgle extends Activity
         super.onRestoreInstanceState(savedInstanceState);
 
         row = savedInstanceState.getInt(ROW);
+        word = savedInstanceState.getString(WORD);
         letter = savedInstanceState.getInt(LETTER);
         solved = savedInstanceState.getBoolean(SOLVED);
-        word = savedInstanceState.getString(WORD);
+
+        List<String> letters =
+            savedInstanceState.getStringArrayList(LETTERS);
+        List<Integer> colours =
+            savedInstanceState.getIntegerArrayList(COLOURS);
+
+        for (int i = 0; i < letters.size(); i++)
+        {
+            TextView text = display[i / display[0].length]
+                [i % display[0].length];
+            text.setText(letters.get(i));
+            text.setTextColor(colours.get(i));
+        }
+
+        List<String> keys =
+            savedInstanceState.getStringArrayList(KEYS);
+        List<Integer> keyColours =
+            savedInstanceState.getIntegerArrayList(KEY_COLOURS);
+
+        for (int i = 0; i < keys.size(); i++)
+        {
+            TextView key = keyboard.get(keys.get(i));
+            key.setTextColor(keyColours.get(i));
+        }                
     }
 
     // onPause
@@ -267,8 +356,34 @@ public class Gurgle extends Activity
         super.onSaveInstanceState(outState);
 
         outState.putInt(ROW, row);
-        outState.putInt(LETTER, letter);
         outState.putString(WORD, word);
+        outState.putInt(LETTER, letter);
+        outState.putBoolean(SOLVED, solved);
+
+        ArrayList<String> letterList = new ArrayList<String>();
+        ArrayList<Integer> colourList = new ArrayList<Integer>();
+        for (TextView a[]: display)
+        {
+            for (TextView text: a)
+            {
+                letterList.add(text.getText().toString());
+                colourList.add(text.getTextColors().getDefaultColor());
+            }
+        }
+
+        outState.putStringArrayList(LETTERS, letterList);
+        outState.putIntegerArrayList(COLOURS, colourList);
+
+        ArrayList<String> keys = new ArrayList<String>();
+        ArrayList<Integer> keyColours  = new ArrayList<Integer>();
+        for (String key: keyboard.keySet().toArray(new String[0]))
+        {
+            keys.add(key);
+            keyColours.add(keyboard.get(key).getTextColors().getDefaultColor());
+        }
+
+        outState.putStringArrayList(KEYS, keys);
+        outState.putIntegerArrayList(KEY_COLOURS, keyColours);
     }
 
     // On create options menu
@@ -370,6 +485,48 @@ public class Gurgle extends Activity
     @Override
     public void onNewIntent(Intent intent)
     {
+        if (Intent.ACTION_SEND.contentEquals(intent.getAction()))
+        {
+            String type = intent.getType();
+            if (IMAGE_PNG.contentEquals(type) || IMAGE_JPG.contentEquals(type))
+            {
+                Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                if (uri != null)
+                {
+                    try (BufferedInputStream is = new BufferedInputStream
+                        (getContentResolver().openInputStream(uri)))
+                    {
+                        BitmapDrawable drawable =
+                            new BitmapDrawable(getResources(), is);
+                        Bitmap bitmap = drawable.getBitmap();
+                        decodeImage(bitmap);
+                    }
+
+                    catch (Exception e)
+                    {
+                        return;
+                    }
+                }
+            }
+
+            else if (TEXT_PLAIN.contentEquals(type))
+            {
+                String code = intent.getStringExtra(Intent.EXTRA_TEXT);
+                if (Words.setCode(code))
+                    showToast(R.string.newCode);
+
+                else
+                {
+                    showToast(R.string.notRecognised);
+                    return;
+                }
+            }
+
+            word = Words.getWord();
+            solved = false;
+            letter = 0;
+            row = 0;
+        }
     }
 
     // onActivityResult
@@ -381,33 +538,47 @@ public class Gurgle extends Activity
         {
             Bundle extras = data.getExtras();
             Bitmap bitmap = (Bitmap) extras.get("data");
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-
-            int pixels[] = new int[width * height];
-            bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
-            RGBLuminanceSource source = new
-                RGBLuminanceSource(width, height, pixels);
-            Binarizer binarizer = new HybridBinarizer(source);
-            BinaryBitmap image = new BinaryBitmap(binarizer);
-            QRCodeReader reader = new QRCodeReader();
-            try
-            {
-                Result result = reader.decode(image);
-                String code = result.getText();
-
-                if (BuildConfig.DEBUG)
-                    Log.d(TAG, "Code " + code);
-
-                if (Words.setCode(code))
-                    showToast(R.string.newCode);
-            }
-
-            catch (Exception e)
-            {
-                showToast(R.string.notRecognised);
-            }
+            decodeImage(bitmap);
         }
+    }
+
+    // decodeImage
+    private boolean decodeImage(Bitmap bitmap)
+    {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+
+        int pixels[] = new int[width * height];
+        bitmap.getPixels(pixels, 0, width, 0, 0, width, height);
+        RGBLuminanceSource source = new
+            RGBLuminanceSource(width, height, pixels);
+        Binarizer binarizer = new HybridBinarizer(source);
+        BinaryBitmap image = new BinaryBitmap(binarizer);
+        QRCodeReader reader = new QRCodeReader();
+        try
+        {
+            Result result = reader.decode(image);
+            String code = result.getText();
+
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, "Code " + code);
+
+            if (Words.setCode(code))
+            {
+                showToast(R.string.newCode);
+                return true;
+            }
+
+            else
+                showToast(R.string.notRecognised);
+        }
+
+        catch (Exception e)
+        {
+            showToast(R.string.notRecognised);
+        }
+
+        return false;
     }
 
     // keyClicked
@@ -726,7 +897,6 @@ public class Gurgle extends Activity
     private void theme(int t)
     {
         theme = t;
-        refresh();
 
         if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
             recreate();

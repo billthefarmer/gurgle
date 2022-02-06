@@ -15,9 +15,9 @@ allprojects {
         google()
     }
 
-     tasks.withType(JavaCompile) {
-         options.deprecation = true
-     }
+    // tasks.withType(JavaCompile) {
+    //     options.deprecation = true
+    // }
 }
 
 apply plugin: 'com.android.application'
@@ -48,7 +48,5 @@ android {
 
     dependencies {
 	implementation 'com.google.zxing:core:3.4.1'
-	implementation 'com.google.zxing:android-core:3.3.0'
-	implementation 'com.google.zxing:android-integration:3.3.0'
     }
 }
