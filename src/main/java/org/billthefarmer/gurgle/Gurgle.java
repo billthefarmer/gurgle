@@ -62,7 +62,6 @@ import android.support.v4.content.FileProvider;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Binarizer;
 import com.google.zxing.BinaryBitmap;
-import com.google.zxing.BinaryBitmap;
 import com.google.zxing.RGBLuminanceSource;
 import com.google.zxing.Result;
 import com.google.zxing.common.BitMatrix;
@@ -103,6 +102,7 @@ public class Gurgle extends Activity
     public static final String CODE_IMAGE = "Code.png";
     public static final String IMAGE_PNG = "image/png";
     public static final String IMAGE_JPG = "image/jpg";
+    public static final String IMAGE_WILD = "image/*";
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
     public static final String PREF_LANG = "pref_lang";
@@ -263,7 +263,9 @@ public class Gurgle extends Activity
         if (Intent.ACTION_SEND.contentEquals(intent.getAction()))
         {
             String type = intent.getType();
-            if (IMAGE_PNG.contentEquals(type) || IMAGE_JPG.contentEquals(type))
+            if (IMAGE_PNG.contentEquals(type) ||
+                IMAGE_JPG.contentEquals(type) ||
+                IMAGE_WILD.contentEquals(type))
             {
                 Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
                 if (uri != null)
@@ -502,10 +504,7 @@ public class Gurgle extends Activity
                         decodeImage(bitmap);
                     }
 
-                    catch (Exception e)
-                    {
-                        return;
-                    }
+                    catch (Exception e) {}
                 }
             }
 
@@ -518,14 +517,8 @@ public class Gurgle extends Activity
                 else
                 {
                     showToast(R.string.notRecognised);
-                    return;
                 }
             }
-
-            word = Words.getWord();
-            solved = false;
-            letter = 0;
-            row = 0;
         }
     }
 
@@ -801,21 +794,21 @@ public class Gurgle extends Activity
     }
 
     // getDrawable
-    private Drawable getDrawable(String s)
+    private Drawable getDrawable(String code)
     {
         float density = getResources().getDisplayMetrics().density;
         int scale = (int) (BITMAP_SCALE * density);
-        Bitmap bitmap = getBitmap(s, scale);
+        Bitmap bitmap = getBitmap(code, scale);
         return new BitmapDrawable(getResources(), bitmap);
     }
 
     // getBitmap
-    private Bitmap getBitmap(String s, int scale)
+    private Bitmap getBitmap(String code, int scale)
     {
         try
         {
             QRCodeWriter writer = new QRCodeWriter();
-            BitMatrix matrix = writer.encode(s, BarcodeFormat.QR_CODE, 0, 0);
+            BitMatrix matrix = writer.encode(code, BarcodeFormat.QR_CODE, 0, 0);
             int width = matrix.getWidth();
             int height = matrix.getHeight();
             Bitmap bitmap = Bitmap.createBitmap(width * scale,
@@ -960,7 +953,7 @@ public class Gurgle extends Activity
 
     // about
     @SuppressWarnings("deprecation")
-    private boolean about()
+    private void about()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.appName);
@@ -994,8 +987,6 @@ public class Gurgle extends Activity
                                    android.R.style.TextAppearance_Small);
             text.setMovementMethod(LinkMovementMethod.getInstance());
         }
-
-        return true;
     }
 
     // showToast

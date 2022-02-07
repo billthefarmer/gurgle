@@ -23,14 +23,6 @@
   <color name="red_box_background">#ed4e2e</color>
   <color name="red_box_border">#edae25</color>
 
-  <!--  black theme  --><!--
-  <color name="black_background">#322c2c</color>
-  <color name="black_action_bar">#4a4245</color>
-  <color name="black_key_normal">#2e211c</color>
-  <color name="black_key_pressed">#70695d</color>
-  <color name="black_box_background">#4a494a</color>
-  <color name="black_box_border">#151515</color>-->
-
   <!--  orange theme  -->
   <color name="orange_background">#f35b1f</color>
   <color name="orange_action_bar">#f34712</color>
@@ -55,21 +47,5 @@
   <color name="purple_key_pressed">#5c058c</color>
   <color name="purple_box_background">#9d79b1</color>
   <color name="purple_box_border">#180e1d</color>
-
-  <!--  brown theme  --><!--
-  <color name="brown_background">#bd4d19</color>
-  <color name="brown_action_bar">#a14115</color>
-  <color name="brown_key_normal">#a14115</color>
-  <color name="brown_key_pressed">#a15d30</color>
-  <color name="brown_box_background">#a1433f</color>
-  <color name="brown_box_border">#f73b3e</color>-->
-
-  <!--  green theme  --><!--
-  <color name="green_background">#39b854</color>
-  <color name="green_action_bar">#319e49</color>
-  <color name="green_key_normal">#19470a</color>
-  <color name="green_key_pressed">#97ba8d</color>
-  <color name="green_box_background">#153b08</color>
-  <color name="green_box_border">#338f14</color>-->
 
 </resources>
