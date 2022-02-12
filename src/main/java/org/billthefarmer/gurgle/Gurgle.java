@@ -490,7 +490,9 @@ public class Gurgle extends Activity
         if (Intent.ACTION_SEND.contentEquals(intent.getAction()))
         {
             String type = intent.getType();
-            if (IMAGE_PNG.contentEquals(type) || IMAGE_JPG.contentEquals(type))
+            if (IMAGE_PNG.contentEquals(type) ||
+                IMAGE_JPG.contentEquals(type) ||
+                IMAGE_WILD.contentEquals(type))
             {
                 Uri uri = intent.getParcelableExtra(Intent.EXTRA_STREAM);
                 if (uri != null)

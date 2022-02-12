@@ -33,11 +33,38 @@ checked that they haven't been used recently.
 ## Meaning
 Tap the word once it has been guessed to display the meaning.
 
+## Share
+### Image
+Share an image of the current display.
+
+### Code
+Display an alphanumeric code and a QR code which represents a new
+sequence of words to guess. This code may be shared with another copy
+of Gurgle on another device to set the same sequence of words. Tapping
+the QR code button on the dialog shares the QR code image. Tapping the
+code button shares the alphanumeric code.
+
 ## Themes
 Select coloured theme from the **Theme** button in the toolbar.
 
 ## Language
 Select **Language** from the menu.
+
+## Get code
+### Code
+Enter the code shared by another copy of Gurgle to set the same
+sequence of words. You may also make up your own code. It doesn't need
+the two equals symbols on the end ('='), but will fail with just one.
+
+### QR code
+Opens the camera app on the phone to take a photo of a QR code. The
+app will attempt to decode it. There are plenty of very good QR code
+and barcode scanner apps that do a better job.
+
+## Receiving a code
+If the app is sent a code or a QR code image it will set a new
+sequence of words if the code is decoded successfully. This does not
+affect the current game.
 
 ## Cheat
 Use my [Crossword](https://github.com/billthefarmer/crossword) or

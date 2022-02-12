@@ -14,7 +14,7 @@
       android:layout_marginLeft="8dp"
       android:layout_marginRight="8dp"
       android:layout_marginTop="24dp"
-      android:layout_marginBottom="8dp"
+      android:layout_marginBottom="24dp"
       android:orientation="vertical"
       tools:ignore="RtlHardcoded">
 
@@ -962,6 +962,16 @@
       </LinearLayout>
 
     </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/nonesuch"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="-oOo-"
+        android:gravity="center"
+        tools:ignore="HardcodedText"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
 
