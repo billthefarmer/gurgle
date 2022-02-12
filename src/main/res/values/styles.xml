@@ -97,7 +97,7 @@
 
     <item name="android:windowBackground">@color/purple_background</item>
     <item name="android:actionBarStyle">@style/ActionBarPurpleStyle</item>
-    
+
     <item name="box_bgcolour">@color/purple_box_background</item>
     <item name="box_bdcolour">@color/purple_box_border</item>
     <item name="key_normal">@color/purple_key_normal</item>
@@ -114,7 +114,7 @@
 
     <item name="android:windowBackground">@color/red_background</item>
     <item name="android:actionBarStyle">@style/ActionBarRedStyle</item>
-    
+
     <item name="box_bgcolour">@color/red_box_background</item>
     <item name="box_bdcolour">@color/red_box_border</item>
     <item name="key_normal">@color/red_key_normal</item>

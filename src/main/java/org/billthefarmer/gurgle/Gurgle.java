@@ -333,7 +333,7 @@ public class Gurgle extends Activity
         {
             TextView key = keyboard.get(keys.get(i));
             key.setTextColor(keyColours.get(i));
-        }                
+        }
     }
 
     // onPause

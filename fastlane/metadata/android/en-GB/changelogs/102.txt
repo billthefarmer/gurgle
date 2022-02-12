@@ -1,0 +1,2 @@
+ * Add Spanish and Catalan languages
+ * Add code sharing for shared games

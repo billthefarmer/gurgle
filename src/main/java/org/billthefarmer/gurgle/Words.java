@@ -427,7 +427,7 @@ public class Words
                 guess = new ArrayList<String>(Arrays.asList(Catalan1.WORDS));
                 guess.addAll(new ArrayList<String>
                              (Arrays.asList(Catalan2.WORDS)));
-            }                
+            }
             for (word = guess.get(random.nextInt(guess.size()));
                  hasBeenUsed(word); );
             break;
@@ -487,7 +487,7 @@ public class Words
         {
             return false;
         }
-            
+
         if (used != null)
             used.clear();
 
