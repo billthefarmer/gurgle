@@ -61,7 +61,7 @@ Opens the camera app on the phone to take a photo of a QR code. The
 app will attempt to decode it. There are plenty of very good QR code
 and barcode scanner apps that do a better job.
 
-## Receiving a code
+### Receiving a code
 If the app is sent a code or a QR code image it will set a new
 sequence of words if the code is decoded successfully. This does not
 affect the current game.
