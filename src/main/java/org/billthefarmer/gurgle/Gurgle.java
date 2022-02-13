@@ -852,6 +852,9 @@ public class Gurgle extends Activity
 
                 if (Words.setCode(code))
                     showToast(R.string.newCode);
+
+                else
+                    showToast(R.string.notRecognised);
                 break;
             }
         });

@@ -460,7 +460,7 @@ public class Words
         words = null;
     }
 
-    // getSeed
+    // getCode
     public static String getCode()
     {
         long seed = new Date().getTime();
@@ -470,10 +470,15 @@ public class Words
             used.clear();
 
         byte bytes[] = String.valueOf(seed).getBytes();
-        return Base64.encodeToString(bytes, Base64.DEFAULT);
+        String code = Base64.encodeToString(bytes, Base64.DEFAULT);
+
+        if (BuildConfig.DEBUG)
+            Log.d(TAG, String.format(Locale.getDefault(),
+                                     "%d, %s", seed, code));
+        return code;
     }
 
-    // setSeed
+    // setCode
     public static boolean setCode(String code)
     {
         try
@@ -481,6 +486,10 @@ public class Words
             byte bytes[] = Base64.decode(code, Base64.DEFAULT);
             long seed = Long.valueOf(new String(bytes));
             random = new Random(seed);
+
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, String.format(Locale.getDefault(),
+                                         "%d, %s", seed, code));
         }
 
         catch (Exception e)
