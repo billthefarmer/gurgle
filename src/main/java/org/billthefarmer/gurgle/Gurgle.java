@@ -503,7 +503,8 @@ public class Gurgle extends Activity
                         BitmapDrawable drawable =
                             new BitmapDrawable(getResources(), is);
                         Bitmap bitmap = drawable.getBitmap();
-                        decodeImage(bitmap);
+                        if (decodeImage(bitmap) && row == 0 && letter == 0)
+                            refresh();
                     }
 
                     catch (Exception e) {}
@@ -514,7 +515,11 @@ public class Gurgle extends Activity
             {
                 String code = intent.getStringExtra(Intent.EXTRA_TEXT);
                 if (Words.setCode(code))
+                {
                     showToast(R.string.newCode);
+                    if (row == 0 && letter == 0)
+                        refresh();
+                }
 
                 else
                 {
@@ -851,7 +856,11 @@ public class Gurgle extends Activity
                     Log.d(TAG, "Code " + code);
 
                 if (Words.setCode(code))
+                {
                     showToast(R.string.newCode);
+                    if (row == 0 && letter == 0)
+                        refresh();
+                }
 
                 else
                     showToast(R.string.notRecognised);
