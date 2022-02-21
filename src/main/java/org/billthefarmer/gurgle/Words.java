@@ -397,41 +397,8 @@ public class Words
         if (random == null)
             random = new Random(new Date().getTime());
 
-        switch (language)
-        {
-        default:
-        case Gurgle.ENGLISH:
-            if (guess == null)
-                guess = new ArrayList<String>(Arrays.asList(WORDS));
-            for (word = guess.get(random.nextInt(guess.size()));
-                 hasBeenUsed(word); );
-            break;
-
-        case Gurgle.ITALIAN:
-            if (guess == null)
-                guess = new ArrayList<String>(Arrays.asList(Italian.WORDS));
-            for (word = guess.get(random.nextInt(guess.size()));
-                 hasBeenUsed(word); );
-            break;
-
-        case Gurgle.SPANISH:
-            if (guess == null)
-                guess = new ArrayList<String>(Arrays.asList(Spanish.WORDS));
-            for (word = guess.get(random.nextInt(guess.size()));
-                 hasBeenUsed(word); );
-            break;
-
-        case Gurgle.CATALAN:
-            if (guess == null)
-            {
-                guess = new ArrayList<String>(Arrays.asList(Catalan1.WORDS));
-                guess.addAll(new ArrayList<String>
-                             (Arrays.asList(Catalan2.WORDS)));
-            }
-            for (word = guess.get(random.nextInt(guess.size()));
-                 hasBeenUsed(word); );
-            break;
-        }
+        for (word = guess.get(random.nextInt(guess.size()));
+             hasBeenUsed(word); );
 
         return word.toUpperCase(Locale.getDefault());
     }
@@ -456,8 +423,30 @@ public class Words
     public static void setLanguage(int l)
     {
         language = l;
-        guess = null;
-        words = null;
+
+        switch (language)
+        {
+            default:
+            case Gurgle.ENGLISH:
+                guess = new ArrayList<String>(Arrays.asList(WORDS));
+                break;
+
+            case Gurgle.ITALIAN:
+                guess = new ArrayList<String>(Arrays.asList(Italian.WORDS));
+                break;
+
+            case Gurgle.SPANISH:
+                guess = new ArrayList<String>(Arrays.asList(Spanish.WORDS));
+                break;
+
+            case Gurgle.CATALAN:
+                guess = new ArrayList<String>(Arrays.asList(Catalan1.WORDS));
+                guess.addAll(new ArrayList<String>
+                            (Arrays.asList(Catalan2.WORDS)));
+                break;
+        }
+
+        words = new HashSet<String>(guess);
     }
 
     // getCode
@@ -506,31 +495,6 @@ public class Words
     // isWord
     public static boolean isWord(String word)
     {
-        if (words == null)
-        {
-            switch (language)
-            {
-            default:
-            case Gurgle.ENGLISH:
-                words = new HashSet<String>(Arrays.asList(WORDS));
-                words.addAll(Arrays.asList(English1.WORDS));
-                words.addAll(Arrays.asList(English2.WORDS));
-                break;
-
-            case Gurgle.ITALIAN:
-                words = new HashSet<String>(guess);
-                break;
-
-            case Gurgle.SPANISH:
-                words = new HashSet<String>(guess);
-                break;
-
-            case Gurgle.CATALAN:
-                words = new HashSet<String>(guess);
-                break;
-            }
-        }
-
         return words.contains(word.toLowerCase(Locale.getDefault()));
     }
 }
