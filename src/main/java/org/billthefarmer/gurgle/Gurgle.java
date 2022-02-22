@@ -109,14 +109,19 @@ public class Gurgle extends Activity
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
-    public static final int DARK   = 1;
-    public static final int CYAN   = 2;
-    public static final int BLUE   = 3;
-    public static final int ORANGE = 4;
-    public static final int PURPLE = 5;
-    public static final int RED    = 6;
-    public static final int YELLOW = 7;
-    public static final int GREEN  = 8;
+    public static final int THEME    = 1;
+    public static final int CONTAINS = 2;
+    public static final int CORRECT  = 3;
+
+    public static final int DARK    = 1;
+    public static final int BLUE    = 2;
+    public static final int CYAN    = 3;
+    public static final int GREEN   = 4;
+    public static final int MAGENTA = 5;
+    public static final int ORANGE  = 6;
+    public static final int PURPLE  = 7;
+    public static final int RED     = 8;
+    public static final int YELLOW  = 9;
 
     public static final int REQUEST_IMAGE = 1;
 
@@ -143,8 +148,11 @@ public class Gurgle extends Activity
     private String word;
     private boolean solved;
     private int language;
+    private int contains;
+    private int correct;
     private int letter;
     private int theme;
+    private int mode;
     private int row;
 
     // On create
@@ -438,28 +446,52 @@ public class Gurgle extends Activity
             setLanguage(CATALAN);
             break;
 
+        case R.id.theme:
+            mode(THEME);
+            break;
+
+        case R.id.contains:
+            mode(CONTAINS);
+            break;
+
+        case R.id.correct:
+            mode(CORRECT);
+            break;
+
         case R.id.dark:
-            theme(DARK);
+            colour(DARK);
             break;
 
         case R.id.cyan:
-            theme(CYAN);
+            colour(CYAN);
             break;
 
         case R.id.blue:
-            theme(BLUE);
+            colour(BLUE);
             break;
 
         case R.id.orange:
-            theme(ORANGE);
+            colour(ORANGE);
             break;
 
         case R.id.purple:
-            theme(PURPLE);
+            colour(PURPLE);
+            break;
+
+        case R.id.magenta:
+            colour(MAGENTA);
             break;
 
         case R.id.red:
-            theme(RED);
+            colour(RED);
+            break;
+
+        case R.id.yellow:
+            colour(YELLOW);
+            break;
+
+        case R.id.green:
+            colour(GREEN);
             break;
 
         case R.id.getText:
@@ -722,7 +754,7 @@ public class Gurgle extends Activity
         String code = Words.getCode();
         codeDialog(code, (dialog, id)->
         {
-            switch(id)
+            switch (id)
             {
             case DialogInterface.BUTTON_POSITIVE:
                 shareCode(code);
@@ -847,7 +879,7 @@ public class Gurgle extends Activity
     {
         textDialog((dialog, id) ->
         {
-            switch(id)
+            switch (id)
             {
             case DialogInterface.BUTTON_POSITIVE:
                 TextView text = (TextView)
@@ -902,13 +934,64 @@ public class Gurgle extends Activity
         catch (Exception e) {}
     }
 
-    // theme
-    private void theme(int t)
+    // mode
+    private void mode(int m)
     {
-        theme = t;
+        mode = m;
+    }
 
-        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
-            recreate();
+    // theme
+    private void colour(int c)
+    {
+        switch (mode)
+        {
+        case THEME:
+            theme = c;
+            if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
+                recreate();
+            break;
+
+        case CONTAINS:
+            contains = getColour(c);
+            break;
+
+        case CORRECT:
+            correct = getColour(c);
+            break;
+        }
+    }
+
+    // getColour
+    private int getColour(int c)
+    {
+        switch (c)
+        {
+        case RED:
+            return 0xff0000;
+
+        case YELLOW:
+            return 0xffff00;
+
+        case ORANGE:
+            return 0xffa500;
+
+        case GREEN:
+            return 0x00ff00;
+
+        case BLUE:
+            return 0x0000ff;
+
+        case CYAN:
+            return 0x00ffff;
+
+        case PURPLE:
+            return 0x800080;
+
+        case MAGENTA:
+            return 0xff00ff;
+        }
+
+        return 0;
     }
 
     // setLanguage

@@ -166,6 +166,11 @@
               android:showAsAction="never"
               android:title="@string/purple" />
 
+          <item
+              android:id="@+id/magenta"
+              android:showAsAction="never"
+              android:title="@string/magenta" />
+
         </menu>
       </item>
 
@@ -188,7 +193,7 @@
           <item
               android:id="@+id/green"
               android:showAsAction="never"
-              android:title="@string/yellow" />
+              android:title="@string/green" />
 
           <item
               android:id="@id/cyan"
@@ -204,6 +209,11 @@
               android:id="@id/purple"
               android:showAsAction="never"
               android:title="@string/purple" />
+
+          <item
+              android:id="@id/magenta"
+              android:showAsAction="never"
+              android:title="@string/magenta" />
 
         </menu>
       </item>
