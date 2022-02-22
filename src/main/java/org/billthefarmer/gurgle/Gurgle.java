@@ -115,6 +115,8 @@ public class Gurgle extends Activity
     public static final int ORANGE = 4;
     public static final int PURPLE = 5;
     public static final int RED    = 6;
+    public static final int YELLOW = 7;
+    public static final int GREEN  = 8;
 
     public static final int REQUEST_IMAGE = 1;
 

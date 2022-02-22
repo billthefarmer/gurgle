@@ -125,6 +125,93 @@
   </item>
 
   <item
+      android:id="@+id/colour"
+      android:showAsAction="never"
+      android:title="@string/colour">
+    <menu>
+
+      <item
+          android:id="@+id/contains"
+          android:showAsAction="never"
+          android:title="@string/contains">
+        <menu>
+
+          <item
+              android:id="@id/red"
+              android:showAsAction="never"
+              android:title="@string/red" />
+
+          <item
+              android:id="@id/orange"
+              android:showAsAction="never"
+              android:title="@string/orange" />
+
+          <item
+              android:id="@+id/yellow"
+              android:showAsAction="never"
+              android:title="@string/yellow" />
+
+          <item
+              android:id="@id/cyan"
+              android:showAsAction="never"
+              android:title="@string/cyan" />
+
+          <item
+              android:id="@id/blue"
+              android:showAsAction="never"
+              android:title="@string/blue" />
+
+          <item
+              android:id="@id/purple"
+              android:showAsAction="never"
+              android:title="@string/purple" />
+
+        </menu>
+      </item>
+
+      <item
+          android:id="@+id/correct"
+          android:showAsAction="never"
+          android:title="@string/correct">
+        <menu>
+
+          <item
+              android:id="@id/red"
+              android:showAsAction="never"
+              android:title="@string/red" />
+
+          <item
+              android:id="@id/orange"
+              android:showAsAction="never"
+              android:title="@string/orange" />
+
+          <item
+              android:id="@+id/green"
+              android:showAsAction="never"
+              android:title="@string/yellow" />
+
+          <item
+              android:id="@id/cyan"
+              android:showAsAction="never"
+              android:title="@string/cyan" />
+
+          <item
+              android:id="@id/blue"
+              android:showAsAction="never"
+              android:title="@string/blue" />
+
+          <item
+              android:id="@id/purple"
+              android:showAsAction="never"
+              android:title="@string/purple" />
+
+        </menu>
+      </item>
+    </menu>
+
+  </item>
+
+  <item
       android:id="@+id/about"
       android:icon="@drawable/ic_action_about"
       android:showAsAction="ifRoom"
