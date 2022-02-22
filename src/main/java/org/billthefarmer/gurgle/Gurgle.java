@@ -71,8 +71,10 @@ import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 import java.text.DateFormat;
@@ -132,6 +134,7 @@ public class Gurgle extends Activity
     public static final int ITALIAN = 1;
     public static final int SPANISH = 2;
     public static final int CATALAN = 3;
+    public static final int FRENCH = 4;
 
     public static final int BITMAP_SCALE = 8;
 
@@ -435,6 +438,10 @@ public class Gurgle extends Activity
         case R.id.catalan:
             setLanguage(CATALAN);
             break;
+
+       case R.id.french:
+           setLanguage(FRENCH);
+           break;
 
         case R.id.dark:
             theme(DARK);
@@ -920,7 +927,12 @@ public class Gurgle extends Activity
     // setLanguage
     private void setLanguage()
     {
-        Words.setLanguage(language);
+        try {
+            InputStream fi = getAssets().open(language + ".txt");
+            Words.setLanguage(language, fi);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         switch (language)
         {
@@ -939,6 +951,10 @@ public class Gurgle extends Activity
 
         case CATALAN:
             getActionBar().setSubtitle(R.string.catalan);
+            break;
+
+        case FRENCH:
+            getActionBar().setSubtitle(R.string.french);
             break;
         }
     }
