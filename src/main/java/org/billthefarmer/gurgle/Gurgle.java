@@ -71,8 +71,10 @@ import com.google.zxing.qrcode.QRCodeWriter;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 import java.text.DateFormat;
@@ -97,6 +99,8 @@ public class Gurgle extends Activity
     public static final String LETTER = "letter";
     public static final String LETTERS = "letters";
     public static final String COLOURS = "colours";
+    public static final String CORRECT  = "correct";;
+    public static final String CONTAINS = "contains";
     public static final String KEY_COLOURS = "keyColours";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String CODE_IMAGE = "Code.png";
@@ -108,10 +112,6 @@ public class Gurgle extends Activity
     public static final String PREF_LANG = "pref_lang";
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
-
-    public static final int THEME    = 1;
-    public static final int CONTAINS = 2;
-    public static final int CORRECT  = 3;
 
     public static final int DARK    = 1;
     public static final int BLUE    = 2;
@@ -135,10 +135,12 @@ public class Gurgle extends Activity
         R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
     };
 
-    public static final int ENGLISH = 0;
-    public static final int ITALIAN = 1;
-    public static final int SPANISH = 2;
-    public static final int CATALAN = 3;
+    public static final int ENGLISH    = 0;
+    public static final int ITALIAN    = 1;
+    public static final int SPANISH    = 2;
+    public static final int CATALAN    = 3;
+    public static final int FRENCH     = 4;
+    public static final int PORTUGUESE = 5;
 
     public static final int BITMAP_SCALE = 8;
 
@@ -241,6 +243,8 @@ public class Gurgle extends Activity
             row = savedInstanceState.getInt(ROW);
             word = savedInstanceState.getString(WORD);
             letter = savedInstanceState.getInt(LETTER);
+            correct = savedInstanceState.getInt(CORRECT);
+            contains = savedInstanceState.getInt(CONTAINS);
             solved = savedInstanceState.getBoolean(SOLVED);
 
             List<String> letters =
@@ -305,6 +309,8 @@ public class Gurgle extends Activity
         }
 
         word = Words.getWord();
+        contains = getColour(YELLOW);
+        correct = getColour(GREEN);
         solved = false;
         letter = 0;
         row = 0;
@@ -319,6 +325,8 @@ public class Gurgle extends Activity
         row = savedInstanceState.getInt(ROW);
         word = savedInstanceState.getString(WORD);
         letter = savedInstanceState.getInt(LETTER);
+        correct = savedInstanceState.getInt(CORRECT);
+        contains = savedInstanceState.getInt(CONTAINS);
         solved = savedInstanceState.getBoolean(SOLVED);
 
         List<String> letters =
@@ -370,6 +378,8 @@ public class Gurgle extends Activity
         outState.putInt(ROW, row);
         outState.putString(WORD, word);
         outState.putInt(LETTER, letter);
+        outState.putInt(CORRECT, correct);
+        outState.putInt(CONTAINS, contains);
         outState.putBoolean(SOLVED, solved);
 
         ArrayList<String> letterList = new ArrayList<String>();
@@ -430,6 +440,30 @@ public class Gurgle extends Activity
             showCode();
             break;
 
+        case R.id.dark:
+            theme(DARK);
+            break;
+
+        case R.id.cyan:
+            theme(CYAN);
+            break;
+
+        case R.id.blue:
+            theme(BLUE);
+            break;
+
+        case R.id.orange:
+            theme(ORANGE);
+            break;
+
+        case R.id.purple:
+            theme(PURPLE);
+            break;
+
+        case R.id.red:
+            theme(RED);
+            break;
+
         case R.id.english:
             setLanguage(ENGLISH);
             break;
@@ -446,53 +480,13 @@ public class Gurgle extends Activity
             setLanguage(CATALAN);
             break;
 
-        case R.id.theme:
-            mode(THEME);
-            break;
+        case R.id.french:
+           setLanguage(FRENCH);
+           break;
 
-        case R.id.contains:
-            mode(CONTAINS);
-            break;
-
-        case R.id.correct:
-            mode(CORRECT);
-            break;
-
-        case R.id.dark:
-            colour(DARK);
-            break;
-
-        case R.id.cyan:
-            colour(CYAN);
-            break;
-
-        case R.id.blue:
-            colour(BLUE);
-            break;
-
-        case R.id.orange:
-            colour(ORANGE);
-            break;
-
-        case R.id.purple:
-            colour(PURPLE);
-            break;
-
-        case R.id.magenta:
-            colour(MAGENTA);
-            break;
-
-        case R.id.red:
-            colour(RED);
-            break;
-
-        case R.id.yellow:
-            colour(YELLOW);
-            break;
-
-        case R.id.green:
-            colour(GREEN);
-            break;
+       case R.id.portuguese:
+           setLanguage(PORTUGUESE);
+           break;
 
         case R.id.getText:
             getText();
@@ -504,6 +498,14 @@ public class Gurgle extends Activity
 
         case R.id.help:
             help();
+            break;
+
+        case R.id.contains:
+            contains();
+            break;
+
+        case R.id.correct:
+            correct();
             break;
 
         case R.id.about:
@@ -658,21 +660,21 @@ public class Gurgle extends Activity
 
             if (wordLetter.contentEquals(guessLetter))
             {
-                display[row][i].setTextColor(0xff00ff00);
-                key.setTextColor(0xff00ff00);
+                display[row][i].setTextColor(correct);
+                key.setTextColor(correct);
             }
 
             else if (word.contains(guessLetter))
             {
-                display[row][i].setTextColor(0xffffff00);
-                if (key.getTextColors().getDefaultColor() != 0xff00ff00)
-                    key.setTextColor(0xffffff00);
+                display[row][i].setTextColor(contains);
+                if (key.getTextColors().getDefaultColor() != correct)
+                    key.setTextColor(contains);
             }
 
             else
             {
                 display[row][i].setTextColor(0x7fffffff);
-                if (key.getTextColors().getDefaultColor() != 0xff00ff00)
+                if (key.getTextColors().getDefaultColor() != contains)
                     key.setTextColor(0x7fffffff);
             }
         }
@@ -934,31 +936,51 @@ public class Gurgle extends Activity
         catch (Exception e) {}
     }
 
-    // mode
-    private void mode(int m)
+    // theme
+    private void theme(int c)
     {
-        mode = m;
+        theme = c;
+        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
+            recreate();
     }
 
-    // theme
-    private void colour(int c)
+    // contains
+    private void contains()
     {
-        switch (mode)
+        colourDialog(R.string.selectContains, (dialog, id) ->
         {
-        case THEME:
-            theme = c;
-            if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
-                recreate();
-            break;
+            contains = getColour(id + 2);
 
-        case CONTAINS:
-            contains = getColour(c);
-            break;
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, String.format(Locale.getDefault(),
+                                         "Contains %d, #%x", id, contains));
+        });
+    }
 
-        case CORRECT:
-            correct = getColour(c);
-            break;
-        }
+    // correct
+    private void correct()
+    {
+        colourDialog(R.string.selectCorrect, (dialog, id) ->
+        {
+            correct = getColour(id + 2);
+
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, String.format(Locale.getDefault(),
+                                         "Correct %d, #%x", id, correct));
+        });
+
+    }
+
+    // colourDialog
+    private void colourDialog(int title,
+                              DialogInterface.OnClickListener listener)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setIcon(R.drawable.ic_launcher);
+        builder.setItems(R.array.colours, listener);
+        builder.setNegativeButton(android.R.string.cancel, null);
+        Dialog dialog = builder.show();
     }
 
     // getColour
@@ -967,28 +989,28 @@ public class Gurgle extends Activity
         switch (c)
         {
         case RED:
-            return 0xff0000;
+            return 0xffff0000;
 
         case YELLOW:
-            return 0xffff00;
+            return 0xffffff00;
 
         case ORANGE:
-            return 0xffa500;
+            return 0xffffa500;
 
         case GREEN:
-            return 0x00ff00;
+            return 0xff00ff00;
 
         case BLUE:
-            return 0x0000ff;
+            return 0xff0000ff;
 
         case CYAN:
-            return 0x00ffff;
+            return 0xff00ffff;
 
         case PURPLE:
-            return 0x800080;
+            return 0xff800080;
 
         case MAGENTA:
-            return 0xff00ff;
+            return 0xffff00ff;
         }
 
         return 0;
@@ -1005,7 +1027,7 @@ public class Gurgle extends Activity
     // setLanguage
     private void setLanguage()
     {
-        Words.setLanguage(language);
+        Words.setLanguage(this, language);
 
         switch (language)
         {
@@ -1024,6 +1046,14 @@ public class Gurgle extends Activity
 
         case CATALAN:
             getActionBar().setSubtitle(R.string.catalan);
+            break;
+
+        case FRENCH:
+            getActionBar().setSubtitle(R.string.french);
+            break;
+
+        case PORTUGUESE:
+            getActionBar().setSubtitle(R.string.portuguese);
             break;
         }
     }

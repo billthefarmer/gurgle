@@ -102,6 +102,16 @@
           android:showAsAction="never"
           android:title="@string/catalan" />
 
+      <item
+          android:id="@+id/french"
+          android:showAsAction="never"
+          android:title="@string/french" />
+
+      <item
+          android:id="@+id/portuguese"
+          android:showAsAction="never"
+          android:title="@string/portuguese" />
+
     </menu>
   </item>
 
@@ -133,92 +143,14 @@
       <item
           android:id="@+id/contains"
           android:showAsAction="never"
-          android:title="@string/contains">
-        <menu>
-
-          <item
-              android:id="@id/red"
-              android:showAsAction="never"
-              android:title="@string/red" />
-
-          <item
-              android:id="@id/orange"
-              android:showAsAction="never"
-              android:title="@string/orange" />
-
-          <item
-              android:id="@+id/yellow"
-              android:showAsAction="never"
-              android:title="@string/yellow" />
-
-          <item
-              android:id="@id/cyan"
-              android:showAsAction="never"
-              android:title="@string/cyan" />
-
-          <item
-              android:id="@id/blue"
-              android:showAsAction="never"
-              android:title="@string/blue" />
-
-          <item
-              android:id="@id/purple"
-              android:showAsAction="never"
-              android:title="@string/purple" />
-
-          <item
-              android:id="@+id/magenta"
-              android:showAsAction="never"
-              android:title="@string/magenta" />
-
-        </menu>
-      </item>
+          android:title="@string/contains" />
 
       <item
           android:id="@+id/correct"
           android:showAsAction="never"
-          android:title="@string/correct">
-        <menu>
+          android:title="@string/correct" />
 
-          <item
-              android:id="@id/red"
-              android:showAsAction="never"
-              android:title="@string/red" />
-
-          <item
-              android:id="@id/orange"
-              android:showAsAction="never"
-              android:title="@string/orange" />
-
-          <item
-              android:id="@+id/green"
-              android:showAsAction="never"
-              android:title="@string/green" />
-
-          <item
-              android:id="@id/cyan"
-              android:showAsAction="never"
-              android:title="@string/cyan" />
-
-          <item
-              android:id="@id/blue"
-              android:showAsAction="never"
-              android:title="@string/blue" />
-
-          <item
-              android:id="@id/purple"
-              android:showAsAction="never"
-              android:title="@string/purple" />
-
-          <item
-              android:id="@id/magenta"
-              android:showAsAction="never"
-              android:title="@string/magenta" />
-
-        </menu>
-      </item>
     </menu>
-
   </item>
 
   <item

@@ -17,21 +17,23 @@
   <string name="italian">Italian</string>
   <string name="spanish">Spanish</string>
   <string name="catalan">Catalan</string>
+  <string name="french">French</string>
+  <string name="portuguese">Portuguese</string>
 
   <string name="theme">Theme</string>
   <string name="dark">Dark</string>
   <string name="blue">Blue</string>
   <string name="cyan">Cyan</string>
-  <string name="green">Green</string>
-  <string name="magenta">Magenta</string>
   <string name="orange">Orange</string>
   <string name="purple">Purple</string>
   <string name="red">Red</string>
-  <string name="yellow">Yellow</string>
 
   <string name="colour">Colour</string>
   <string name="contains">Contains</string>
   <string name="correct">Correct</string>
+
+  <string name="selectContains">Select contains colour</string>
+  <string name="selectCorrect">Select correct colour</string>
 
   <string name="press">Tap enter</string>
   <string name="finish">Finish the word first</string>
@@ -43,8 +45,13 @@
   <string name="version" formatted="false"><a
   href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nBuilt
   %s\n\nCopyright \u00A9 2022 <a
-  href="https://github.com/billthefarmer">Bill Farmer</a>\n\nDictionaries from <a href="https://github.com/lexica">Lexica</a>\nThemes from <a href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\n\nLicence
-  <a href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
+  href="https://github.com/billthefarmer">Bill
+  Farmer</a>\n\nDictionaries from <a
+  href="https://github.com/lexica">Lexica</a>\nThemes from <a
+  href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\nFrench
+  language and dictionary loader from <a
+  href="https://github.com/tatref">tatref</a>\n\nLicence <a
+  href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
   </string>
 
 </resources>
