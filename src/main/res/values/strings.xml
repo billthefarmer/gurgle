@@ -32,8 +32,12 @@
   <string name="contains">Contains</string>
   <string name="correct">Correct</string>
 
-  <string name="selectContains">Select contains colour</string>
-  <string name="selectCorrect">Select correct colour</string>
+  <string name="selectContains">
+    Select contains colour replacing yellow
+  </string>
+  <string name="selectCorrect">
+    Select correct colour replacing green
+  </string>
 
   <string name="press">Tap enter</string>
   <string name="finish">Finish the word first</string>
