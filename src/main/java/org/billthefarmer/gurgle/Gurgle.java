@@ -927,12 +927,7 @@ public class Gurgle extends Activity
     // setLanguage
     private void setLanguage()
     {
-        try {
-            InputStream fi = getAssets().open(language + ".txt");
-            Words.setLanguage(language, fi);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Words.setLanguage(this, language);
 
         switch (language)
         {

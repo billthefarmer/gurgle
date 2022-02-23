@@ -27,7 +27,7 @@ android {
 
     defaultConfig {
         applicationId "org.billthefarmer.gurgle"
-        minSdkVersion 16
+        minSdkVersion 14
         targetSdkVersion 28
         versionName "1.02"
         versionCode 102

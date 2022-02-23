@@ -23,6 +23,7 @@
 
 package org.billthefarmer.gurgle;
 
+import android.content.Context;
 import android.util.Base64;
 import android.util.Log;
 
@@ -30,9 +31,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Deque;
 import java.util.HashSet;
@@ -45,6 +47,13 @@ public class Words
 {
     // TAG
     public static final String TAG = "Words";
+
+    public static final String WORDS_FILE   = "Words.txt";
+    public static final String ENGLISH_FILE = "English.txt";
+    public static final String ITALIAN_FILE = "Italian.txt";
+    public static final String SPANISH_FILE = "Spanish.txt";
+    public static final String CATALAN_FILE = "Catalan.txt";
+    public static final String FRENCH_FILE  = "French.txt";
 
     private static final int MAX_USED = 256;
 
@@ -87,19 +96,66 @@ public class Words
         return false;
     }
 
-    // setLanguage
-    public static void setLanguage(int l, InputStream fi) throws IOException {
+    public static void setLanguage(Context context, int l)
+    {
+        String file = WORDS_FILE;
         language = l;
-        BufferedReader reader = new BufferedReader(new InputStreamReader(fi));
 
-        guess = new ArrayList<String>();
-        String line;
-        while ((line = reader.readLine()) != null)
+        switch (language)
         {
-            guess.add(line);
+        case Gurgle.ENGLISH:
+            file = WORDS_FILE;
+            break;
+
+        case Gurgle.ITALIAN:
+            file = ITALIAN_FILE;
+            break;
+
+        case Gurgle.SPANISH:
+            file = SPANISH_FILE;
+            break;
+
+        case Gurgle.CATALAN:
+            file = CATALAN_FILE;
+            break;
+
+        case Gurgle.FRENCH:
+            file = FRENCH_FILE;
+            break;
         }
 
-        words = new HashSet<String>(guess);
+        guess = new ArrayList<String>();
+        readWords(context, file, guess);
+
+        switch (language)
+        {
+        default:
+            words = new HashSet<String>(guess);
+            break;
+
+        case Gurgle.ENGLISH:
+            words = new HashSet<String>(guess);
+            readWords(context, ENGLISH_FILE, words);
+            break;
+        }
+    }
+
+    // readWords
+    private static void readWords(Context context, String file,
+                                  Collection<String> collection)
+    {
+        try (BufferedReader reader = new BufferedReader
+             (new InputStreamReader(context.getAssets().open(file))))
+        {
+            String line;
+            while ((line = reader.readLine()) != null)
+                collection.add(line);
+        }
+
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     // getCode
