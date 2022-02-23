@@ -130,11 +130,12 @@ public class Gurgle extends Activity
         R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
     };
 
-    public static final int ENGLISH = 0;
-    public static final int ITALIAN = 1;
-    public static final int SPANISH = 2;
-    public static final int CATALAN = 3;
-    public static final int FRENCH = 4;
+    public static final int ENGLISH    = 0;
+    public static final int ITALIAN    = 1;
+    public static final int SPANISH    = 2;
+    public static final int CATALAN    = 3;
+    public static final int FRENCH     = 4;
+    public static final int PORTUGUESE = 5;
 
     public static final int BITMAP_SCALE = 8;
 
@@ -441,6 +442,10 @@ public class Gurgle extends Activity
 
        case R.id.french:
            setLanguage(FRENCH);
+           break;
+
+       case R.id.portuguese:
+           setLanguage(PORTUGUESE);
            break;
 
         case R.id.dark:
@@ -950,6 +955,10 @@ public class Gurgle extends Activity
 
         case FRENCH:
             getActionBar().setSubtitle(R.string.french);
+            break;
+
+        case PORTUGUESE:
+            getActionBar().setSubtitle(R.string.portuguese);
             break;
         }
     }

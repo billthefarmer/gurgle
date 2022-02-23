@@ -48,12 +48,13 @@ public class Words
     // TAG
     public static final String TAG = "Words";
 
-    public static final String WORDS_FILE   = "Words.txt";
-    public static final String ENGLISH_FILE = "English.txt";
-    public static final String ITALIAN_FILE = "Italian.txt";
-    public static final String SPANISH_FILE = "Spanish.txt";
-    public static final String CATALAN_FILE = "Catalan.txt";
-    public static final String FRENCH_FILE  = "French.txt";
+    public static final String WORDS_FILE       = "Words.txt";
+    public static final String ENGLISH_FILE     = "English.txt";
+    public static final String ITALIAN_FILE     = "Italian.txt";
+    public static final String SPANISH_FILE     = "Spanish.txt";
+    public static final String CATALAN_FILE     = "Catalan.txt";
+    public static final String FRENCH_FILE      = "French.txt";
+    public static final String PORTUGUESE_FILE  = "Portuguese.txt";
 
     private static final int MAX_USED = 256;
 
@@ -121,6 +122,10 @@ public class Words
 
         case Gurgle.FRENCH:
             file = FRENCH_FILE;
+            break;
+
+        case Gurgle.PORTUGUESE:
+            file = PORTUGUESE_FILE;
             break;
         }
 

@@ -107,6 +107,11 @@
           android:showAsAction="never"
           android:title="@string/french" />
 
+      <item
+          android:id="@+id/portuguese"
+          android:showAsAction="never"
+          android:title="@string/portuguese" />
+
     </menu>
   </item>
 
