@@ -29,7 +29,6 @@ import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import java.util.ArrayDeque;
@@ -54,6 +53,7 @@ public class Words
     public static final String SPANISH_FILE     = "Spanish.txt";
     public static final String CATALAN_FILE     = "Catalan.txt";
     public static final String FRENCH_FILE      = "French.txt";
+    public static final String FRENCH_LONG      = "French-long.txt";
     public static final String PORTUGUESE_FILE  = "Portuguese.txt";
 
     private static final int MAX_USED = 256;
@@ -99,48 +99,41 @@ public class Words
 
     public static void setLanguage(Context context, int l)
     {
-        String file = WORDS_FILE;
+        guess = new ArrayList<String>();
         language = l;
 
         switch (language)
         {
         case Gurgle.ENGLISH:
-            file = WORDS_FILE;
+            readWords(context, WORDS_FILE, guess);
+            words = new HashSet<String>(guess);
+            readWords(context, ENGLISH_FILE, words);
             break;
 
         case Gurgle.ITALIAN:
-            file = ITALIAN_FILE;
+            readWords(context, ITALIAN_FILE, guess);
+            words = new HashSet<String>(guess);
             break;
 
         case Gurgle.SPANISH:
-            file = SPANISH_FILE;
+            readWords(context, SPANISH_FILE, guess);
+            words = new HashSet<String>(guess);
             break;
 
         case Gurgle.CATALAN:
-            file = CATALAN_FILE;
+            readWords(context, CATALAN_FILE, guess);
+            words = new HashSet<String>(guess);
             break;
 
         case Gurgle.FRENCH:
-            file = FRENCH_FILE;
+            readWords(context, FRENCH_FILE, guess);
+            words = new HashSet<String>(guess);
+            readWords(context, FRENCH_LONG, words);
             break;
 
         case Gurgle.PORTUGUESE:
-            file = PORTUGUESE_FILE;
-            break;
-        }
-
-        guess = new ArrayList<String>();
-        readWords(context, file, guess);
-
-        switch (language)
-        {
-        default:
+            readWords(context, PORTUGUESE_FILE, guess);
             words = new HashSet<String>(guess);
-            break;
-
-        case Gurgle.ENGLISH:
-            words = new HashSet<String>(guess);
-            readWords(context, ENGLISH_FILE, words);
             break;
         }
     }
