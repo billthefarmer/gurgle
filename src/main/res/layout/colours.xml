@@ -2,8 +2,7 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:gravity="center"
-    tools:ignore="ContentDescription">
+    android:gravity="center">
 
   <ImageView
       android:id="@+id/colours"
@@ -13,6 +12,7 @@
       android:layout_marginRight="8dp"
       android:layout_marginTop="8dp"
       android:layout_marginBottom="8dp"
-      android:src="@drawable/colours" />
+      android:src="@drawable/colours"
+      tools:ignore="ContentDescription" />
 
 </LinearLayout>
