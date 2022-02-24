@@ -32,6 +32,7 @@
   <string name="contains">Contains</string>
   <string name="correct">Correct</string>
 
+  <string name="reset">Reset</string>
   <string name="selectContains">
     Select contains colour replacing yellow
   </string>

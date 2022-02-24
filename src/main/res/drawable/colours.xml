@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+  <item
+      android:right="200dp">
+
+    <shape>
+
+      <corners
+          android:topLeftRadius="5dp"
+          android:bottomLeftRadius="5dp" />
+
+      <gradient
+          android:angle="0"
+          android:centerX="50%"
+          android:centerY="50%"
+          android:centerColor="#ffffff00"
+          android:endColor="#ff00ff00"
+          android:startColor="#ffff0000"
+          android:type="linear" />
+
+      <size
+          android:width="100dp"
+          android:height="50dp" />
+
+    </shape>
+
+  </item>
+
+  <item
+      android:left="100dp"
+      android:right="100dp">
+
+    <shape>
+
+      <gradient
+          android:angle="0"
+          android:centerX="50%"
+          android:centerY="50%"
+          android:centerColor="#ff00ffff"
+          android:endColor="#ff0000ff"
+          android:startColor="#ff00ff00"
+          android:type="linear" />
+
+      <size
+          android:width="100dp"
+          android:height="50dp" />
+
+    </shape>
+
+  </item>
+
+  <item
+      android:left="200dp">
+
+    <shape>
+
+      <corners
+          android:topRightRadius="5dp"
+          android:bottomRightRadius="5dp" />
+
+      <gradient
+          android:angle="0"
+          android:centerX="50%"
+          android:centerY="50%"
+          android:centerColor="#ffff00ff"
+          android:endColor="#ffff0000"
+          android:startColor="#ff0000ff"
+          android:type="linear" />
+
+      <size
+          android:width="100dp"
+          android:height="50dp" />
+
+    </shape>
+
+  </item>
+
+</layer-list>

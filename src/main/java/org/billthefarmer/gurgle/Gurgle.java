@@ -38,6 +38,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -48,12 +50,14 @@ import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -947,9 +951,9 @@ public class Gurgle extends Activity
     // contains
     private void contains()
     {
-        colourDialog(R.string.selectContains, (dialog, id) ->
+        colourDialog(R.string.selectContains, YELLOW, (dialog, id) ->
         {
-            contains = getColour(id + 2);
+            contains = getColour(id);
 
             if (BuildConfig.DEBUG)
                 Log.d(TAG, String.format(Locale.getDefault(),
@@ -960,9 +964,9 @@ public class Gurgle extends Activity
     // correct
     private void correct()
     {
-        colourDialog(R.string.selectCorrect, (dialog, id) ->
+        colourDialog(R.string.selectCorrect, GREEN, (dialog, id) ->
         {
-            correct = getColour(id + 2);
+            correct = getColour(id);
 
             if (BuildConfig.DEBUG)
                 Log.d(TAG, String.format(Locale.getDefault(),
@@ -972,15 +976,41 @@ public class Gurgle extends Activity
     }
 
     // colourDialog
-    private void colourDialog(int title,
+    private void colourDialog(int title, int resetColour,
                               DialogInterface.OnClickListener listener)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setIcon(R.drawable.ic_launcher);
-        builder.setItems(R.array.colours, listener);
+        View view = ((LayoutInflater) builder.getContext()
+                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+            .inflate(R.layout.colours, null);
+        builder.setView(view);
+        builder.setNeutralButton(R.string.reset, (dialog, id) ->
+        {
+            listener.onClick(null, resetColour);
+        });
         builder.setNegativeButton(android.R.string.cancel, null);
         Dialog dialog = builder.show();
+        view = dialog.findViewById(R.id.colours);
+        view.setOnTouchListener((v, event) ->
+        {
+            int x = (int) event.getX();
+            int y = (int) event.getY();
+            int width = v.getWidth();
+            int colours[] = {RED, YELLOW, GREEN, CYAN, BLUE, MAGENTA, RED};
+            int index = x * colours.length / width;
+            int colour = colours[index];
+
+            if (BuildConfig.DEBUG)
+                Log.d(TAG, String.format(Locale.getDefault(),
+                                         "Colour %d %d %d", x, y, colour));
+
+            listener.onClick(null, colour);
+            dialog.dismiss();
+
+            return false;
+        });
     }
 
     // getColour
