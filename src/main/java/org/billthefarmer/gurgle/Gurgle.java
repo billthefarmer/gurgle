@@ -38,8 +38,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -951,26 +949,18 @@ public class Gurgle extends Activity
     // contains
     private void contains()
     {
-        colourDialog(R.string.selectContains, YELLOW, (dialog, id) ->
+        colourDialog(R.string.selectContains, getColour(YELLOW), (dialog, c) ->
         {
-            contains = getColour(id);
-
-            if (BuildConfig.DEBUG)
-                Log.d(TAG, String.format(Locale.getDefault(),
-                                         "Contains %d, #%x", id, contains));
+            contains = c;
         });
     }
 
     // correct
     private void correct()
     {
-        colourDialog(R.string.selectCorrect, GREEN, (dialog, id) ->
+        colourDialog(R.string.selectCorrect, getColour(GREEN), (dialog, c) ->
         {
-            correct = getColour(id);
-
-            if (BuildConfig.DEBUG)
-                Log.d(TAG, String.format(Locale.getDefault(),
-                                         "Correct %d, #%x", id, correct));
+            correct = c;
         });
 
     }
@@ -982,29 +972,37 @@ public class Gurgle extends Activity
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
         builder.setIcon(R.drawable.ic_launcher);
+
         View view = ((LayoutInflater) builder.getContext()
                      .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
             .inflate(R.layout.colours, null);
         builder.setView(view);
+
         builder.setNeutralButton(R.string.reset, (dialog, id) ->
         {
             listener.onClick(null, resetColour);
         });
+
         builder.setNegativeButton(android.R.string.cancel, null);
         Dialog dialog = builder.show();
+
         view = dialog.findViewById(R.id.colours);
         view.setOnTouchListener((v, event) ->
         {
             int x = (int) event.getX();
             int y = (int) event.getY();
+
             int width = v.getWidth();
-            int colours[] = {RED, YELLOW, GREEN, CYAN, BLUE, MAGENTA, RED};
-            int index = x * colours.length / width;
-            int colour = colours[index];
+            int height = v.getHeight();
+            Bitmap bitmap = Bitmap.createBitmap(width, height,
+                                                Bitmap.Config.ARGB_8888);
+            Canvas canvas = new Canvas(bitmap);
+            v.draw(canvas);
+            int colour = bitmap.getPixel(x, y);
 
             if (BuildConfig.DEBUG)
                 Log.d(TAG, String.format(Locale.getDefault(),
-                                         "Colour %d %d %d", x, y, colour));
+                                         "Colour %d %d %x", x, y, colour));
 
             listener.onClick(null, colour);
             dialog.dismiss();
