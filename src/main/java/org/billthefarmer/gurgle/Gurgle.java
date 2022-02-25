@@ -101,8 +101,6 @@ public class Gurgle extends Activity
     public static final String LETTER = "letter";
     public static final String LETTERS = "letters";
     public static final String COLOURS = "colours";
-    public static final String CORRECT  = "correct";;
-    public static final String CONTAINS = "contains";
     public static final String KEY_COLOURS = "keyColours";
     public static final String GURGLE_IMAGE = "Gurgle.png";
     public static final String CODE_IMAGE = "Code.png";
@@ -112,6 +110,8 @@ public class Gurgle extends Activity
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
     public static final String PREF_LANG = "pref_lang";
+    public static final String PREF_CONT = "pref_cont";
+    public static final String PREF_CORR = "pref_corr";
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
@@ -172,6 +172,8 @@ public class Gurgle extends Activity
 
         theme = preferences.getInt(PREF_THEME, DARK);
         language = preferences.getInt(PREF_LANG, ENGLISH);
+        contains = preferences.getInt(PREF_CONT, getColour(YELLOW));
+        correct = preferences.getInt(PREF_CORR, getColour(GREEN));
 
         switch (theme)
         {
@@ -246,8 +248,6 @@ public class Gurgle extends Activity
             row = savedInstanceState.getInt(ROW);
             word = savedInstanceState.getString(WORD);
             letter = savedInstanceState.getInt(LETTER);
-            correct = savedInstanceState.getInt(CORRECT);
-            contains = savedInstanceState.getInt(CONTAINS);
             solved = savedInstanceState.getBoolean(SOLVED);
 
             List<String> letters =
@@ -312,8 +312,6 @@ public class Gurgle extends Activity
         }
 
         word = Words.getWord();
-        contains = getColour(YELLOW);
-        correct = getColour(GREEN);
         solved = false;
         letter = 0;
         row = 0;
@@ -328,8 +326,6 @@ public class Gurgle extends Activity
         row = savedInstanceState.getInt(ROW);
         word = savedInstanceState.getString(WORD);
         letter = savedInstanceState.getInt(LETTER);
-        correct = savedInstanceState.getInt(CORRECT);
-        contains = savedInstanceState.getInt(CONTAINS);
         solved = savedInstanceState.getBoolean(SOLVED);
 
         List<String> letters =
@@ -369,6 +365,8 @@ public class Gurgle extends Activity
 
         editor.putInt(PREF_THEME, theme);
         editor.putInt(PREF_LANG, language);
+        editor.putInt(PREF_CONT, contains);
+        editor.putInt(PREF_CORR, correct);
         editor.apply();
     }
 
@@ -381,8 +379,6 @@ public class Gurgle extends Activity
         outState.putInt(ROW, row);
         outState.putString(WORD, word);
         outState.putInt(LETTER, letter);
-        outState.putInt(CORRECT, correct);
-        outState.putInt(CONTAINS, contains);
         outState.putBoolean(SOLVED, solved);
 
         ArrayList<String> letterList = new ArrayList<String>();

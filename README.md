@@ -23,7 +23,8 @@ Letters which are in the word but in the wrong place will turn
 yellow. If they are in the right place they will turn green. If they
 are not in the word they will turn grey. Keep trying until you have
 guessed the word. The display will start again from the top if you run
-out of guesses.
+out of guesses. The colours may be changed by selecting **Highlight
+colours** in the menu.
 
 ## Refresh
 Tap the **Refresh** button in the toolbar to clear the display and
@@ -68,6 +69,15 @@ If the app is sent a code or a QR code image it will set a new
 sequence of words if the code is decoded successfully. This does not
 affect the current game. If a game is in progress tap the refresh
 button to start the new sequence.
+
+## Highlight colours
+A dialog will pop up showing two guesses, one containing some letters
+in the word in the wrong place and a correct guess, and two
+spectrums. Change the colour of the letters in the wrong place by
+tapping on the top spectrum, and the correct letters with the bottom
+spectrum.  The **Reset** button will restore the default colours, The
+**Cancel** button changes nothing, and the **OK** button accepts the
+changes.
 
 ## Cheat
 Use my [Crossword](https://github.com/billthefarmer/crossword) or

@@ -1,0 +1,2 @@
+ * Add French and Portuguese languages
+ * Add highlight colours choice
