@@ -124,6 +124,7 @@ public class Gurgle extends Activity
     public static final int PURPLE  = 7;
     public static final int RED     = 8;
     public static final int YELLOW  = 9;
+    public static final int GREY    = 0;
 
     public static final int REQUEST_IMAGE = 1;
 
@@ -502,12 +503,8 @@ public class Gurgle extends Activity
             help();
             break;
 
-        case R.id.contains:
-            contains();
-            break;
-
-        case R.id.correct:
-            correct();
+        case R.id.highlight:
+            highlight();
             break;
 
         case R.id.about:
@@ -946,31 +943,20 @@ public class Gurgle extends Activity
             recreate();
     }
 
-    // contains
-    private void contains()
+    // highlight
+    private void highlight()
     {
-        colourDialog(R.string.selectContains, getColour(YELLOW), (dialog, c) ->
-        {
-            contains = c;
-        });
+        colourDialog();
     }
 
-    // correct
-    private void correct()
-    {
-        colourDialog(R.string.selectCorrect, getColour(GREEN), (dialog, c) ->
-        {
-            correct = c;
-        });
-
-    }
+    private int tempCont = contains;
+    private int tempCorr = correct;
 
     // colourDialog
-    private void colourDialog(int title, int resetColour,
-                              DialogInterface.OnClickListener listener)
+    private void colourDialog()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title);
+        builder.setTitle(R.string.selectHighlight);
         builder.setIcon(R.drawable.ic_launcher);
 
         View view = ((LayoutInflater) builder.getContext()
@@ -980,14 +966,43 @@ public class Gurgle extends Activity
 
         builder.setNeutralButton(R.string.reset, (dialog, id) ->
         {
-            listener.onClick(null, resetColour);
+            contains = getColour(YELLOW);
+            correct = getColour(GREEN);
         });
 
         builder.setNegativeButton(android.R.string.cancel, null);
+        builder.setPositiveButton(android.R.string.ok, (dialog, id) ->
+        {
+            contains = tempCont;
+            correct = tempCorr;
+        });
+
         Dialog dialog = builder.show();
 
-        view = dialog.findViewById(R.id.colours);
-        view.setOnTouchListener((v, event) ->
+        ViewGroup those = (ViewGroup) dialog.findViewById(R.id.those);
+        for (int l = 0; l < those.getChildCount(); l++)
+        {
+            TextView t = (TextView) those.getChildAt(l);
+            switch (l)
+            {
+            case 0:
+            case 1:
+            case 4:
+                t.setTextColor(getColour(GREY));
+                break;
+
+            case 2:
+            case 3:
+                t.setTextColor(contains);
+                break;
+            }
+        }
+
+        ViewGroup words = (ViewGroup) dialog.findViewById(R.id.words);
+        for (int l = 0; l < words.getChildCount(); l++)
+            ((TextView) words.getChildAt(l)).setTextColor(correct);
+
+        View.OnTouchListener listener = (v, event) ->
         {
             int x = (int) event.getX();
             int y = (int) event.getY();
@@ -999,16 +1014,28 @@ public class Gurgle extends Activity
             Canvas canvas = new Canvas(bitmap);
             v.draw(canvas);
             int colour = bitmap.getPixel(x, y);
+            switch (v.getId())
+            {
+            case R.id.contains:
+                ((TextView) those.getChildAt(2)).setTextColor(colour);
+                ((TextView) those.getChildAt(3)).setTextColor(colour);
+                tempCont = colour;
+                break;
 
-            if (BuildConfig.DEBUG)
-                Log.d(TAG, String.format(Locale.getDefault(),
-                                         "Colour %d %d %x", x, y, colour));
-
-            listener.onClick(null, colour);
-            dialog.dismiss();
+            case R.id.correct:
+                for (int l = 0; l < words.getChildCount(); l++)
+                    ((TextView) words.getChildAt(l)).setTextColor(colour);
+                tempCorr = colour;
+                break;
+            }
 
             return false;
-        });
+        };
+
+        view = dialog.findViewById(R.id.contains);
+        view.setOnTouchListener(listener);
+        view = dialog.findViewById(R.id.correct);
+        view.setOnTouchListener(listener);
     }
 
     // getColour
@@ -1039,6 +1066,9 @@ public class Gurgle extends Activity
 
         case MAGENTA:
             return 0xffff00ff;
+
+        case GREY:
+            return 0x7fffffff;
         }
 
         return 0;

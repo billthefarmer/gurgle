@@ -28,16 +28,10 @@
   <string name="purple">Purple</string>
   <string name="red">Red</string>
 
-  <string name="colour">Colour</string>
-  <string name="contains">Contains</string>
-  <string name="correct">Correct</string>
-
+  <string name="highlight">Highlight colours</string>
   <string name="reset">Reset</string>
-  <string name="selectContains">
-    Select contains colour replacing yellow
-  </string>
-  <string name="selectCorrect">
-    Select correct colour replacing green
+  <string name="selectHighlight">
+    Select highlight colours
   </string>
 
   <string name="press">Tap enter</string>

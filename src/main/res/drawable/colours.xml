@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android" >
 
   <item
-      android:right="200dp">
+      android:right="160dp">
 
     <shape>
 
@@ -21,16 +21,16 @@
           android:type="linear" />
 
       <size
-          android:width="100dp"
-          android:height="50dp" />
+          android:width="80dp"
+          android:height="40dp" />
 
     </shape>
 
   </item>
 
   <item
-      android:left="100dp"
-      android:right="100dp">
+      android:left="80dp"
+      android:right="80dp">
 
     <shape>
 
@@ -44,15 +44,15 @@
           android:type="linear" />
 
       <size
-          android:width="100dp"
-          android:height="50dp" />
+          android:width="80dp"
+          android:height="40dp" />
 
     </shape>
 
   </item>
 
   <item
-      android:left="200dp">
+      android:left="160dp">
 
     <shape>
 
@@ -70,8 +70,8 @@
           android:type="linear" />
 
       <size
-          android:width="100dp"
-          android:height="50dp" />
+          android:width="80dp"
+          android:height="40dp" />
 
     </shape>
 

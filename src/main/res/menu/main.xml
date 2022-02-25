@@ -135,23 +135,9 @@
   </item>
 
   <item
-      android:id="@+id/colour"
+      android:id="@+id/highlight"
       android:showAsAction="never"
-      android:title="@string/colour">
-    <menu>
-
-      <item
-          android:id="@+id/contains"
-          android:showAsAction="never"
-          android:title="@string/contains" />
-
-      <item
-          android:id="@+id/correct"
-          android:showAsAction="never"
-          android:title="@string/correct" />
-
-    </menu>
-  </item>
+      android:title="@string/highlight" />
 
   <item
       android:id="@+id/about"
