@@ -945,8 +945,8 @@ public class Gurgle extends Activity
         colourDialog();
     }
 
-    private int tempCont = contains;
-    private int tempCorr = correct;
+    private int tempCont;
+    private int tempCorr;
 
     // colourDialog
     private void colourDialog()
@@ -975,23 +975,19 @@ public class Gurgle extends Activity
 
         Dialog dialog = builder.show();
 
+        int grey[] = {0, 1, 4};
         ViewGroup those = (ViewGroup) dialog.findViewById(R.id.those);
-        for (int l = 0; l < those.getChildCount(); l++)
+        for (int l: grey)
         {
             TextView t = (TextView) those.getChildAt(l);
-            switch (l)
-            {
-            case 0:
-            case 1:
-            case 4:
-                t.setTextColor(getColour(GREY));
-                break;
+            t.setTextColor(getColour(GREY));
+        }
 
-            case 2:
-            case 3:
-                t.setTextColor(contains);
-                break;
-            }
+        int cont[] = {2, 3};
+        for (int l: cont)
+        {
+            TextView t = (TextView) those.getChildAt(l);
+            t.setTextColor(contains);
         }
 
         ViewGroup words = (ViewGroup) dialog.findViewById(R.id.words);
@@ -1027,6 +1023,9 @@ public class Gurgle extends Activity
 
             return false;
         };
+
+        tempCont = contains;
+        tempCorr = correct;
 
         view = dialog.findViewById(R.id.contains);
         view.setOnTouchListener(listener);

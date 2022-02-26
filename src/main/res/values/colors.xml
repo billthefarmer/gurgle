@@ -2,6 +2,7 @@
 <resources>
 
   <!--  dark theme  -->
+  <color name="dark_background">#303030</color>
   <color name="dark_key_normal">#202020</color>
   <color name="dark_key_pressed">#444444</color>
   <color name="dark_box_background">@android:color/transparent</color>

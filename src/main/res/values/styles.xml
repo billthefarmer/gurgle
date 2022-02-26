@@ -30,6 +30,8 @@
         API-level can go here.
     -->
 
+    <item name="dialog_bgcolour">@color/dark_background</item>
+
     <item name="box_bgcolour">@color/dark_box_background</item>
     <item name="box_bdcolour">@color/dark_box_border</item>
     <item name="key_normal">@color/dark_key_normal</item>
@@ -46,6 +48,7 @@
 
     <item name="android:windowBackground">@color/cyan_background</item>
     <item name="android:actionBarStyle">@style/ActionBarCyanStyle</item>
+    <item name="dialog_bgcolour">@color/cyan_action_bar</item>
 
     <item name="box_bgcolour">@color/cyan_box_background</item>
     <item name="box_bdcolour">@color/cyan_box_border</item>
@@ -63,7 +66,8 @@
 
     <item name="android:windowBackground">@color/blue_background</item>
     <item name="android:actionBarStyle">@style/ActionBarBlueStyle</item>
-    
+    <item name="dialog_bgcolour">@color/blue_background</item>
+
     <item name="box_bgcolour">@color/blue_box_background</item>
     <item name="box_bdcolour">@color/blue_box_border</item>
     <item name="key_normal">@color/blue_key_normal</item>
@@ -80,7 +84,8 @@
 
     <item name="android:windowBackground">@color/orange_background</item>
     <item name="android:actionBarStyle">@style/ActionBarOrangeStyle</item>
-    
+    <item name="dialog_bgcolour">@color/orange_action_bar</item>
+
     <item name="box_bgcolour">@color/orange_box_background</item>
     <item name="box_bdcolour">@color/orange_box_border</item>
     <item name="key_normal">@color/orange_key_normal</item>
@@ -97,6 +102,7 @@
 
     <item name="android:windowBackground">@color/purple_background</item>
     <item name="android:actionBarStyle">@style/ActionBarPurpleStyle</item>
+    <item name="dialog_bgcolour">@color/purple_action_bar</item>
 
     <item name="box_bgcolour">@color/purple_box_background</item>
     <item name="box_bdcolour">@color/purple_box_border</item>
@@ -114,6 +120,7 @@
 
     <item name="android:windowBackground">@color/red_background</item>
     <item name="android:actionBarStyle">@style/ActionBarRedStyle</item>
+    <item name="dialog_bgcolour">@color/red_action_bar</item>
 
     <item name="box_bgcolour">@color/red_box_background</item>
     <item name="box_bdcolour">@color/red_box_border</item>

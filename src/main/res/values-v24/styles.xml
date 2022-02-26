@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <!--
+      Base application theme for API 24+. This theme completely replaces
+      AppBaseTheme from BOTH res/values/styles.xml and
+      res/values-v11/styles.xml on API 24+ devices.
+  -->
+  <style name="AppBaseTheme" parent="android:Theme.Material">
+    <!-- API 24 theme customizations can go here. -->
+
+    <item name="android:colorBackgroundFloating">
+      ?attr/dialog_bgcolour
+    </item>
+    <item name="android:textAppearanceLarge">
+      @style/textAppearanceLargeBold
+    </item>
+
+  </style>
+
+</resources>
