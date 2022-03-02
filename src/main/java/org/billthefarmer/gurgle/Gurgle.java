@@ -945,9 +945,6 @@ public class Gurgle extends Activity
         colourDialog();
     }
 
-    private int tempCont;
-    private int tempCorr;
-
     // colourDialog
     private void colourDialog()
     {
@@ -969,8 +966,14 @@ public class Gurgle extends Activity
         builder.setNegativeButton(android.R.string.cancel, null);
         builder.setPositiveButton(android.R.string.ok, (dialog, id) ->
         {
-            contains = tempCont;
-            correct = tempCorr;
+            ViewGroup those = (ViewGroup) ((Dialog) dialog)
+                .findViewById(R.id.those);
+            ViewGroup words = (ViewGroup) ((Dialog) dialog)
+                .findViewById(R.id.words);
+            contains = ((TextView) those.getChildAt(2)).getTextColors()
+                .getDefaultColor();
+            correct = ((TextView) words.getChildAt(0)).getTextColors()
+                .getDefaultColor();
         });
 
         Dialog dialog = builder.show();
@@ -1011,21 +1014,16 @@ public class Gurgle extends Activity
             case R.id.contains:
                 ((TextView) those.getChildAt(2)).setTextColor(colour);
                 ((TextView) those.getChildAt(3)).setTextColor(colour);
-                tempCont = colour;
                 break;
 
             case R.id.correct:
                 for (int l = 0; l < words.getChildCount(); l++)
                     ((TextView) words.getChildAt(l)).setTextColor(colour);
-                tempCorr = colour;
                 break;
             }
 
             return false;
         };
-
-        tempCont = contains;
-        tempCorr = correct;
 
         view = dialog.findViewById(R.id.contains);
         view.setOnTouchListener(listener);
