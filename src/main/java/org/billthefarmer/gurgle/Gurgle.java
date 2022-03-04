@@ -576,6 +576,12 @@ public class Gurgle extends Activity
     // decodeImage
     private boolean decodeImage(Bitmap bitmap)
     {
+        if ( Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+        {
+            showToast(R.string.notRecognised);
+            return false;
+        }
+
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
 
