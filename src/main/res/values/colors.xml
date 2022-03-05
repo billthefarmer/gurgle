@@ -49,4 +49,8 @@
   <color name="purple_box_background">#9d79b1</color>
   <color name="purple_box_border">#180e1d</color>
 
+  <!--  black theme  -->
+  <color name="black_background">@android:color/black</color>
+  <color name="black_box_border">@android:color/white</color>
+
 </resources>

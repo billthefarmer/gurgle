@@ -115,6 +115,7 @@ public class Gurgle extends Activity
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
+    public static final int GREY    = 0;
     public static final int DARK    = 1;
     public static final int BLUE    = 2;
     public static final int CYAN    = 3;
@@ -124,7 +125,7 @@ public class Gurgle extends Activity
     public static final int PURPLE  = 7;
     public static final int RED     = 8;
     public static final int YELLOW  = 9;
-    public static final int GREY    = 0;
+    public static final int BLACK   = 10;
 
     public static final int REQUEST_IMAGE = 1;
 
@@ -200,6 +201,10 @@ public class Gurgle extends Activity
 
         case RED:
             setTheme(R.style.AppRedTheme);
+            break;
+
+        case BLACK:
+            setTheme(R.style.AppBlackTheme);
             break;
         }
 
@@ -461,6 +466,10 @@ public class Gurgle extends Activity
 
         case R.id.red:
             theme(RED);
+            break;
+
+        case R.id.black:
+            theme(BLACK);
             break;
 
         case R.id.english:
