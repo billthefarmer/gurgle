@@ -1042,29 +1042,11 @@ public class Gurgle extends Activity
     {
         switch (c)
         {
-        case RED:
-            return 0xffff0000;
-
         case YELLOW:
             return 0xffffff00;
 
-        case ORANGE:
-            return 0xffffa500;
-
         case GREEN:
             return 0xff00ff00;
-
-        case BLUE:
-            return 0xff0000ff;
-
-        case CYAN:
-            return 0xff00ffff;
-
-        case PURPLE:
-            return 0xff800080;
-
-        case MAGENTA:
-            return 0xffff00ff;
 
         case GREY:
             return 0x7fffffff;
