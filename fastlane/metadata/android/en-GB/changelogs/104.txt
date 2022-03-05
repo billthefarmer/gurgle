@@ -1,0 +1,2 @@
+ * Update dialog styles
+ * Update android version
