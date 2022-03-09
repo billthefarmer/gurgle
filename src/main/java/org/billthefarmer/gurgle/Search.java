@@ -81,6 +81,10 @@ public class Search extends Activity
         case Gurgle.RED:
             setTheme(R.style.AppRedTheme);
             break;
+
+        case Gurgle.BLACK:
+            setTheme(R.style.AppBlackTheme);
+            break;
         }
 
         // Set content
