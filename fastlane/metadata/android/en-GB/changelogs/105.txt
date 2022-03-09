@@ -1,0 +1,2 @@
+ * Add black theme
+ * Update guess checking

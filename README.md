@@ -15,8 +15,7 @@ Fairly simple android word game.
 ## Guess those words
 Tap letters on the keyboard to enter a guess. Use the **Back** key to
 backspace. When you have finished a guess, tap the **Enter** key. If
-you have guessed the word correctly, tap the **Gurgle** icon for the
-definition of the word.
+you have guessed the word correctly, tap it for it's definition.
 
 ## Display colours
 Letters which are in the word but in the wrong place will turn
