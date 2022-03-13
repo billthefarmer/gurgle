@@ -497,6 +497,12 @@
 
     </LinearLayout>
 
+    <Space
+        android:id="@+id/space"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <LinearLayout
         android:id="@+id/keyboard"
         android:layout_width="wrap_content"
@@ -957,7 +963,7 @@
     </LinearLayout>
 
     <Space
-        android:id="@+id/space"
+        android:id="@+id/pad"
         android:layout_width="fill_parent"
         android:layout_height="48dp"
         android:layout_marginTop="8dp"
