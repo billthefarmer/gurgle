@@ -96,6 +96,7 @@ public class Gurgle extends Activity
     public static final String TAG = "Gurgle";
     public static final String ROW = "row";
     public static final String KEYS = "keys";
+    public static final String DATA = "data";
     public static final String WORD = "word";
     public static final String SOLVED = "solved";
     public static final String LETTER = "letter";
@@ -576,8 +577,7 @@ public class Gurgle extends Activity
     {
         if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK)
         {
-            Bundle extras = data.getExtras();
-            Bitmap bitmap = (Bitmap) extras.get("data");
+            Bitmap bitmap = data.getParcelableExtra(DATA);
             decodeImage(bitmap);
         }
     }
