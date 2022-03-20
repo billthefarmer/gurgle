@@ -686,10 +686,12 @@ public class Gurgle extends Activity
         {
             String guessLetter = guess.substring(i, i + 1);
             TextView key = keyboard.get(guessLetter);
+            TextView let = display[row][i];
 
             if (test.toString().contains(guessLetter))
             {
-                display[row][i].setTextColor(contains);
+                if (let.getTextColors().getDefaultColor() != correct)
+                    let.setTextColor(contains);
                 if (key.getTextColors().getDefaultColor() != correct)
                     key.setTextColor(contains);
                 int index = test.indexOf(guessLetter);
@@ -698,7 +700,9 @@ public class Gurgle extends Activity
 
             else
             {
-                display[row][i].setTextColor(getColour(GREY));
+                if (let.getTextColors().getDefaultColor() != correct &&
+                    let.getTextColors().getDefaultColor() != contains)
+                    let.setTextColor(getColour(GREY));
                 if (key.getTextColors().getDefaultColor() != correct &&
                     key.getTextColors().getDefaultColor() != contains)
                     key.setTextColor(getColour(GREY));
