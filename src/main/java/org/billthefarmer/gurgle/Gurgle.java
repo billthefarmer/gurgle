@@ -667,7 +667,7 @@ public class Gurgle extends Activity
         if (word.contentEquals(guess))
             solved = true;
 
-        StringBuffer test = new StringBuffer(word);
+        StringBuilder test = new StringBuilder(word);
         for (int i = 0; i < display[row].length; i++)
         {
             String testLetter = test.substring(i, i + 1);
@@ -678,10 +678,16 @@ public class Gurgle extends Activity
             {
                 display[row][i].setTextColor(correct);
                 key.setTextColor(correct);
-                test.replace(i, i+ 1, ".");
+                test.replace(i, i + 1, ".");
             }
+        }
 
-            else if (test.indexOf(guessLetter) > -1)
+        for (int i = 0; i < display[row].length; i++)
+        {
+            String guessLetter = guess.substring(i, i + 1);
+            TextView key = keyboard.get(guessLetter);
+
+            if (test.toString().contains(guessLetter))
             {
                 display[row][i].setTextColor(contains);
                 if (key.getTextColors().getDefaultColor() != correct)
@@ -692,10 +698,10 @@ public class Gurgle extends Activity
 
             else
             {
-                display[row][i].setTextColor(0x7fffffff);
+                display[row][i].setTextColor(getColour(GREY));
                 if (key.getTextColors().getDefaultColor() != correct &&
                     key.getTextColors().getDefaultColor() != contains)
-                    key.setTextColor(0x7fffffff);
+                    key.setTextColor(getColour(GREY));
             }
         }
 
