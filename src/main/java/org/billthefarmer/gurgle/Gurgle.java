@@ -127,6 +127,7 @@ public class Gurgle extends Activity
     public static final int RED     = 8;
     public static final int YELLOW  = 9;
     public static final int BLACK   = 10;
+    public static final int WHITE   = 11;
 
     public static final int REQUEST_IMAGE = 1;
 
@@ -673,10 +674,11 @@ public class Gurgle extends Activity
             String testLetter = test.substring(i, i + 1);
             String guessLetter = guess.substring(i, i + 1);
             TextView key = keyboard.get(guessLetter);
+            TextView let = display[row][i];
 
             if (testLetter.contentEquals(guessLetter))
             {
-                display[row][i].setTextColor(correct);
+                let.setTextColor(correct);
                 key.setTextColor(correct);
                 test.replace(i, i + 1, ".");
             }
@@ -688,14 +690,15 @@ public class Gurgle extends Activity
             TextView key = keyboard.get(guessLetter);
             TextView let = display[row][i];
 
-            if (test.toString().contains(guessLetter))
+            if (test.toString().contains(guessLetter) &&
+                let.getTextColors().getDefaultColor() != correct)
             {
-                if (let.getTextColors().getDefaultColor() != correct)
-                    let.setTextColor(contains);
-                if (key.getTextColors().getDefaultColor() != correct)
-                    key.setTextColor(contains);
+                let.setTextColor(contains);
                 int index = test.indexOf(guessLetter);
                 test.replace(index, index + 1, ".");
+
+                if (key.getTextColors().getDefaultColor() != correct)
+                    key.setTextColor(contains);
             }
 
             else
@@ -714,7 +717,7 @@ public class Gurgle extends Activity
         for (TextView t: display[row])
         {
             t.setText("");
-            t.setTextColor(0xffffffff);
+            t.setTextColor(getColour(WHITE));
         }
     }
 
@@ -733,12 +736,12 @@ public class Gurgle extends Activity
             for (TextView t: r)
             {
                 t.setText("");
-                t.setTextColor(0xffffffff);
+                t.setTextColor(getColour(WHITE));
             }
         }
 
         for (TextView t: keyboard.values().toArray(new TextView[0]))
-                t.setTextColor(0xffffffff);
+                t.setTextColor(getColour(WHITE));
 
         word = Words.getWord();
         solved = false;
@@ -1071,6 +1074,9 @@ public class Gurgle extends Activity
     {
         switch (c)
         {
+        case WHITE:
+            return 0xffffffff;
+
         case YELLOW:
             return 0xffffff00;
 
