@@ -1,0 +1,3 @@
+ * Update German dictionaries
+ * Add success message and fanfare
+ * Add larger layouts
