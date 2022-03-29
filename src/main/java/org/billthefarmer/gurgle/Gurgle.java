@@ -681,7 +681,7 @@ public class Gurgle extends Activity
 
         if (word.contentEquals(guess))
         {
-            mediaPlayer = MediaPlayer.create(this, R.raw.lesson_complete);
+            mediaPlayer = MediaPlayer.create(this, R.raw.fanfare);
             mediaPlayer.start();
 
             showToast(R.string.congratulations, word);
