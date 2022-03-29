@@ -38,6 +38,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -55,7 +56,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -150,11 +150,15 @@ public class Gurgle extends Activity
     public static final int GERMAN     = 6;
 
     public static final int BITMAP_SCALE = 8;
+    public static final int LOOP_DELAY = 5000;
 
-    private TextView display[][];
+    private MediaPlayer mediaPlayer;
+
     private Map<String, TextView> keyboard;
+    private TextView display[][];
     private Toast toast;
     private String word;
+
     private boolean solved;
     private int language;
     private int contains;
@@ -367,6 +371,12 @@ public class Gurgle extends Activity
     {
         super.onPause();
 
+        if (mediaPlayer != null)
+        {
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
+
         SharedPreferences preferences =
             PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
@@ -437,6 +447,10 @@ public class Gurgle extends Activity
         {
         case R.id.refresh:
             refresh();
+            break;
+
+        case R.id.share:
+            share();
             break;
 
         case R.id.image:
@@ -666,7 +680,17 @@ public class Gurgle extends Activity
         }
 
         if (word.contentEquals(guess))
+        {
+            mediaPlayer = MediaPlayer.create(this, R.raw.paradise_island);
+            findViewById(R.id.layout).setOnClickListener((view) ->
+            {
+                if (mediaPlayer != null) mediaPlayer.stop();
+            });
+            mediaPlayer.start();
+
+            showToast(R.string.congratulations, word);
             solved = true;
+        }
 
         StringBuilder test = new StringBuilder(word);
         for (int i = 0; i < display[row].length; i++)
@@ -731,6 +755,9 @@ public class Gurgle extends Activity
     // refresh
     private void refresh()
     {
+        if (mediaPlayer != null)
+            mediaPlayer.stop();
+
         for (TextView r[]: display)
         {
             for (TextView t: r)
@@ -747,6 +774,13 @@ public class Gurgle extends Activity
         solved = false;
         letter = 0;
         row = 0;
+    }
+
+    // share
+    private void share()
+    {
+        if (mediaPlayer != null)
+            mediaPlayer.stop();
     }
 
     // shareImage
@@ -1197,10 +1231,23 @@ public class Gurgle extends Activity
     }
 
     // showToast
+    void showToast(int key, String s)
+    {
+        String format = getString(key);
+        String text = String.format(format, s);
+        showToast(text);
+    }
+
+    // showToast
     void showToast(int key)
     {
         String text = getString(key);
+        showToast(text);
+    }
 
+    // showToast
+    void showToast(String text)
+    {
         // Cancel the last one
         if (toast != null)
             toast.cancel();

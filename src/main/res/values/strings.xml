@@ -43,6 +43,10 @@
   <string name="newCode">New code set</string>
   <string name="notRecognised">Code not recognised</string>
 
+  <string name="congratulations">
+    Congratulations! You have guessed %s correctly
+  </string>
+
   <string name="version" formatted="false"><a
   href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nBuilt
   %s\n\nCopyright \u00A9 2022 <a
