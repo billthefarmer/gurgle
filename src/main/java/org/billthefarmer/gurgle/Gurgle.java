@@ -681,11 +681,7 @@ public class Gurgle extends Activity
 
         if (word.contentEquals(guess))
         {
-            mediaPlayer = MediaPlayer.create(this, R.raw.paradise_island);
-            findViewById(R.id.layout).setOnClickListener((view) ->
-            {
-                if (mediaPlayer != null) mediaPlayer.stop();
-            });
+            mediaPlayer = MediaPlayer.create(this, R.raw.lesson_complete);
             mediaPlayer.start();
 
             showToast(R.string.congratulations, word);
