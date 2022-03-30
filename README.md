@@ -15,7 +15,7 @@ Fairly simple android word game.
 ## Guess those words
 Tap letters on the keyboard to enter a guess. Use the **Back** key to
 backspace. When you have finished a guess, tap the **Enter** key. If
-you have guessed the word correctly, music will play and a short
+you have guessed the word correctly, a fanfare will play and a short
 message will appear. Tap the word for it's definition.
 
 ## Display colours
