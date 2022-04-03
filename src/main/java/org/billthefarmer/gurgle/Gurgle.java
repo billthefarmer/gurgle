@@ -113,6 +113,7 @@ public class Gurgle extends Activity
     public static final String PREF_LANG = "pref_lang";
     public static final String PREF_CONT = "pref_cont";
     public static final String PREF_CORR = "pref_corr";
+    public static final String PREF_FARE = "pref_fare";
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
@@ -159,6 +160,7 @@ public class Gurgle extends Activity
     private Toast toast;
     private String word;
 
+    private boolean fanfare;
     private boolean solved;
     private int language;
     private int contains;
@@ -182,6 +184,7 @@ public class Gurgle extends Activity
         language = preferences.getInt(PREF_LANG, ENGLISH);
         contains = preferences.getInt(PREF_CONT, getColour(YELLOW));
         correct = preferences.getInt(PREF_CORR, getColour(GREEN));
+        fanfare = preferences.getBoolean(PREF_FARE, true);
 
         switch (theme)
         {
@@ -385,6 +388,7 @@ public class Gurgle extends Activity
         editor.putInt(PREF_LANG, language);
         editor.putInt(PREF_CONT, contains);
         editor.putInt(PREF_CORR, correct);
+        editor.putBoolean(PREF_FARE, fanfare);
         editor.apply();
     }
 
@@ -437,6 +441,15 @@ public class Gurgle extends Activity
         return true;
     }
 
+    // onPrepareOptionsMenu
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu)
+    {
+        menu.findItem(R.id.fanfare).setChecked(fanfare);
+
+        return true;
+    }
+
     // On options item selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -447,10 +460,6 @@ public class Gurgle extends Activity
         {
         case R.id.refresh:
             refresh();
-            break;
-
-        case R.id.share:
-            share();
             break;
 
         case R.id.image:
@@ -527,6 +536,10 @@ public class Gurgle extends Activity
 
         case R.id.help:
             help();
+            break;
+
+        case R.id.fanfare:
+            fanfare(item);
             break;
 
         case R.id.highlight:
@@ -650,7 +663,10 @@ public class Gurgle extends Activity
     // keyClicked
     public void keyClicked(View v)
     {
-        if (letter < display[row].length)
+        if (solved)
+            showToast(R.string.solved);
+
+        else if (letter < display[row].length)
         {
             CharSequence s = ((TextView)v).getText();
             display[row][letter++].setText(s);
@@ -681,8 +697,11 @@ public class Gurgle extends Activity
 
         if (word.contentEquals(guess))
         {
-            mediaPlayer = MediaPlayer.create(this, R.raw.fanfare);
-            mediaPlayer.start();
+            if (fanfare)
+            {
+                mediaPlayer = MediaPlayer.create(this, R.raw.fanfare);
+                mediaPlayer.start();
+            }
 
             showToast(R.string.congratulations, word);
             solved = true;
@@ -751,9 +770,6 @@ public class Gurgle extends Activity
     // refresh
     private void refresh()
     {
-        if (mediaPlayer != null)
-            mediaPlayer.stop();
-
         for (TextView r[]: display)
         {
             for (TextView t: r)
@@ -770,13 +786,6 @@ public class Gurgle extends Activity
         solved = false;
         letter = 0;
         row = 0;
-    }
-
-    // share
-    private void share()
-    {
-        if (mediaPlayer != null)
-            mediaPlayer.stop();
     }
 
     // shareImage
@@ -1164,6 +1173,13 @@ public class Gurgle extends Activity
             getActionBar().setSubtitle(R.string.german);
             break;
         }
+    }
+
+    // fanfare
+    private void fanfare(MenuItem item)
+    {
+        fanfare = !fanfare;
+        item.setChecked(fanfare);
     }
 
     // help
