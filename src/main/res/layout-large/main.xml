@@ -29,10 +29,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -45,10 +45,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -61,10 +61,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -77,10 +77,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -93,10 +93,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
@@ -119,10 +119,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -135,10 +135,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -151,10 +151,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -167,10 +167,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -183,10 +183,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
@@ -209,10 +209,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -225,10 +225,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -241,10 +241,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -257,10 +257,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -273,10 +273,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
@@ -299,10 +299,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -315,10 +315,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -331,10 +331,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -347,10 +347,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -363,10 +363,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
@@ -389,10 +389,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -405,10 +405,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -421,10 +421,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -437,10 +437,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -453,10 +453,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
@@ -479,10 +479,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -495,10 +495,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -511,10 +511,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -527,10 +527,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -543,10 +543,10 @@
         android:paddingTop="4dp"
         android:paddingBottom="4dp"
         android:background="@drawable/box"
-        android:minWidth="68dp"
-        android:minHeight="72dp"
+        android:minWidth="64dp"
+        android:minHeight="68dp"
         android:gravity="center"
-        android:textSize="36sp"
+        android:textSize="34sp"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </LinearLayout>
@@ -575,7 +575,7 @@
           android:layout_width="fill_parent"
           android:layout_height="wrap_content"
           android:gravity="center"
-          android:textSize="36sp"
+          android:textSize="34sp"
           android:orientation="horizontal"
           tools:ignore="HardcodedText">
 
@@ -588,11 +588,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="Q"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -605,11 +605,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="W"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -622,11 +622,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="E"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -639,11 +639,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="R"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -656,11 +656,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="T"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -673,11 +673,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="Y"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -690,11 +690,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="U"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -707,11 +707,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="I"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -724,11 +724,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="O"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -741,11 +741,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="P"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
       </LinearLayout>
@@ -756,7 +756,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="6dp"
           android:gravity="center"
-          android:textSize="36sp"
+          android:textSize="34sp"
           android:orientation="horizontal"
           tools:ignore="HardcodedText">
 
@@ -769,11 +769,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="A"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -786,11 +786,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="S"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -803,11 +803,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="D"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -820,11 +820,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="F"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -837,11 +837,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="G"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -854,11 +854,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="H"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -871,11 +871,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="J"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -888,11 +888,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="K"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -905,11 +905,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="L"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
       </LinearLayout>
@@ -920,7 +920,7 @@
           android:layout_height="wrap_content"
           android:layout_marginTop="6dp"
           android:gravity="center"
-          android:textSize="36sp"
+          android:textSize="34sp"
           android:orientation="horizontal"
           tools:ignore="HardcodedText">
 
@@ -932,10 +932,9 @@
             android:paddingRight="4dp"
             android:paddingTop="7dp"
             android:paddingBottom="7dp"
-            android:minWidth="85dp"
+            android:minWidth="79dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
             tools:ignore="ContentDescription"
             android:src="@drawable/ic_enter" />
 
@@ -949,11 +948,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="Z"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -966,11 +965,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="X"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -983,11 +982,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="C"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -1000,11 +999,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="V"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -1017,11 +1016,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="B"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -1034,11 +1033,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="N"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -1051,11 +1050,11 @@
             android:paddingTop="4dp"
             android:paddingBottom="4dp"
             android:text="M"
-            android:minWidth="54dp"
-            android:minHeight="62dp"
+            android:minWidth="52dp"
+            android:minHeight="60dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
+            android:textSize="34sp"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageView
@@ -1067,10 +1066,9 @@
             android:paddingRight="4dp"
             android:paddingTop="7dp"
             android:paddingBottom="7dp"
-            android:minWidth="85dp"
+            android:minWidth="79dp"
             android:background="@drawable/key"
             android:gravity="center"
-            android:textSize="36sp"
             tools:ignore="ContentDescription"
             android:src="@drawable/ic_backspace" />
 
