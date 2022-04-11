@@ -757,7 +757,26 @@ public class Gurgle extends Activity
         }
 
         letter = 0;
-        row = (row + 1) % ROWS.length;
+        if (row < ROWS.length - 1)
+            row++;
+
+        else if (!solved)
+            scroll();
+    }
+
+    // scroll
+    private void scroll()
+    {
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < display[i].length; j++)
+            {
+                display[i][j].setText(display[i + 1][j].getText());
+                display[i][j].setTextColor
+                    (display[i + 1][j].getTextColors().getDefaultColor());
+            }
+        }
+
         for (TextView t: display[row])
         {
             t.setText("");
