@@ -149,6 +149,7 @@ public class Gurgle extends Activity
     public static final int FRENCH     = 4;
     public static final int PORTUGUESE = 5;
     public static final int GERMAN     = 6;
+    public static final int DUTCH      = 7;
 
     public static final int BITMAP_SCALE = 8;
     public static final int LOOP_DELAY = 5000;
@@ -524,6 +525,10 @@ public class Gurgle extends Activity
 
         case R.id.german:
            setLanguage(GERMAN);
+           break;
+
+        case R.id.dutch:
+           setLanguage(DUTCH);
            break;
 
         case R.id.getText:
@@ -1171,6 +1176,10 @@ public class Gurgle extends Activity
 
         case GERMAN:
             getActionBar().setSubtitle(R.string.german);
+            break;
+
+        case DUTCH:
+            getActionBar().setSubtitle(R.string.dutch);
             break;
         }
     }
