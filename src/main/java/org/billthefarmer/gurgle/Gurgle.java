@@ -168,7 +168,6 @@ public class Gurgle extends Activity
     private int correct;
     private int letter;
     private int theme;
-    private int mode;
     private int row;
 
     // On create
@@ -253,7 +252,7 @@ public class Gurgle extends Activity
             for (int i = 0; i < group.getChildCount(); i++)
             {
                 display[row][i] = (TextView) group.getChildAt(i);
-                display[row][i].setOnClickListener((v) -> search());
+                display[row][i].setOnClickListener((v) -> search(v));
             }
 
             row++;
@@ -623,7 +622,7 @@ public class Gurgle extends Activity
     // decodeImage
     private boolean decodeImage(Bitmap bitmap)
     {
-        if ( Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N)
         {
             showToast(R.string.notRecognised);
             return false;
@@ -1218,7 +1217,7 @@ public class Gurgle extends Activity
     }
 
     // search
-    private void search()
+    private void search(View view)
     {
         if (!solved)
         {
@@ -1226,9 +1225,14 @@ public class Gurgle extends Activity
             return;
         }
 
+        StringBuilder builder = new StringBuilder();
+        ViewGroup group = (ViewGroup) view.getParent();
+        for (int i = 0; i < group.getChildCount(); i++)
+            builder.append(((TextView) group.getChildAt(i)).getText());
+
         // Start the web search
         Intent intent = new Intent(this, Search.class);
-        intent.putExtra(WORD, word.toLowerCase(Locale.getDefault()));
+        intent.putExtra(WORD, builder.toString().toLowerCase(Locale.getDefault()));
         startActivity(intent);
     }
 

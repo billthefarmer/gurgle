@@ -32,7 +32,8 @@ guess another word. Words are chosen at random from a list, and are
 checked that they haven't been used recently.
 
 ## Meaning
-Tap the word once it has been guessed to display the meaning.
+Tap any word once the puzzle has been solved to display the meaning of
+that word.
 
 ## Share
 ### Image

@@ -50,11 +50,14 @@ public class Words
     public static final String WORDS_FILE       = "Words.txt";
     public static final String ENGLISH_FILE     = "English.txt";
     public static final String ITALIAN_FILE     = "Italian.txt";
+    public static final String ITALIAN_LONG     = "Italian-long.txt";
     public static final String SPANISH_FILE     = "Spanish.txt";
+    public static final String SPANISH_LONG     = "Spanish-long.txt";
     public static final String CATALAN_FILE     = "Catalan.txt";
     public static final String FRENCH_FILE      = "French.txt";
     public static final String FRENCH_LONG      = "French-long.txt";
     public static final String PORTUGUESE_FILE  = "Portuguese.txt";
+    public static final String PORTUGUESE_LONG  = "Portuguese-long.txt";
     public static final String GERMAN_FILE      = "German.txt";
     public static final String GERMAN_LONG      = "German-long.txt";
     public static final String DUTCH_FILE       = "Dutch.txt";
@@ -116,11 +119,13 @@ public class Words
         case Gurgle.ITALIAN:
             readWords(context, ITALIAN_FILE, guess);
             words = new HashSet<String>(guess);
+            readWords(context, ITALIAN_LONG, words);
             break;
 
         case Gurgle.SPANISH:
             readWords(context, SPANISH_FILE, guess);
             words = new HashSet<String>(guess);
+            readWords(context, SPANISH_LONG, words);
             break;
 
         case Gurgle.CATALAN:
@@ -137,6 +142,7 @@ public class Words
         case Gurgle.PORTUGUESE:
             readWords(context, PORTUGUESE_FILE, guess);
             words = new HashSet<String>(guess);
+            readWords(context, PORTUGUESE_LONG, words);
             break;
 
         case Gurgle.GERMAN:
