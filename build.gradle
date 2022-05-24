@@ -29,8 +29,8 @@ android {
         applicationId "org.billthefarmer.gurgle"
         minSdkVersion 22
         targetSdkVersion 28
-        versionName "1.09"
-        versionCode 109
+        versionName "1.10"
+        versionCode 110
 
         buildConfigField "long", "BUILT", System.currentTimeMillis() + "L"
     }
