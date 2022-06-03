@@ -40,7 +40,7 @@
 
   <string name="press">Tap enter</string>
   <string name="finish">Finish the word first</string>
-  <string name="guess">Guess the word first</string>
+  <!--<string name="guess">Guess the word first</string>-->
   <string name="notListed">Not in word list</string>
   <string name="solved">Solved, tap refresh</string>
   <string name="newCode">New code set</string>

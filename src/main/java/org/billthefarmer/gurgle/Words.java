@@ -69,8 +69,6 @@ public class Words
     private static List<String> guess;
     private static Set<String> words;
 
-    private static int language = Gurgle.ENGLISH;
-
     private Words() {}
 
     // getWord
@@ -106,9 +104,8 @@ public class Words
     public static void setLanguage(Context context, int l)
     {
         guess = new ArrayList<String>();
-        language = l;
 
-        switch (language)
+        switch (l)
         {
         case Gurgle.ENGLISH:
             readWords(context, WORDS_FILE, guess);

@@ -1219,16 +1219,16 @@ public class Gurgle extends Activity
     // search
     private void search(View view)
     {
-        if (!solved)
-        {
-            showToast(R.string.guess);
-            return;
-        }
-
         StringBuilder builder = new StringBuilder();
         ViewGroup group = (ViewGroup) view.getParent();
         for (int i = 0; i < group.getChildCount(); i++)
             builder.append(((TextView) group.getChildAt(i)).getText());
+
+        if (builder.length() != group.getChildCount())
+        {
+            showToast(R.string.finish);
+            return;
+        }
 
         // Start the web search
         Intent intent = new Intent(this, Search.class);
