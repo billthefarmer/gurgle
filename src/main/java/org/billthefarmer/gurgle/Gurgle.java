@@ -137,11 +137,6 @@ public class Gurgle extends Activity
         R.id.keys1, R.id.keys2, R.id.keys3
     };
 
-    public static final int ROWS[] =
-    {
-        R.id.row1, R.id.row2, R.id.row3, R.id.row4, R.id.row5, R.id.row6
-    };
-
     public static final int ENGLISH    = 0;
     public static final int ITALIAN    = 1;
     public static final int SPANISH    = 2;
@@ -150,6 +145,9 @@ public class Gurgle extends Activity
     public static final int PORTUGUESE = 5;
     public static final int GERMAN     = 6;
     public static final int DUTCH      = 7;
+
+    public static final int SIZE = 5;
+    public static final int ROWS = 6;
 
     public static final int BITMAP_SCALE = 8;
     public static final int LOOP_DELAY = 5000;
@@ -243,19 +241,15 @@ public class Gurgle extends Activity
         view = findViewById(R.id.back);
         view.setOnClickListener((v) -> backspaceClicked(v));
 
-        display = new TextView[ROWS.length][];
-        int row = 0;
-        for (int id: ROWS)
-        {
-            ViewGroup group = (ViewGroup) findViewById(id);
-            display[row] = new TextView[group.getChildCount()];
-            for (int i = 0; i < group.getChildCount(); i++)
-            {
-                display[row][i] = (TextView) group.getChildAt(i);
-                display[row][i].setOnClickListener((v) -> search(v));
-            }
+        display = new TextView[ROWS][];
+        for (int i = 0; i < display.length; i++)
+            display[i] = new TextView[SIZE];
 
-            row++;
+        ViewGroup grid = (ViewGroup) findViewById(R.id.puzzle);
+        for (int i = 0; i < grid.getChildCount(); i++)
+        {
+            display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
+            display[i / SIZE][i % SIZE].setOnClickListener((v) -> search(v));
         }
 
         if (savedInstanceState != null)
@@ -272,7 +266,7 @@ public class Gurgle extends Activity
 
             for (int i = 0; i < letters.size(); i++)
             {
-                TextView text = display[i % display.length][i / display.length];
+                TextView text = display[i / SIZE][i % SIZE];
                 text.setText(letters.get(i));
                 text.setTextColor(colours.get(i));
             }
@@ -350,8 +344,7 @@ public class Gurgle extends Activity
 
         for (int i = 0; i < letters.size(); i++)
         {
-            TextView text = display[i / display[0].length]
-                [i % display[0].length];
+            TextView text = display[i / SIZE][i % SIZE];
             text.setText(letters.get(i));
             text.setTextColor(colours.get(i));
         }
@@ -756,7 +749,7 @@ public class Gurgle extends Activity
         }
 
         letter = 0;
-        if (row < ROWS.length - 1)
+        if (row < ROWS - 1)
             row++;
 
         else if (!solved)
@@ -1220,11 +1213,13 @@ public class Gurgle extends Activity
     private void search(View view)
     {
         StringBuilder builder = new StringBuilder();
-        ViewGroup group = (ViewGroup) view.getParent();
-        for (int i = 0; i < group.getChildCount(); i++)
-            builder.append(((TextView) group.getChildAt(i)).getText());
+        ViewGroup grid = (ViewGroup) view.getParent();
+        int row = grid.indexOfChild(view) / SIZE;
 
-        if (builder.length() != group.getChildCount())
+        for (int col = 0; col < SIZE; col++)
+            builder.append(((TextView) display[row][col]).getText());
+
+        if (builder.length() != SIZE)
         {
             showToast(R.string.finish);
             return;
