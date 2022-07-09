@@ -1,8 +1,6 @@
 # ![Logo](src/main/res/drawable-hdpi/ic_launcher.png) Gurgle [![.github/workflows/build.yml](https://github.com/billthefarmer/gurgle/actions/workflows/build.yml/badge.svg)](https://github.com/billthefarmer/gurgle/actions/workflows/build.yml)
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.svg"
-     alt="Get it on F-Droid"
-     height="80">](https://f-droid.org/packages/org.billthefarmer.gurgle/)
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.svg" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/org.billthefarmer.gurgle/)
 
 Fairly simple android word game.
 
