@@ -1139,7 +1139,7 @@ public class Gurgle extends Activity
             return 0xff00ff00;
 
         case GREY:
-            return 0x7fffffff;
+            return 0x3fffffff;
         }
 
         return 0;
@@ -1212,22 +1212,28 @@ public class Gurgle extends Activity
     // search
     private void search(View view)
     {
-        StringBuilder builder = new StringBuilder();
+        StringBuilder guess = new StringBuilder();
         ViewGroup grid = (ViewGroup) view.getParent();
         int row = grid.indexOfChild(view) / SIZE;
 
         for (int col = 0; col < SIZE; col++)
-            builder.append(((TextView) display[row][col]).getText());
+            guess.append(((TextView) display[row][col]).getText());
 
-        if (builder.length() != SIZE)
+        if (guess.length() != SIZE)
         {
             showToast(R.string.finish);
             return;
         }
 
+        if (!Words.isWord(guess.toString()))
+        {
+            showToast(R.string.notListed);
+            return;
+        }
+
         // Start the web search
         Intent intent = new Intent(this, Search.class);
-        intent.putExtra(WORD, builder.toString().toLowerCase(Locale.getDefault()));
+        intent.putExtra(WORD, guess.toString().toLowerCase(Locale.getDefault()));
         startActivity(intent);
     }
 

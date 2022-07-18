@@ -7,13 +7,13 @@
   <item
       android:id="@+id/refresh"
       android:icon="@drawable/ic_action_refresh"
-      android:showAsAction="always"
+      android:showAsAction="ifRoom"
       android:title="@string/refresh" />
 
   <item
       android:id="@+id/share"
       android:icon="@drawable/ic_action_share"
-      android:showAsAction="always"
+      android:showAsAction="ifRoom"
       android:title="@string/share">
     <menu>
 
@@ -33,7 +33,7 @@
   <item
       android:id="@+id/theme"
       android:icon="@drawable/ic_action_theme"
-      android:showAsAction="always"
+      android:showAsAction="ifRoom"
       android:title="@string/theme">
     <menu>
 
@@ -74,12 +74,6 @@
 
     </menu>
   </item>
-
-  <item
-      android:id="@+id/help"
-      android:icon="@drawable/ic_action_help"
-      android:showAsAction="ifRoom"
-      android:title="@string/help" />
 
   <item
       android:id="@+id/fanfare"
@@ -160,6 +154,12 @@
       android:id="@+id/highlight"
       android:showAsAction="never"
       android:title="@string/highlight" />
+
+  <item
+      android:id="@+id/help"
+      android:icon="@drawable/ic_action_help"
+      android:showAsAction="ifRoom"
+      android:title="@string/help" />
 
   <item
       android:id="@+id/about"
