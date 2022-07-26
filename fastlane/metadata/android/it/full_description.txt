@@ -1,0 +1,9 @@
+Indovina le parole
+
+Premi le lettere sulla tastiera per provare a indovinare. Usa il tasto Freccia indietro per cancellare. Quando hai finito premi il tasto Invio.
+
+Le lettere che sono nella parola ma sono nel posto sbagliato si coloreranno di giallo. Se sono nel posto giusto si coloreranno di verde. Se invece non sono nella parola si coloreranno di grigio. Continua a provare fino a quando non hai indovinato la parola.
+
+Premi il tasto Aggiorna sulla barra per ricominciare da capo con una nuova parola. Le parole sono scelte casualmente da una lsta e viene controllato che non siano state usate recentemente.
+
+Usa <a href="https://f-droid.org/packages/org.billthefarmer.crossword/">Crossword</a> per imbrogliare.
