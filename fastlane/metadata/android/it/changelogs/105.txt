@@ -1,0 +1,2 @@
+* Aggiunto tema scuro
+* Aggiornato il controllo degli indizi
