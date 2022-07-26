@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="appName">Gurgle</string>
+  <string name="help">Aiuto</string>
+  <string name="refresh">Aggiorna</string>
+  <string name="share">Condividi</string>
+  <string name="image">Immagine</string>
+  <string name="fanfare">Fanfara</string>
+  <string name="code">Codice</string>
+  <string name="qrCode">Codice QR</string>
+  <string name="getCode">Ottieni codice</string>
+  <string name="enterCode">Inserisci codice</string>
+  <string name="about">Informazioni</string>
+
+  <string name="language">Lingua</string>
+  <string name="english">Inglese</string>
+  <string name="italian">Italiano</string>
+  <string name="spanish">Spagnolo</string>
+  <string name="catalan">Catalano</string>
+  <string name="french">Francese</string>
+  <string name="portuguese">Portoghese</string>
+  <string name="german">Tedesco</string>
+  <string name="dutch">Olandese</string>
+
+  <string name="theme">Tema</string>
+  <string name="dark">Scuro</string>
+  <string name="blue">Blu</string>
+  <string name="cyan">Ciano</string>
+  <string name="orange">Arancione</string>
+  <string name="purple">Viola</string>
+  <string name="black">Nero</string>
+  <string name="red">Rosso</string>
+
+  <string name="highlight">Colore lettere</string>
+  <string name="reset">Ripristina</string>
+  <string name="selectHighlight">
+    Seleziona colore delle lettere
+  </string>
+
+  <string name="press">Premi Invio</string>
+  <string name="finish">Finisci la parola</string>
+  <!--<string name="guess">Guess the word first</string>-->
+  <string name="notListed">Non nella lista di parole</string>
+  <string name="solved">Risolto, premi Aggiorna</string>
+  <string name="newCode">Nuovo codice</string>
+  <string name="notRecognised">Codice non riconosciuto</string>
+
+  <string name="congratulations">
+    Congratulazioni! Hai indovinato %s correttamente
+  </string>
+
+  <string name="version" formatted="false"><a
+  href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nVersione del
+  %s\n\nCopyright \u00A9 2022 <a
+  href="https://github.com/billthefarmer">Bill
+  Farmer</a>\n\nDizionari da <a
+  href="https://github.com/lexica">Lexica</a>\nTemi da <a
+  href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\nTraduzione
+  e dizionario francese da <a
+  href="https://github.com/tatref">tatref</a> e <a
+  href="http://www.lexique.org">Lexique</a>\n\nLicenza <a
+  href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
+  </string>
+
+</resources>
