@@ -1,0 +1,2 @@
+* Aggiunto il supporto alle lingue spagnolo e catalano
+* Aggiunta la possibilità di condividere un codice per partite condivise

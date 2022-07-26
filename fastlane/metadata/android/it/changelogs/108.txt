@@ -1,0 +1,3 @@
+* Aggiornato dizionario tedesco
+* Aggiunto messaggio di congratulazioni e fanfara
+* Aggiunta una interfaccia più larga

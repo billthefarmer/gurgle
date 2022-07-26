@@ -1,0 +1,2 @@
+* Aggiornati gli stili dei dialoghi
+* Aggiornata versione di Android

@@ -1,0 +1,3 @@
+* Aggiunto supporto alla lingua olandese
+* Aggiunta possibilità di scrollare
+* Aggiunta opzione di attivazione della fanfara

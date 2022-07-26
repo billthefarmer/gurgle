@@ -1,0 +1,2 @@
+* Aggiunto supporto alla lingua tedesca
+* Aggiornato il controllo dei tentativi
