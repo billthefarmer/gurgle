@@ -1,0 +1,2 @@
+ * Aggiunto il supporto alle lingue francese e portoghese
+ * Aggiunta la possibilità di scegliere il colore delle lettere
