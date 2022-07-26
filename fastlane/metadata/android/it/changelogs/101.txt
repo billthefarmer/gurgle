@@ -1,0 +1,3 @@
+* Aggiunti temi colorati
+* Aggiunta la possibilità di mostrare il significato della parola
+* Aggiunto il supporto alla lingua italiana
