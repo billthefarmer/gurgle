@@ -1,0 +1,3 @@
+ * Aggiungi una traduzione completa in italiano
+ * Aggiornare il colore delle lettere in grigio
+ * Aggiornare il controllo della ricerca del significato delle parole

@@ -1,0 +1,3 @@
+ * Add comprehensive Italian translation
+ * Update colour of greyed out letters
+ * Update checking of word meaning search
