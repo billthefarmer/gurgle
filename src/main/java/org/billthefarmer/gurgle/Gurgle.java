@@ -98,6 +98,7 @@ public class Gurgle extends Activity
     public static final String KEYS = "keys";
     public static final String DATA = "data";
     public static final String WORD = "word";
+    public static final String LANG = "lang";
     public static final String SOLVED = "solved";
     public static final String LETTER = "letter";
     public static final String LETTERS = "letters";
@@ -1145,6 +1146,37 @@ public class Gurgle extends Activity
         return 0;
     }
 
+    private static String languageToString(int l)
+    {
+        switch (l)
+        {
+        default:
+        case ENGLISH:
+		return "en";
+
+        case ITALIAN:
+		return "it";
+
+        case SPANISH:
+		return "es";
+
+        case CATALAN:
+		return "ca";
+
+        case FRENCH:
+		return "fr";
+
+        case PORTUGUESE:
+		return "pt";
+
+        case GERMAN:
+		return "de";
+
+        case DUTCH:
+		return "nl";
+        }
+    }
+
     // setLanguage
     private void setLanguage(int l)
     {
@@ -1234,6 +1266,7 @@ public class Gurgle extends Activity
         // Start the web search
         Intent intent = new Intent(this, Search.class);
         intent.putExtra(WORD, guess.toString().toLowerCase(Locale.getDefault()));
+        intent.putExtra(LANG, languageToString(language));
         startActivity(intent);
     }
 
