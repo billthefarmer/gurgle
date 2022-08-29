@@ -34,7 +34,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Locale;
@@ -135,13 +134,17 @@ public class Search extends Activity
                 Intent intent = getIntent();
                 String lang = intent.getStringExtra(Gurgle.LANG);
                 String word = intent.getStringExtra(Gurgle.WORD);
+
 		try
 		{
-			word = URLEncoder.encode(word, StandardCharsets.UTF_8.toString());
+                    word = URLEncoder
+                        .encode(word, StandardCharsets.UTF_8.toString());
 		}
-		catch (UnsupportedEncodingException e) {}
 
-                String url = String.format(Locale.getDefault(), FORMAT, lang, word);
+		catch (Exception e) {}
+
+                String url = String.format(Locale.getDefault(),
+                                           FORMAT, lang, word);
 
                 // Do web search
                 webview.loadUrl(url);
