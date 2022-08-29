@@ -34,13 +34,16 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 // SearchActivity
 public class Search extends Activity
 {
     public static final String FORMAT =
-        "https://duckduckgo.com/?q=%s&ia=definition";
+        "https://%s.wiktionary.org/wiki/%s";
 
     private WebView webview;
 
@@ -130,8 +133,15 @@ public class Search extends Activity
             {
                 // Get the word from the intent and create url
                 Intent intent = getIntent();
+                String lang = intent.getStringExtra(Gurgle.LANG);
                 String word = intent.getStringExtra(Gurgle.WORD);
-                String url = String.format(Locale.getDefault(), FORMAT, word);
+		try
+		{
+			word = URLEncoder.encode(word, StandardCharsets.UTF_8.toString());
+		}
+		catch (UnsupportedEncodingException e) {}
+
+                String url = String.format(Locale.getDefault(), FORMAT, lang, word);
 
                 // Do web search
                 webview.loadUrl(url);
