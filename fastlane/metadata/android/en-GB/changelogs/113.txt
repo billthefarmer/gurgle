@@ -1,0 +1,1 @@
+ * Use Wictionary for word search

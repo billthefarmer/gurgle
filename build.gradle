@@ -29,8 +29,8 @@ android {
         applicationId "org.billthefarmer.gurgle"
         minSdkVersion 22
         targetSdkVersion 28
-        versionName "1.12"
-        versionCode 112
+        versionName "1.13"
+        versionCode 113
 
         buildConfigField "long", "BUILT", System.currentTimeMillis() + "L"
     }
@@ -48,6 +48,6 @@ android {
     }
 
     dependencies {
-	implementation 'com.google.zxing:core:3.4.1'
+	implementation 'com.google.zxing:core:3.5.0'
     }
 }
