@@ -24,6 +24,12 @@ guessed the word. The display will scroll up if you run out of
 guesses. The colours may be changed by selecting **Highlight colours**
 in the menu.
 
+## Lock letters
+Long press on a letter to lock it, which will turn it grey. Long press
+again to remove the lock. Locked letters will be skipped when entering
+and deleting letters. Long presses on letters not part of the current
+guess will be ignored.
+
 ## Refresh
 Tap the **Refresh** button in the toolbar to clear the display and
 guess another word. Words are chosen at random from a list, and are
