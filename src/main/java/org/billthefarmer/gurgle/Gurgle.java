@@ -101,6 +101,7 @@ public class Gurgle extends Activity
     public static final String LANG = "lang";
     public static final String SOLVED = "solved";
     public static final String LETTER = "letter";
+    public static final String LOCKED = "locked";
     public static final String LETTERS = "letters";
     public static final String COLOURS = "colours";
     public static final String KEY_COLOURS = "keyColours";
@@ -157,6 +158,7 @@ public class Gurgle extends Activity
 
     private Map<String, TextView> keyboard;
     private TextView display[][];
+    private boolean locked[];
     private Toast toast;
     private String word;
 
@@ -251,6 +253,7 @@ public class Gurgle extends Activity
         {
             display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
             display[i / SIZE][i % SIZE].setOnClickListener((v) -> search(v));
+            display[i / SIZE][i % SIZE].setOnLongClickListener((v) -> lock(v));
         }
 
         if (savedInstanceState != null)
@@ -259,6 +262,7 @@ public class Gurgle extends Activity
             word = savedInstanceState.getString(WORD);
             letter = savedInstanceState.getInt(LETTER);
             solved = savedInstanceState.getBoolean(SOLVED);
+            locked = savedInstanceState.getBooleanArray(LOCKED);
 
             List<String> letters =
                 savedInstanceState.getStringArrayList(LETTERS);
@@ -322,6 +326,8 @@ public class Gurgle extends Activity
         }
 
         word = Words.getWord();
+
+        locked = new boolean[SIZE];
         solved = false;
         letter = 0;
         row = 0;
@@ -337,6 +343,7 @@ public class Gurgle extends Activity
         word = savedInstanceState.getString(WORD);
         letter = savedInstanceState.getInt(LETTER);
         solved = savedInstanceState.getBoolean(SOLVED);
+        locked = savedInstanceState.getBooleanArray(LOCKED);
 
         List<String> letters =
             savedInstanceState.getStringArrayList(LETTERS);
@@ -396,6 +403,7 @@ public class Gurgle extends Activity
         outState.putString(WORD, word);
         outState.putInt(LETTER, letter);
         outState.putBoolean(SOLVED, solved);
+        outState.putBooleanArray(LOCKED, locked);
 
         ArrayList<String> letterList = new ArrayList<String>();
         ArrayList<Integer> colourList = new ArrayList<Integer>();
@@ -666,8 +674,14 @@ public class Gurgle extends Activity
 
         else if (letter < display[row].length)
         {
-            CharSequence s = ((TextView)v).getText();
-            display[row][letter++].setText(s);
+            if (locked[letter])
+                letter++;
+
+            if (letter < display[row].length)
+            {
+                CharSequence s = ((TextView)v).getText();
+                display[row][letter++].setText(s);
+            }
         }
 
         else
@@ -677,15 +691,15 @@ public class Gurgle extends Activity
     // enterClicked
     public void enterClicked(View v)
     {
-        if (letter != display[row].length)
+        StringBuilder guess = new StringBuilder();
+        for (TextView t: display[row])
+            guess.append(t.getText());
+
+        if (guess.length() != display[row].length)
         {
             showToast(R.string.finish);
             return;
         }
-
-        StringBuilder guess = new StringBuilder();
-        for (TextView t: display[row])
-            guess.append(t.getText());
 
         if (!Words.isWord(guess.toString()))
         {
@@ -750,6 +764,8 @@ public class Gurgle extends Activity
         }
 
         letter = 0;
+        locked = new boolean[SIZE];
+
         if (row < ROWS - 1)
             row++;
 
@@ -781,7 +797,12 @@ public class Gurgle extends Activity
     public void backspaceClicked(View v)
     {
         if (letter > 0)
-            display[row][--letter].setText("");
+        {
+            if (locked[--letter] && letter > 0)
+                letter--;
+            if (!locked[letter])
+                display[row][letter].setText("");
+        }
     }
 
     // refresh
@@ -1240,6 +1261,24 @@ public class Gurgle extends Activity
     {
         Intent intent = new Intent(this, Help.class);
         startActivity(intent);
+    }
+
+    // lock
+    private boolean lock(View view)
+    {
+        ViewGroup grid = (ViewGroup) view.getParent();
+        if (grid.indexOfChild(view) / SIZE != row)
+            return true;
+
+        if (((TextView) view).length() == 0)
+            return true;
+
+        int col = grid.indexOfChild(view) % SIZE;
+        locked[col] = !locked[col];
+
+        ((TextView) view).setTextColor(locked[col]? getColour(GREY):
+                                       getColour(WHITE));
+        return true;
     }
 
     // search
