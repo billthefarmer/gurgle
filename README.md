@@ -25,15 +25,10 @@ guesses. The colours may be changed by selecting **Highlight colours**
 in the menu.
 
 ## Lock letters
-Long press on a letter to lock it, which will turn it grey. Long press
-again to remove the lock. Locked letters will be skipped when entering
-and deleting letters. Long presses on letters not part of the current
-guess will pop up a menu as below.
-
-## Refresh
-Tap the **Refresh** button in the toolbar to clear the display and
-guess another word. Words are chosen at random from a list, and are
-checked that they haven't been used recently.
+Long press on a letter in the current guess to lock it, which will
+turn it grey. Long press again to remove the lock. Locked letters will
+be skipped when entering and deleting letters. Long presses on letters
+not part of the current guess will pop up a menu as below.
 
 ## Add accents
 Long press on a letter in a completed guess. This will show a pop-up
@@ -43,6 +38,11 @@ or accented letter.
 ## Meaning
 Tap any word to display the meaning of that word. Add any required
 accents as above.
+
+## Refresh
+Tap the **Refresh** button in the toolbar to clear the display and
+guess another word. Words are chosen at random from a list, and are
+checked that they haven't been used recently.
 
 ## Share
 ### Image
