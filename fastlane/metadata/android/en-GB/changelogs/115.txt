@@ -1,0 +1,2 @@
+ * Add letter lock
+ * Add accents pop-up menu
