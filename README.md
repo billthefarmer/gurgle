@@ -28,15 +28,21 @@ in the menu.
 Long press on a letter to lock it, which will turn it grey. Long press
 again to remove the lock. Locked letters will be skipped when entering
 and deleting letters. Long presses on letters not part of the current
-guess will be ignored.
+guess will pop up a menu as below.
 
 ## Refresh
 Tap the **Refresh** button in the toolbar to clear the display and
 guess another word. Words are chosen at random from a list, and are
 checked that they haven't been used recently.
 
+## Add accents
+Long press on a letter in a completed guess. This will show a pop-up
+menu of unaccented and accented letters. Pick the required unaccented
+or accented letter.
+
 ## Meaning
-Tap any word to display the meaning of that word.
+Tap any word to display the meaning of that word. Add any required
+accents as above.
 
 ## Share
 ### Image

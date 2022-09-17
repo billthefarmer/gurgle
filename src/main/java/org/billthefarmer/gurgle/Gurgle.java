@@ -470,9 +470,7 @@ public class Gurgle extends Activity
                                     ContextMenu.ContextMenuInfo menuInfo)
     {
         contextView = (TextView) v;
-        char c = Normalizer.normalize
-            (contextView.getText(), Normalizer.Form.NFKD)
-            .replaceAll("\\p{M}", "").charAt(0);
+        char c = removeAccents(contextView.getText()).charAt(0);
 
         String items[];
         switch (c)
@@ -1370,8 +1368,7 @@ public class Gurgle extends Activity
             return;
         }
 
-        if (!Words.isWord(Normalizer.normalize(guess, Normalizer.Form.NFKD)
-                          .replaceAll("\\p{M}", "")))
+        if (!Words.isWord(removeAccents(guess)))
         {
             showToast(R.string.notListed);
             return;
@@ -1422,8 +1419,15 @@ public class Gurgle extends Activity
         }
     }
 
+    // removeAccents
+    private static String removeAccents(CharSequence cs)
+    {
+        return Normalizer.normalize(cs, Normalizer.Form.NFKD)
+            .replaceAll("\\p{M}", "");
+    }
+
     // showToast
-    void showToast(int key, String s)
+    private void showToast(int key, String s)
     {
         String format = getString(key);
         String text = String.format(format, s);
@@ -1431,14 +1435,14 @@ public class Gurgle extends Activity
     }
 
     // showToast
-    void showToast(int key)
+    private void showToast(int key)
     {
         String text = getString(key);
         showToast(text);
     }
 
     // showToast
-    void showToast(String text)
+    private void showToast(String text)
     {
         // Cancel the last one
         if (toast != null)
