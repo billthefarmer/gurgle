@@ -48,6 +48,7 @@ import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -80,6 +81,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.text.DateFormat;
+import java.text.Normalizer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -116,8 +118,16 @@ public class Gurgle extends Activity
     public static final String PREF_CONT = "pref_cont";
     public static final String PREF_CORR = "pref_corr";
     public static final String PREF_FARE = "pref_fare";
+
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
+
+    public static final String A_ACCENTS[] = {"A", "À", "Á", "Â"};
+    public static final String E_ACCENTS[] = {"E", "È", "É", "Ê"};
+    public static final String I_ACCENTS[] = {"I", "Ì", "Í", "Î"};
+    public static final String N_ACCENTS[] = {"N", "Ñ"};
+    public static final String O_ACCENTS[] = {"O", "Ò", "Ó", "Ô"};
+    public static final String U_ACCENTS[] = {"U", "Ù", "Ú", "Û"};
 
     public static final int GREY    = 0;
     public static final int DARK    = 1;
@@ -158,6 +168,7 @@ public class Gurgle extends Activity
 
     private Map<String, TextView> keyboard;
     private TextView display[][];
+    private TextView contextView;
     private boolean locked[];
     private Toast toast;
     private String word;
@@ -254,6 +265,7 @@ public class Gurgle extends Activity
             display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
             display[i / SIZE][i % SIZE].setOnClickListener((v) -> search(v));
             display[i / SIZE][i % SIZE].setOnLongClickListener((v) -> lock(v));
+            registerForContextMenu(display[i / SIZE][i % SIZE]);
         }
 
         if (savedInstanceState != null)
@@ -452,6 +464,59 @@ public class Gurgle extends Activity
         return true;
     }
 
+    // onCreateContextMenu
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo)
+    {
+        contextView = (TextView) v;
+        char c = Normalizer.normalize
+            (contextView.getText(), Normalizer.Form.NFKD)
+            .replaceAll("\\p{M}", "").charAt(0);
+
+        String items[];
+        switch (c)
+        {
+        case 'A':
+            items = A_ACCENTS;
+            break;
+
+        case 'E':
+            items = E_ACCENTS;
+            break;
+
+        case 'I':
+            items = I_ACCENTS;
+            break;
+
+        case 'N':
+            items = N_ACCENTS;
+            break;
+
+        case 'O':
+            items = O_ACCENTS;
+            break;
+
+        case 'U':
+            items = U_ACCENTS;
+            break;
+
+        default:
+            menu.add(contextView.getText());
+            return;
+        }
+
+        for (String item: items)
+            menu.add(item);
+    }
+
+    // onContextMenuClosed
+    @Override
+    public void onContextMenuClosed(Menu menu)
+    {
+        contextView = null;
+    }
+
     // On options item selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
@@ -560,6 +625,14 @@ public class Gurgle extends Activity
             return false;
         }
 
+        return true;
+    }
+
+    // onContextItemSelected
+    @Override
+    public boolean onContextItemSelected(MenuItem item)
+    {
+        contextView.setText(item.getTitle());
         return true;
     }
 
@@ -1266,12 +1339,12 @@ public class Gurgle extends Activity
     // lock
     private boolean lock(View view)
     {
-        ViewGroup grid = (ViewGroup) view.getParent();
-        if (grid.indexOfChild(view) / SIZE != row)
-            return true;
-
         if (((TextView) view).length() == 0)
             return true;
+
+        ViewGroup grid = (ViewGroup) view.getParent();
+        if (grid.indexOfChild(view) / SIZE < row)
+            return false;
 
         int col = grid.indexOfChild(view) % SIZE;
         locked[col] = !locked[col];
@@ -1297,7 +1370,8 @@ public class Gurgle extends Activity
             return;
         }
 
-        if (!Words.isWord(guess.toString()))
+        if (!Words.isWord(Normalizer.normalize(guess, Normalizer.Form.NFKD)
+                          .replaceAll("\\p{M}", "")))
         {
             showToast(R.string.notListed);
             return;
