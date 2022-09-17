@@ -508,13 +508,6 @@ public class Gurgle extends Activity
             menu.add(item);
     }
 
-    // onContextMenuClosed
-    @Override
-    public void onContextMenuClosed(Menu menu)
-    {
-        contextView = null;
-    }
-
     // On options item selected
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
