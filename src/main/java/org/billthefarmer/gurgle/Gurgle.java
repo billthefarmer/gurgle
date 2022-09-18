@@ -48,6 +48,7 @@ import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -123,6 +124,7 @@ public class Gurgle extends Activity
         "org.billthefarmer.gurgle.fileprovider";
 
     public static final String A_ACCENTS[] = {"A", "À", "Á", "Â"};
+    public static final String C_ACCENTS[] = {"C", "Ç"};
     public static final String E_ACCENTS[] = {"E", "È", "É", "Ê"};
     public static final String I_ACCENTS[] = {"I", "Ì", "Í", "Î"};
     public static final String N_ACCENTS[] = {"N", "Ñ"};
@@ -166,9 +168,11 @@ public class Gurgle extends Activity
 
     private MediaPlayer mediaPlayer;
 
+    private ActionMode.Callback actionModeCallback;
     private Map<String, TextView> keyboard;
+    private ActionMode actionMode;
     private TextView display[][];
-    private TextView contextView;
+    private TextView actionView;
     private boolean locked[];
     private Toast toast;
     private String word;
@@ -267,6 +271,91 @@ public class Gurgle extends Activity
             display[i / SIZE][i % SIZE].setOnLongClickListener((v) -> lock(v));
             registerForContextMenu(display[i / SIZE][i % SIZE]);
         }
+
+        View layout = findViewById(R.id.layout);
+        layout.setOnClickListener((v) ->
+        {
+            if (actionMode != null)
+                actionMode.finish();
+        });
+
+        actionModeCallback = new ActionMode.Callback()
+        {
+            // Called when the action mode is created;
+            // startActionMode() was called
+            @Override
+            public boolean onCreateActionMode(ActionMode mode, Menu menu)
+            {
+                // Inflate a menu resource providing context menu items
+                char c = removeAccents(actionView.getText()).charAt(0);
+
+                String items[];
+                switch (c)
+                {
+                case 'A':
+                    items = A_ACCENTS;
+                    break;
+
+                case 'C':
+                    items = C_ACCENTS;
+                    break;
+
+                case 'E':
+                    items = E_ACCENTS;
+                    break;
+
+                case 'I':
+                    items = I_ACCENTS;
+                    break;
+
+                case 'N':
+                    items = N_ACCENTS;
+                    break;
+
+                case 'O':
+                    items = O_ACCENTS;
+                    break;
+
+                case 'U':
+                    items = U_ACCENTS;
+                    break;
+
+                default:
+                    menu.add(actionView.getText());
+                    return true;
+                }
+
+                for (String item: items)
+                    menu.add(item);
+
+                return true;
+            }
+
+            // Called each time the action mode is shown. Always
+            // called after onCreateActionMode, but may be called
+            // multiple times if the mode is invalidated.
+            @Override
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu)
+            {
+                return false; // Return false if nothing is done
+            }
+
+            // Called when the user selects a contextual menu item
+            @Override
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item)
+            {
+                actionView.setText(item.getTitle());
+                mode.finish(); // Action picked, so close the CAB
+                return true;
+            }
+
+            // Called when the user exits the action mode
+            @Override
+            public void onDestroyActionMode(ActionMode mode)
+            {
+                actionMode = null;
+            }
+        };
 
         if (savedInstanceState != null)
         {
@@ -469,14 +558,18 @@ public class Gurgle extends Activity
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo)
     {
-        contextView = (TextView) v;
-        char c = removeAccents(contextView.getText()).charAt(0);
+        actionView = (TextView) v;
+        char c = removeAccents(actionView.getText()).charAt(0);
 
         String items[];
         switch (c)
         {
         case 'A':
             items = A_ACCENTS;
+            break;
+
+        case 'C':
+            items = C_ACCENTS;
             break;
 
         case 'E':
@@ -500,7 +593,7 @@ public class Gurgle extends Activity
             break;
 
         default:
-            menu.add(contextView.getText());
+            menu.add(actionView.getText());
             return;
         }
 
@@ -623,7 +716,7 @@ public class Gurgle extends Activity
     @Override
     public boolean onContextItemSelected(MenuItem item)
     {
-        contextView.setText(item.getTitle());
+        actionView.setText(item.getTitle());
         return true;
     }
 
@@ -733,6 +826,9 @@ public class Gurgle extends Activity
     // keyClicked
     public void keyClicked(View v)
     {
+        if (actionMode != null)
+            actionMode.finish();
+
         if (solved)
             showToast(R.string.solved);
 
@@ -1335,7 +1431,15 @@ public class Gurgle extends Activity
 
         ViewGroup grid = (ViewGroup) view.getParent();
         if (grid.indexOfChild(view) / SIZE < row)
-            return false;
+        {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
+                return false;
+
+            actionView = (TextView) view;
+            actionMode = view.startActionMode(actionModeCallback,
+                                              ActionMode.TYPE_FLOATING);
+            return true;
+        }
 
         int col = grid.indexOfChild(view) % SIZE;
         locked[col] = !locked[col];
@@ -1348,6 +1452,9 @@ public class Gurgle extends Activity
     // search
     private void search(View view)
     {
+        if (actionMode != null)
+            actionMode.finish();
+
         StringBuilder guess = new StringBuilder();
         ViewGroup grid = (ViewGroup) view.getParent();
         int row = grid.indexOfChild(view) / SIZE;
