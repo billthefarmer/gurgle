@@ -82,12 +82,13 @@ button to start the new sequence.
 
 ## Highlight colours
 A dialog will pop up showing two guesses, one containing some letters
-in the word in the wrong place and a correct guess, and two
+in the word in the wrong place and a correct guess, and three
 spectrums. Change the colour of the letters in the wrong place by
-tapping on the top spectrum, and the correct letters with the bottom
-spectrum.  The **Reset** button will restore the default colours, The
-**Cancel** button changes nothing, and the **OK** button accepts the
-changes.
+tapping on the top spectrum, and the correct letters with the middle
+spectrum. Change the shade of grey of the letters not in the word with
+the bottom spectrum. The **Reset** button will restore the default
+colours, The **Cancel** button changes nothing, and the **OK** button
+accepts the changes.
 
 ## Cheat
 Use my [Crossword](https://github.com/billthefarmer/crossword) or
