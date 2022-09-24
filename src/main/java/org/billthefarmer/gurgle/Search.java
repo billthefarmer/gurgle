@@ -48,6 +48,7 @@ public class Search extends Activity
 
     // Called when the activity is first created
     @Override
+    @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

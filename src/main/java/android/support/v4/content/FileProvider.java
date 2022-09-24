@@ -575,6 +575,7 @@ public class FileProvider extends ContentProvider {
      *
      * @see #getPathStrategy(Context, String)
      */
+    @SuppressWarnings("deprecation")
     private static PathStrategy parsePathStrategy(Context context, String authority)
             throws IOException, XmlPullParserException {
         final SimplePathStrategy strat = new SimplePathStrategy(authority);

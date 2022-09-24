@@ -115,6 +115,7 @@ public class Gurgle extends Activity
     public static final String IMAGE_WILD = "image/*";
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
+    public static final String PREF_WRONG = "pref_wrong";
     public static final String PREF_LANG = "pref_lang";
     public static final String PREF_CONT = "pref_cont";
     public static final String PREF_CORR = "pref_corr";
@@ -184,6 +185,7 @@ public class Gurgle extends Activity
     private int correct;
     private int letter;
     private int theme;
+    private int wrong;
     private int row;
 
     // On create
@@ -197,6 +199,7 @@ public class Gurgle extends Activity
             PreferenceManager.getDefaultSharedPreferences(this);
 
         theme = preferences.getInt(PREF_THEME, DARK);
+        wrong = preferences.getInt(PREF_WRONG, getColour(GREY));
         language = preferences.getInt(PREF_LANG, ENGLISH);
         contains = preferences.getInt(PREF_CONT, getColour(YELLOW));
         correct = preferences.getInt(PREF_CORR, getColour(GREEN));
@@ -472,6 +475,7 @@ public class Gurgle extends Activity
 
     // onPause
     @Override
+    @SuppressWarnings("deprecation")
     public void onPause()
     {
         super.onPause();
@@ -487,6 +491,7 @@ public class Gurgle extends Activity
         SharedPreferences.Editor editor = preferences.edit();
 
         editor.putInt(PREF_THEME, theme);
+        editor.putInt(PREF_WRONG, wrong);
         editor.putInt(PREF_LANG, language);
         editor.putInt(PREF_CONT, contains);
         editor.putInt(PREF_CORR, correct);
@@ -558,8 +563,13 @@ public class Gurgle extends Activity
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo)
     {
-        actionView = (TextView) v;
-        char c = removeAccents(actionView.getText()).charAt(0);
+        addAccents((TextView) v, menu);
+    }
+
+    private void addAccents(TextView textView, Menu menu)
+    {
+        // Inflate a menu resource providing context menu items
+        char c = removeAccents(textView.getText()).charAt(0);
 
         String items[];
         switch (c)
@@ -830,18 +840,24 @@ public class Gurgle extends Activity
             actionMode.finish();
 
         if (solved)
-            showToast(R.string.solved);
-
-        else if (letter < display[row].length)
         {
-            if (locked[letter])
+            showToast(R.string.solved);
+            return;
+        }
+
+        if (letter < SIZE)
+        {
+            while (letter < SIZE && locked[letter])
                 letter++;
 
-            if (letter < display[row].length)
+            if (letter < SIZE)
             {
                 CharSequence s = ((TextView)v).getText();
                 display[row][letter++].setText(s);
             }
+
+            else
+                showToast(R.string.press);
         }
 
         else
@@ -916,10 +932,10 @@ public class Gurgle extends Activity
             {
                 if (let.getTextColors().getDefaultColor() != correct &&
                     let.getTextColors().getDefaultColor() != contains)
-                    let.setTextColor(getColour(GREY));
+                    let.setTextColor(wrong);
                 if (key.getTextColors().getDefaultColor() != correct &&
                     key.getTextColors().getDefaultColor() != contains)
-                    key.setTextColor(getColour(GREY));
+                    key.setTextColor(wrong);
             }
         }
 
@@ -958,8 +974,8 @@ public class Gurgle extends Activity
     {
         if (letter > 0)
         {
-            if (locked[--letter] && letter > 0)
-                letter--;
+            while (letter > 0 && locked[--letter]);
+
             if (!locked[letter])
                 display[row][letter].setText("");
         }
@@ -981,6 +997,8 @@ public class Gurgle extends Activity
                 t.setTextColor(getColour(WHITE));
 
         word = Words.getWord();
+
+        locked = new boolean[SIZE];
         solved = false;
         letter = 0;
         row = 0;
@@ -1236,6 +1254,7 @@ public class Gurgle extends Activity
         {
             contains = getColour(YELLOW);
             correct = getColour(GREEN);
+            wrong = getColour(GREY);
         });
 
         builder.setNegativeButton(android.R.string.cancel, null);
@@ -1249,6 +1268,8 @@ public class Gurgle extends Activity
                 .getDefaultColor();
             correct = ((TextView) words.getChildAt(0)).getTextColors()
                 .getDefaultColor();
+            wrong = ((TextView) those.getChildAt(0)).getTextColors()
+                .getDefaultColor();
         });
 
         Dialog dialog = builder.show();
@@ -1258,7 +1279,7 @@ public class Gurgle extends Activity
         for (int l: grey)
         {
             TextView t = (TextView) those.getChildAt(l);
-            t.setTextColor(getColour(GREY));
+            t.setTextColor(wrong);
         }
 
         int cont[] = {2, 3};
@@ -1295,6 +1316,10 @@ public class Gurgle extends Activity
                 for (int l = 0; l < words.getChildCount(); l++)
                     ((TextView) words.getChildAt(l)).setTextColor(colour);
                 break;
+            case R.id.wrong:
+                ((TextView) those.getChildAt(0)).setTextColor(colour);
+                ((TextView) those.getChildAt(1)).setTextColor(colour);
+                ((TextView) those.getChildAt(4)).setTextColor(colour);
             }
 
             return false;
@@ -1303,6 +1328,8 @@ public class Gurgle extends Activity
         view = dialog.findViewById(R.id.contains);
         view.setOnTouchListener(listener);
         view = dialog.findViewById(R.id.correct);
+        view.setOnTouchListener(listener);
+        view = dialog.findViewById(R.id.wrong);
         view.setOnTouchListener(listener);
     }
 
@@ -1551,10 +1578,6 @@ public class Gurgle extends Activity
         // Make a new one
         toast = Toast.makeText(this, text, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER, 0, 0);
-        // Fix for android 13
-        View view = toast.getView();
-        if (view != null && Build.VERSION.SDK_INT > Build.VERSION_CODES.P)
-            view.setBackgroundResource(R.drawable.toast_frame);
         toast.show();
     }
 }

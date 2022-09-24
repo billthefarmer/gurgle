@@ -191,4 +191,15 @@
       android:src="@drawable/colours"
       tools:ignore="ContentDescription" />
 
+  <ImageView
+      android:id="@+id/wrong"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="8dp"
+      android:src="@drawable/greys"
+      tools:ignore="ContentDescription" />
+
 </LinearLayout>
