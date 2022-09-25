@@ -289,48 +289,7 @@ public class Gurgle extends Activity
             @Override
             public boolean onCreateActionMode(ActionMode mode, Menu menu)
             {
-                // Inflate a menu resource providing context menu items
-                char c = removeAccents(actionView.getText()).charAt(0);
-
-                String items[];
-                switch (c)
-                {
-                case 'A':
-                    items = A_ACCENTS;
-                    break;
-
-                case 'C':
-                    items = C_ACCENTS;
-                    break;
-
-                case 'E':
-                    items = E_ACCENTS;
-                    break;
-
-                case 'I':
-                    items = I_ACCENTS;
-                    break;
-
-                case 'N':
-                    items = N_ACCENTS;
-                    break;
-
-                case 'O':
-                    items = O_ACCENTS;
-                    break;
-
-                case 'U':
-                    items = U_ACCENTS;
-                    break;
-
-                default:
-                    menu.add(actionView.getText());
-                    return true;
-                }
-
-                for (String item: items)
-                    menu.add(item);
-
+                addAccents(actionView, menu);
                 return true;
             }
 
@@ -563,52 +522,8 @@ public class Gurgle extends Activity
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo)
     {
-        addAccents((TextView) v, menu);
-    }
-
-    private void addAccents(TextView textView, Menu menu)
-    {
         // Inflate a menu resource providing context menu items
-        char c = removeAccents(textView.getText()).charAt(0);
-
-        String items[];
-        switch (c)
-        {
-        case 'A':
-            items = A_ACCENTS;
-            break;
-
-        case 'C':
-            items = C_ACCENTS;
-            break;
-
-        case 'E':
-            items = E_ACCENTS;
-            break;
-
-        case 'I':
-            items = I_ACCENTS;
-            break;
-
-        case 'N':
-            items = N_ACCENTS;
-            break;
-
-        case 'O':
-            items = O_ACCENTS;
-            break;
-
-        case 'U':
-            items = U_ACCENTS;
-            break;
-
-        default:
-            menu.add(actionView.getText());
-            return;
-        }
-
-        for (String item: items)
-            menu.add(item);
+        addAccents((TextView) v, menu);
     }
 
     // On options item selected
@@ -786,6 +701,51 @@ public class Gurgle extends Activity
             Bitmap bitmap = data.getParcelableExtra(DATA);
             decodeImage(bitmap);
         }
+    }
+
+    // addAccents
+    private void addAccents(TextView textView, Menu menu)
+    {
+        char c = removeAccents(textView.getText()).charAt(0);
+
+        String items[];
+        switch (c)
+        {
+        case 'A':
+            items = A_ACCENTS;
+            break;
+
+        case 'C':
+            items = C_ACCENTS;
+            break;
+
+        case 'E':
+            items = E_ACCENTS;
+            break;
+
+        case 'I':
+            items = I_ACCENTS;
+            break;
+
+        case 'N':
+            items = N_ACCENTS;
+            break;
+
+        case 'O':
+            items = O_ACCENTS;
+            break;
+
+        case 'U':
+            items = U_ACCENTS;
+            break;
+
+        default:
+            menu.add(actionView.getText());
+            return;
+        }
+
+        for (String item: items)
+            menu.add(item);
     }
 
     // decodeImage
@@ -1459,10 +1419,11 @@ public class Gurgle extends Activity
         ViewGroup grid = (ViewGroup) view.getParent();
         if (grid.indexOfChild(view) / SIZE < row)
         {
+            actionView = (TextView) view;
+
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
                 return false;
 
-            actionView = (TextView) view;
             actionMode = view.startActionMode(actionModeCallback,
                                               ActionMode.TYPE_FLOATING);
             return true;
