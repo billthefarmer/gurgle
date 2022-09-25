@@ -1,0 +1,2 @@
+ * Fix letter lock
+ * Update select highlight colours
