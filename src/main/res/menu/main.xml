@@ -72,6 +72,11 @@
             android:showAsAction="never"
             android:title="@string/black" />
 
+        <item
+            android:id="@+id/light"
+            android:showAsAction="never"
+            android:title="@string/light" />
+
     </menu>
   </item>
 

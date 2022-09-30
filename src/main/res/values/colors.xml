@@ -53,4 +53,6 @@
   <color name="black_background">@android:color/black</color>
   <color name="black_box_border">@android:color/white</color>
 
+  <!-- light theme -->
+
 </resources>

@@ -18,4 +18,16 @@
 
   </style>
 
+  <style name="AppLightBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
+    <!-- API 24 theme customizations can go here. -->
+
+    <item name="android:colorBackgroundFloating">
+      ?attr/dialog_bgcolour
+    </item>
+    <item name="android:textAppearanceLarge">
+      @style/textAppearanceLargeBold
+    </item>
+
+  </style>
+
 </resources>
