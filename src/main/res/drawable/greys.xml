@@ -1,18 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape
+<layer-list
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <corners
-      android:radius="5dp" />
+  <item>
+    <shape>
 
-  <gradient
-      android:angle="0"
-      android:endColor="#ffffffff"
-      android:startColor="#00ffffff"
-      android:type="linear" />
+      <corners
+          android:radius="5dp" />
 
-  <size
-      android:width="240dp"
-      android:height="40dp" />
+      <solid
+          android:color="?attr/box_bgcolour" />
 
-</shape>
+      <size
+          android:width="240dp"
+          android:height="40dp" />
+
+    </shape>
+  </item>
+
+  <item>
+    <shape>
+
+      <corners
+          android:radius="5dp" />
+
+      <gradient
+          android:angle="0"
+          android:endColor="#ffffffff"
+          android:startColor="#00ffffff"
+          android:type="linear" />
+
+      <size
+          android:width="240dp"
+          android:height="40dp" />
+
+    </shape>
+  </item>
+
+</layer-list>

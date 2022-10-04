@@ -34,6 +34,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -49,6 +50,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -63,6 +65,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -77,6 +80,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -91,6 +95,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -105,6 +110,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -119,6 +125,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -133,6 +140,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -147,6 +155,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -161,6 +170,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -175,6 +185,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -189,6 +200,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -203,6 +215,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -217,6 +230,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -231,6 +245,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -245,6 +260,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -259,6 +275,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -273,6 +290,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -287,6 +305,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -301,6 +320,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -315,6 +335,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -329,6 +350,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -343,6 +365,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -357,6 +380,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -371,6 +395,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -385,6 +410,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -399,6 +425,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -413,6 +440,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -427,6 +455,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -441,6 +470,7 @@
         android:minHeight="68dp"
         android:gravity="center"
         android:textSize="34sp"
+        android:textColor="@android:color/white"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
   </GridLayout>
@@ -487,6 +517,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -504,6 +535,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -521,6 +553,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -538,6 +571,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -555,6 +589,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -572,6 +607,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -589,6 +625,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -606,6 +643,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -623,6 +661,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -640,6 +679,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
       </LinearLayout>
@@ -668,6 +708,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -685,6 +726,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -702,6 +744,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -719,6 +762,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -736,6 +780,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -753,6 +798,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -770,6 +816,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -787,6 +834,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -804,6 +852,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
       </LinearLayout>
@@ -847,6 +896,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -864,6 +914,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -881,6 +932,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -898,6 +950,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -915,6 +968,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -932,6 +986,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <TextView
@@ -949,6 +1004,7 @@
             android:background="@drawable/key"
             android:gravity="center"
             android:textSize="34sp"
+            android:textColor="@android:color/white"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <ImageView

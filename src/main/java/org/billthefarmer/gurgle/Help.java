@@ -83,6 +83,10 @@ public class Help extends Activity
         case Gurgle.BLACK:
             setTheme(R.style.AppBlackTheme);
             break;
+
+        case Gurgle.LIGHT:
+            setTheme(R.style.AppLightTheme);
+            break;
         }
 
         setContentView(R.layout.help);
