@@ -1,0 +1,2 @@
+* Agggiunto blocco della lettera
+* Aggiunto menù popup per gli accenti
