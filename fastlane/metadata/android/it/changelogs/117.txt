@@ -1,0 +1,2 @@
+* Sistemato il blocco della lettera
+* Aggiornati colori delle lettere evidenziate
