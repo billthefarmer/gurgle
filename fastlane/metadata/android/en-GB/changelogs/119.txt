@@ -1,0 +1,2 @@
+ * Update toasts
+ * Update Italian translation
