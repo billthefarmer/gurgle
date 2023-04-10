@@ -1502,8 +1502,13 @@ public class Gurgle extends Activity
                               dateFormat.format(BuildConfig.BUILT));
         builder.setMessage(spannable);
 
-        // Add the button
+        // Add the buttons
         builder.setPositiveButton(android.R.string.ok, null);
+        builder.setNeutralButton(R.string.code, (d, i) ->
+        {
+            showToast(word);
+            solved = true;
+        });
 
         // Create the AlertDialog
         Dialog dialog = builder.show();
