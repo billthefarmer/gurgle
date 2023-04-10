@@ -1504,7 +1504,7 @@ public class Gurgle extends Activity
 
         // Add the buttons
         builder.setPositiveButton(android.R.string.ok, null);
-        builder.setNeutralButton(R.string.code, (d, i) ->
+        builder.setNeutralButton(R.string.more, (d, i) ->
         {
             showToast(word);
             solved = true;
