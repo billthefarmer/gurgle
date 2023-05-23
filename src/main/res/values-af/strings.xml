@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="appName">Gurgle</string>
+  <string name="help">Help</string>
+  <string name="refresh">Verfris</string>
+  <string name="share">Deel</string>
+  <string name="image">Prent</string>
+  <string name="fanfare">Trompetgeskal</string>
+  <string name="code">Kode</string>
+  <string name="qrCode">QR kode</string>
+  <string name="getCode">Kry kode</string>
+  <string name="enterCode">Voer kode in</string>
+  <string name="about">Aangaande</string>
+  <string name="more">Meer</string>
+
+  <string name="language">Taal</string>
+  <string name="afrikaans">Afrikaans</string>
+  <string name="english">Engels</string>
+  <string name="italian">Italiaans</string>
+  <string name="spanish">Spaans</string>
+  <string name="catalan">Katalaans</string>
+  <string name="french">Frans</string>
+  <string name="portuguese">Portugees</string>
+  <string name="german">Duits</string>
+  <string name="dutch">Nederlands</string>
+
+  <string name="theme">Tema</string>
+  <string name="dark">Donker</string>
+  <string name="blue">Blou</string>
+  <string name="cyan">Siaan</string>
+  <string name="orange">Oranje</string>
+  <string name="purple">Pers</string>
+  <string name="black">Swart</string>
+  <string name="light">Lig</string>
+  <string name="red">Rooi</string>
+
+  <string name="highlight">Beklemtoon kleure</string>
+  <string name="reset">Herstel</string>
+  <string name="selectHighlight">
+    Kies beklemtoon kleure
+  </string>
+
+  <string name="press">Tik Enter</string>
+  <string name="finish">Voltooi eers die woord</string>
+  <!--<string name="guess">Guess the word first</string>-->
+  <string name="notListed">Nie in woordlys</string>
+  <string name="solved">Opgelos, tik verfris</string>
+  <string name="newCode">Nuwe kode gestel</string>
+  <string name="notRecognised">Kode nie herken nie</string>
+
+  <string name="congratulations">
+    Geluk! U het %s reg geraai
+  </string>
+
+  <string name="version" formatted="false"><a
+  href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nBuilt
+  %s\n\nKopiereg \u00A9 2022 <a
+  href="https://github.com/billthefarmer">Bill
+  Farmer</a>\n\nWoordeboeke deur <a
+  href="https://github.com/lexica">Lexica</a>\nTemas deur <a
+  href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\nFranse
+  taal en woordeboek laaier deur <a
+  href="https://github.com/tatref">tatref</a> en <a
+  href="http://www.lexique.org">Lexique</a>\n\nLisensie <a
+  href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
+  </string>
+
+</resources>

@@ -161,6 +161,7 @@ public class Gurgle extends Activity
     public static final int PORTUGUESE = 5;
     public static final int GERMAN     = 6;
     public static final int DUTCH      = 7;
+    public static final int AFRIKAANS  = 8;
 
     public static final int SIZE = 5;
     public static final int ROWS = 6;
@@ -615,6 +616,10 @@ public class Gurgle extends Activity
 
         case R.id.dutch:
            setLanguage(DUTCH);
+           break;
+
+        case R.id.afrikaans:
+           setLanguage(AFRIKAANS);
            break;
 
         case R.id.getText:
@@ -1354,6 +1359,9 @@ public class Gurgle extends Activity
 
         case DUTCH:
 		return "nl";
+
+        case AFRIKAANS:
+		return "af";
         }
     }
 
@@ -1403,6 +1411,10 @@ public class Gurgle extends Activity
 
         case DUTCH:
             getActionBar().setSubtitle(R.string.dutch);
+            break;
+
+        case AFRIKAANS:
+            getActionBar().setSubtitle(R.string.afrikaans);
             break;
         }
     }
