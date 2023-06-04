@@ -23,13 +23,12 @@ allprojects {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
     namespace "org.billthefarmer.gurgle"
 
     defaultConfig {
         applicationId "org.billthefarmer.gurgle"
         minSdkVersion 22
-        compileSdkVersion = 31
         targetSdkVersion 28
         versionName "1.21"
         versionCode 121
