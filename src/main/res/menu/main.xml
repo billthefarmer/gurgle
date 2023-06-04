@@ -32,8 +32,7 @@
 
   <item
       android:id="@+id/theme"
-      android:icon="@drawable/ic_action_theme"
-      android:showAsAction="ifRoom"
+      android:showAsAction="never"
       android:title="@string/theme">
     <menu>
 
@@ -81,11 +80,27 @@
   </item>
 
   <item
-      android:id="@+id/fanfare"
-      android:checkable="true"
-      android:checked="true"
+      android:id="@+id/options"
       android:showAsAction="never"
-      android:title="@string/fanfare" />
+      android:title="@string/options">
+    <menu>
+
+      <item
+          android:id="@+id/confetti"
+          android:checkable="true"
+          android:checked="true"
+          android:showAsAction="never"
+          android:title="@string/confetti" />
+
+      <item
+          android:id="@+id/fanfare"
+          android:checkable="true"
+          android:checked="true"
+          android:showAsAction="never"
+          android:title="@string/fanfare" />
+
+    </menu>
+  </item>
 
   <item
       android:id="@+id/language"

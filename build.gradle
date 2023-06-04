@@ -16,7 +16,7 @@ allprojects {
     }
 
     // tasks.withType(JavaCompile) {
-    //     options.deprecation = true
+       //  options.deprecation = true
     // }
 }
 
@@ -29,6 +29,7 @@ android {
     defaultConfig {
         applicationId "org.billthefarmer.gurgle"
         minSdkVersion 22
+        compileSdkVersion = 31
         targetSdkVersion 28
         versionName "1.21"
         versionCode 121
@@ -50,5 +51,6 @@ android {
 
     dependencies {
 	implementation 'com.google.zxing:core:3.5.0'
+        implementation 'nl.dionsegijn:konfetti-xml:2.0.2'
     }
 }

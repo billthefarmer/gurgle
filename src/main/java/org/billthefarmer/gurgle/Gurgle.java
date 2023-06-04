@@ -90,8 +90,17 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import nl.dionsegijn.konfetti.core.Angle;
+import nl.dionsegijn.konfetti.core.Party;
+import nl.dionsegijn.konfetti.core.PartyFactory;
+import nl.dionsegijn.konfetti.core.Spread;
+import nl.dionsegijn.konfetti.core.emitter.Emitter;
+import nl.dionsegijn.konfetti.core.emitter.EmitterConfig;
+import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 // Gurgle class
 public class Gurgle extends Activity
@@ -120,6 +129,7 @@ public class Gurgle extends Activity
     public static final String PREF_CONT = "pref_cont";
     public static final String PREF_CORR = "pref_corr";
     public static final String PREF_FARE = "pref_fare";
+    public static final String PREF_CONF = "pref_conf";
 
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
@@ -175,15 +185,19 @@ public class Gurgle extends Activity
 
     private ActionMode.Callback actionModeCallback;
     private Map<String, TextView> keyboard;
+    private KonfettiView konfettiView;
     private ActionMode actionMode;
     private TextView display[][];
     private TextView actionView;
-    private boolean locked[];
     private Toast toast;
     private String word;
+    private Party party;
 
+    private boolean confetti;
     private boolean fanfare;
+    private boolean locked[];
     private boolean solved;
+
     private int language;
     private int contains;
     private int correct;
@@ -207,6 +221,7 @@ public class Gurgle extends Activity
         language = preferences.getInt(PREF_LANG, ENGLISH);
         contains = preferences.getInt(PREF_CONT, getColour(YELLOW));
         correct = preferences.getInt(PREF_CORR, getColour(GREEN));
+        confetti = preferences.getBoolean(PREF_CONF, true);
         fanfare = preferences.getBoolean(PREF_FARE, true);
 
         switch (theme)
@@ -289,6 +304,15 @@ public class Gurgle extends Activity
             if (actionMode != null)
                 actionMode.finish();
         });
+
+        konfettiView = findViewById(R.id.konfettiView);
+        EmitterConfig emitterConfig = new
+            Emitter(5, TimeUnit.SECONDS).perSecond(50);
+        party = new PartyFactory(emitterConfig)
+            .angle(Angle.TOP)
+            .spread(Spread.WIDE)
+            .setSpeedBetween(10, 30)
+            .build();
 
         actionModeCallback = new ActionMode.Callback()
         {
@@ -462,6 +486,7 @@ public class Gurgle extends Activity
         editor.putInt(PREF_LANG, language);
         editor.putInt(PREF_CONT, contains);
         editor.putInt(PREF_CORR, correct);
+        editor.putBoolean(PREF_CONF, confetti);
         editor.putBoolean(PREF_FARE, fanfare);
         editor.apply();
     }
@@ -520,6 +545,7 @@ public class Gurgle extends Activity
     @Override
     public boolean onPrepareOptionsMenu(Menu menu)
     {
+        menu.findItem(R.id.confetti).setChecked(confetti);
         menu.findItem(R.id.fanfare).setChecked(fanfare);
 
         return true;
@@ -632,6 +658,10 @@ public class Gurgle extends Activity
 
         case R.id.help:
             help();
+            break;
+
+        case R.id.confetti:
+            confetti(item);
             break;
 
         case R.id.fanfare:
@@ -866,6 +896,9 @@ public class Gurgle extends Activity
                 mediaPlayer = MediaPlayer.create(this, R.raw.fanfare);
                 mediaPlayer.start();
             }
+
+            if (confetti)
+                konfettiView.start(party);
 
             showToast(R.string.congratulations, word);
             solved = true;
@@ -1419,6 +1452,13 @@ public class Gurgle extends Activity
         }
     }
 
+    // confetti
+    private void confetti(MenuItem item)
+    {
+        confetti = !confetti;
+        item.setChecked(confetti);
+    }
+
     // fanfare
     private void fanfare(MenuItem item)
     {
@@ -1558,6 +1598,7 @@ public class Gurgle extends Activity
     }
 
     // showToast
+    @SuppressWarnings("deprecation")
     private void showToast(String text)
     {
         // Cancel the last one

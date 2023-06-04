@@ -6,6 +6,8 @@
   <string name="refresh">Refresh</string>
   <string name="share">Share</string>
   <string name="image">Image</string>
+  <string name="options">Options</string>
+  <string name="confetti">Confetti</string>
   <string name="fanfare">Fanfare</string>
   <string name="code">Code</string>
   <string name="qrCode">QR code</string>
