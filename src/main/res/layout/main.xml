@@ -9,10 +9,15 @@
       android:layout_height="fill_parent"
       android:layout_marginLeft="8dp"
       android:layout_marginRight="8dp"
-      android:layout_marginTop="36dp"
-      android:layout_marginBottom="36dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginBottom="24dp"
       android:orientation="vertical"
       tools:ignore="RtlHardcoded">
+
+    <Space
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <GridLayout
         android:id="@+id/puzzle"
@@ -417,7 +422,6 @@
     </GridLayout>
 
     <Space
-        android:id="@+id/space"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -426,7 +430,7 @@
         android:id="@+id/hscroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:layout_gravity="center">
 
       <LinearLayout

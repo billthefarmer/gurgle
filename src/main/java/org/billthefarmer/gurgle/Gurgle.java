@@ -55,9 +55,12 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -124,6 +127,7 @@ public class Gurgle extends Activity
     public static final String IMAGE_WILD = "image/*";
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
+    public static final String PREF_SCALE = "pref_scale";
     public static final String PREF_WRONG = "pref_wrong";
     public static final String PREF_LANG = "pref_lang";
     public static final String PREF_CONT = "pref_cont";
@@ -184,9 +188,11 @@ public class Gurgle extends Activity
     private MediaPlayer mediaPlayer;
 
     private ActionMode.Callback actionModeCallback;
+    private ScaleGestureDetector scaleDetector;
     private Map<String, TextView> keyboard;
     private KonfettiView konfettiView;
     private ActionMode actionMode;
+    private GridLayout gridLayout;
     private TextView display[][];
     private TextView actionView;
     private Toast toast;
@@ -197,6 +203,8 @@ public class Gurgle extends Activity
     private boolean fanfare;
     private boolean locked[];
     private boolean solved;
+
+    private float scale;
 
     private int language;
     private int contains;
@@ -221,6 +229,7 @@ public class Gurgle extends Activity
         language = preferences.getInt(PREF_LANG, ENGLISH);
         contains = preferences.getInt(PREF_CONT, getColour(YELLOW));
         correct = preferences.getInt(PREF_CORR, getColour(GREEN));
+        scale = preferences.getFloat(PREF_SCALE, 1);
         confetti = preferences.getBoolean(PREF_CONF, true);
         fanfare = preferences.getBoolean(PREF_FARE, true);
 
@@ -289,14 +298,17 @@ public class Gurgle extends Activity
         for (int i = 0; i < display.length; i++)
             display[i] = new TextView[SIZE];
 
-        ViewGroup grid = (ViewGroup) findViewById(R.id.puzzle);
-        for (int i = 0; i < grid.getChildCount(); i++)
+        gridLayout = findViewById(R.id.puzzle);
+        for (int i = 0; i < gridLayout.getChildCount(); i++)
         {
-            display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
+            display[i / SIZE][i % SIZE] = (TextView) gridLayout.getChildAt(i);
             display[i / SIZE][i % SIZE].setOnClickListener((v) -> search(v));
             display[i / SIZE][i % SIZE].setOnLongClickListener((v) -> lock(v));
             registerForContextMenu(display[i / SIZE][i % SIZE]);
         }
+
+        gridLayout.setScaleX(scale);
+        gridLayout.setScaleY(scale);
 
         View layout = findViewById(R.id.layout);
         layout.setOnClickListener((v) ->
@@ -350,6 +362,9 @@ public class Gurgle extends Activity
                 actionMode = null;
             }
         };
+
+        scaleDetector =
+            new ScaleGestureDetector(this, new ScaleListener());
 
         if (savedInstanceState != null)
         {
@@ -486,6 +501,7 @@ public class Gurgle extends Activity
         editor.putInt(PREF_LANG, language);
         editor.putInt(PREF_CONT, contains);
         editor.putInt(PREF_CORR, correct);
+        editor.putFloat(PREF_SCALE, scale);
         editor.putBoolean(PREF_CONF, confetti);
         editor.putBoolean(PREF_FARE, fanfare);
         editor.apply();
@@ -747,6 +763,14 @@ public class Gurgle extends Activity
             Bitmap bitmap = data.getParcelableExtra(DATA);
             decodeImage(bitmap);
         }
+    }
+
+    // dispatchTouchEvent
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event)
+    {
+        scaleDetector.onTouchEvent(event);
+        return super.dispatchTouchEvent(event);
     }
 
     // addAccents
@@ -1234,9 +1258,9 @@ public class Gurgle extends Activity
     }
 
     // theme
-    private void theme(int c)
+    private void theme(int theme)
     {
-        theme = c;
+        this.theme = theme;
         if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
             recreate();
     }
@@ -1479,8 +1503,7 @@ public class Gurgle extends Activity
         if (((TextView) view).length() == 0)
             return true;
 
-        ViewGroup grid = (ViewGroup) view.getParent();
-        if (grid.indexOfChild(view) / SIZE < row)
+        if (gridLayout.indexOfChild(view) / SIZE < row)
         {
             actionView = (TextView) view;
 
@@ -1492,7 +1515,7 @@ public class Gurgle extends Activity
             return true;
         }
 
-        int col = grid.indexOfChild(view) % SIZE;
+        int col = gridLayout.indexOfChild(view) % SIZE;
         locked[col] = !locked[col];
 
         ((TextView) view).setTextColor(locked[col]? getColour(GREY):
@@ -1507,8 +1530,7 @@ public class Gurgle extends Activity
             actionMode.finish();
 
         StringBuilder guess = new StringBuilder();
-        ViewGroup grid = (ViewGroup) view.getParent();
-        int row = grid.indexOfChild(view) / SIZE;
+        int row = gridLayout.indexOfChild(view) / SIZE;
 
         for (int col = 0; col < SIZE; col++)
             guess.append(((TextView) display[row][col]).getText());
@@ -1613,5 +1635,24 @@ public class Gurgle extends Activity
         if (view != null && Build.VERSION.SDK_INT > VERSION_CODE_S_V2)
             view.setBackgroundResource(R.drawable.toast_frame);
         toast.show();
+    }
+
+    // ScaleListener
+    private class ScaleListener
+        extends ScaleGestureDetector.SimpleOnScaleGestureListener
+    {
+        // onScale
+        @Override
+        public boolean onScale(ScaleGestureDetector detector)
+        {
+            scale *= detector.getScaleFactor();
+            if (scale > 1.5)
+                scale = 1.5f;
+            if (scale < 0.75)
+                scale = 0.75f;
+            gridLayout.setScaleX(scale);
+            gridLayout.setScaleY(scale);
+            return true;
+        }
     }
 }
