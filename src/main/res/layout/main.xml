@@ -427,10 +427,10 @@
         android:layout_weight="1" />
 
     <HorizontalScrollView
-        android:id="@+id/hscroll"
+        android:id="@+id/scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:paddingTop="8dp"
         android:layout_gravity="center">
 
       <LinearLayout

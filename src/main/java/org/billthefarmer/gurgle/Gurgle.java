@@ -56,11 +56,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -127,13 +127,13 @@ public class Gurgle extends Activity
     public static final String IMAGE_WILD = "image/*";
     public static final String TEXT_PLAIN = "text/plain";
     public static final String PREF_THEME = "pref_theme";
-    public static final String PREF_SCALE = "pref_scale";
     public static final String PREF_WRONG = "pref_wrong";
-    public static final String PREF_LANG = "pref_lang";
+    public static final String PREF_CONF = "pref_conf";
     public static final String PREF_CONT = "pref_cont";
     public static final String PREF_CORR = "pref_corr";
     public static final String PREF_FARE = "pref_fare";
-    public static final String PREF_CONF = "pref_conf";
+    public static final String PREF_LANG = "pref_lang";
+    public static final String PREF_SWAP = "pref_swap";
 
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
@@ -162,11 +162,6 @@ public class Gurgle extends Activity
 
     public static final int REQUEST_IMAGE = 1;
 
-    public static final int KEYBOARD[] =
-    {
-        R.id.keys1, R.id.keys2, R.id.keys3
-    };
-
     public static final int ENGLISH    = 0;
     public static final int ITALIAN    = 1;
     public static final int SPANISH    = 2;
@@ -184,15 +179,14 @@ public class Gurgle extends Activity
 
     public static final int BITMAP_SCALE = 8;
     public static final int LOOP_DELAY = 5000;
+    public static final int SWAP_DELAY = 10;
 
     private MediaPlayer mediaPlayer;
 
     private ActionMode.Callback actionModeCallback;
-    private ScaleGestureDetector scaleDetector;
     private Map<String, TextView> keyboard;
     private KonfettiView konfettiView;
     private ActionMode actionMode;
-    private GridLayout gridLayout;
     private TextView display[][];
     private TextView actionView;
     private Toast toast;
@@ -203,8 +197,7 @@ public class Gurgle extends Activity
     private boolean fanfare;
     private boolean locked[];
     private boolean solved;
-
-    private float scale;
+    private boolean swap;
 
     private int language;
     private int contains;
@@ -224,14 +217,14 @@ public class Gurgle extends Activity
         SharedPreferences preferences =
             PreferenceManager.getDefaultSharedPreferences(this);
 
-        theme = preferences.getInt(PREF_THEME, DARK);
-        wrong = preferences.getInt(PREF_WRONG, getColour(GREY));
-        language = preferences.getInt(PREF_LANG, ENGLISH);
+        confetti = preferences.getBoolean(PREF_CONF, true);
         contains = preferences.getInt(PREF_CONT, getColour(YELLOW));
         correct = preferences.getInt(PREF_CORR, getColour(GREEN));
-        scale = preferences.getFloat(PREF_SCALE, 1);
-        confetti = preferences.getBoolean(PREF_CONF, true);
         fanfare = preferences.getBoolean(PREF_FARE, true);
+        language = preferences.getInt(PREF_LANG, ENGLISH);
+        swap = preferences.getBoolean(PREF_SWAP, false);
+        theme = preferences.getInt(PREF_THEME, DARK);
+        wrong = preferences.getInt(PREF_WRONG, getColour(GREY));
 
         switch (theme)
         {
@@ -274,12 +267,13 @@ public class Gurgle extends Activity
         setLanguage();
 
         keyboard = new HashMap<String, TextView>();
-        for (int id: KEYBOARD)
+        ViewGroup rows = findViewById(R.id.keyboard);
+        for (int r = 0; r < rows.getChildCount(); r++)
         {
-            ViewGroup group = (ViewGroup) findViewById(id);
-            for (int i = 0; i < group.getChildCount(); i++)
+            ViewGroup row = (ViewGroup) rows.getChildAt(r);
+            for (int i = 0; i < row.getChildCount(); i++)
             {
-                View view = group.getChildAt(i);
+                View view = row.getChildAt(i);
                 if (view instanceof TextView)
                 {
                     view.setOnClickListener((v) -> keyClicked(v));
@@ -289,26 +283,45 @@ public class Gurgle extends Activity
             }
         }
 
-        View view = findViewById(R.id.enter);
-        view.setOnClickListener((v) -> enterClicked(v));
+        ImageView view = findViewById(R.id.enter);
+        view.setImageResource(swap? R.drawable.ic_backspace:
+                                    R.drawable.ic_enter);
+        view.setOnClickListener(swap? (v) -> backspaceClicked(v):
+                                      (v) -> enterClicked(v));
+        view.setOnLongClickListener((v) -> swap(v));
         view = findViewById(R.id.back);
-        view.setOnClickListener((v) -> backspaceClicked(v));
+        view.setImageResource(swap? R.drawable.ic_enter:
+                                    R.drawable.ic_backspace);
+        view.setOnClickListener(swap? (v) -> enterClicked(v):
+                                      (v) -> backspaceClicked(v));
+        view.setOnLongClickListener((v) -> swap(v));
 
         display = new TextView[ROWS][];
         for (int i = 0; i < display.length; i++)
             display[i] = new TextView[SIZE];
 
-        gridLayout = findViewById(R.id.puzzle);
-        for (int i = 0; i < gridLayout.getChildCount(); i++)
+        ViewGroup grid = findViewById(R.id.puzzle);
+        for (int i = 0; i < grid.getChildCount(); i++)
         {
-            display[i / SIZE][i % SIZE] = (TextView) gridLayout.getChildAt(i);
+            display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
             display[i / SIZE][i % SIZE].setOnClickListener((v) -> search(v));
             display[i / SIZE][i % SIZE].setOnLongClickListener((v) -> lock(v));
             registerForContextMenu(display[i / SIZE][i % SIZE]);
         }
 
-        gridLayout.setScaleX(scale);
-        gridLayout.setScaleY(scale);
+        grid.postDelayed(() ->
+        {
+            View layout = findViewById(R.id.layout);
+            float scaleX = (float) layout.getWidth() / grid.getWidth();
+            float scaleY = (float) (layout.getHeight() -
+                                    rows.getHeight()) / grid.getHeight();
+            float scale = Math.min(scaleX, scaleY);
+            grid.setScaleX(scale);
+            grid.setScaleY(scale);
+            View scroll = findViewById(R.id.scroll);
+            scale = (float) layout.getWidth() / scroll.getWidth();
+            scroll.setScaleX(scale);
+        }, SWAP_DELAY);
 
         View layout = findViewById(R.id.layout);
         layout.setOnClickListener((v) ->
@@ -362,9 +375,6 @@ public class Gurgle extends Activity
                 actionMode = null;
             }
         };
-
-        scaleDetector =
-            new ScaleGestureDetector(this, new ScaleListener());
 
         if (savedInstanceState != null)
         {
@@ -501,9 +511,9 @@ public class Gurgle extends Activity
         editor.putInt(PREF_LANG, language);
         editor.putInt(PREF_CONT, contains);
         editor.putInt(PREF_CORR, correct);
-        editor.putFloat(PREF_SCALE, scale);
         editor.putBoolean(PREF_CONF, confetti);
         editor.putBoolean(PREF_FARE, fanfare);
+        editor.putBoolean(PREF_SWAP, swap);
         editor.apply();
     }
 
@@ -763,14 +773,6 @@ public class Gurgle extends Activity
             Bitmap bitmap = data.getParcelableExtra(DATA);
             decodeImage(bitmap);
         }
-    }
-
-    // dispatchTouchEvent
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent event)
-    {
-        scaleDetector.onTouchEvent(event);
-        return super.dispatchTouchEvent(event);
     }
 
     // addAccents
@@ -1497,13 +1499,24 @@ public class Gurgle extends Activity
         startActivity(intent);
     }
 
+    // swap
+    private boolean swap(View view)
+    {
+        swap = !swap;
+        if (Build.VERSION.SDK_INT != Build.VERSION_CODES.M)
+            recreate();
+
+        return true;
+    }
+
     // lock
     private boolean lock(View view)
     {
         if (((TextView) view).length() == 0)
             return true;
 
-        if (gridLayout.indexOfChild(view) / SIZE < row)
+        ViewGroup grid = findViewById(R.id.puzzle);
+        if (grid.indexOfChild(view) / SIZE < row)
         {
             actionView = (TextView) view;
 
@@ -1515,7 +1528,7 @@ public class Gurgle extends Activity
             return true;
         }
 
-        int col = gridLayout.indexOfChild(view) % SIZE;
+        int col = grid.indexOfChild(view) % SIZE;
         locked[col] = !locked[col];
 
         ((TextView) view).setTextColor(locked[col]? getColour(GREY):
@@ -1530,7 +1543,8 @@ public class Gurgle extends Activity
             actionMode.finish();
 
         StringBuilder guess = new StringBuilder();
-        int row = gridLayout.indexOfChild(view) / SIZE;
+        ViewGroup grid = findViewById(R.id.puzzle);
+        int row = grid.indexOfChild(view) / SIZE;
 
         for (int col = 0; col < SIZE; col++)
             guess.append(((TextView) display[row][col]).getText());
@@ -1635,24 +1649,5 @@ public class Gurgle extends Activity
         if (view != null && Build.VERSION.SDK_INT > VERSION_CODE_S_V2)
             view.setBackgroundResource(R.drawable.toast_frame);
         toast.show();
-    }
-
-    // ScaleListener
-    private class ScaleListener
-        extends ScaleGestureDetector.SimpleOnScaleGestureListener
-    {
-        // onScale
-        @Override
-        public boolean onScale(ScaleGestureDetector detector)
-        {
-            scale *= detector.getScaleFactor();
-            if (scale > 1.5)
-                scale = 1.5f;
-            if (scale < 0.75)
-                scale = 0.75f;
-            gridLayout.setScaleX(scale);
-            gridLayout.setScaleY(scale);
-            return true;
-        }
     }
 }
