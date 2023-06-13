@@ -487,7 +487,7 @@
         android:layout_weight="1" />
 
     <HorizontalScrollView
-        android:id="@+id/hscroll"
+        android:id="@+id/scroll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
@@ -500,7 +500,6 @@
           android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/keys1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -690,7 +689,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/keys2"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
@@ -863,7 +861,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/keys3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
