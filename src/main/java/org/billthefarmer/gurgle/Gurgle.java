@@ -59,7 +59,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -178,8 +177,7 @@ public class Gurgle extends Activity
     public static final int VERSION_CODE_S_V2 = 32;
 
     public static final int BITMAP_SCALE = 8;
-    public static final int LOOP_DELAY = 5000;
-    public static final int SWAP_DELAY = 10;
+    public static final int SWAP_DELAY = 100;
 
     private MediaPlayer mediaPlayer;
 

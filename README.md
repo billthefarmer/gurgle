@@ -35,6 +35,9 @@ Long press on a letter in a completed guess. This will show a pop-up
 menu of unaccented and accented letters. Pick the required unaccented
 or accented letter.
 
+## Swap enter/backspace
+Long press on the enter or backspace key to swap the keys.
+
 ## Meaning
 Tap any word to display the meaning of that word. Add any required
 accents as above.
