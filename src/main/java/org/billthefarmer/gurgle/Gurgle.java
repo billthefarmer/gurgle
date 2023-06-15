@@ -48,6 +48,7 @@ import android.text.InputType;
 import android.text.SpannableStringBuilder;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.Gravity;
@@ -307,6 +308,7 @@ public class Gurgle extends Activity
             registerForContextMenu(display[i / SIZE][i % SIZE]);
         }
 
+        // Delay resizing
         grid.postDelayed(() ->
         {
             View layout = findViewById(R.id.layout);
@@ -314,11 +316,30 @@ public class Gurgle extends Activity
             float scaleY = (float) (layout.getHeight() -
                                     rows.getHeight()) / grid.getHeight();
             float scale = Math.min(scaleX, scaleY);
-            grid.setScaleX(scale);
-            grid.setScaleY(scale);
-            View scroll = findViewById(R.id.scroll);
-            scale = (float) layout.getWidth() / scroll.getWidth();
-            scroll.setScaleX(scale);
+            for (int i = 0; i < grid.getChildCount(); i++)
+            {
+                TextView v = (TextView) grid.getChildAt(i);
+                v.setMinimumWidth(Math.round(v.getMinimumWidth() * scale));
+                v.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                              v.getTextSize() * scale);
+            }
+            scale = (float) layout.getWidth() / rows.getWidth();
+            for (int r = 0; r < rows.getChildCount(); r++)
+            {
+                ViewGroup row = (ViewGroup) rows.getChildAt(r);
+                for (int i = 0; i < row.getChildCount(); i++)
+                {
+                    View v = row.getChildAt(i);
+                    if (v instanceof TextView)
+                    {
+                        v.setMinimumWidth
+                            (Math.round(v.getMinimumWidth() * scale));
+                        ((TextView) v).setTextSize
+                            (TypedValue.COMPLEX_UNIT_PX,
+                             ((TextView) v).getTextSize() * scale);
+                    }
+                }
+            }
         }, SWAP_DELAY);
 
         View layout = findViewById(R.id.layout);
