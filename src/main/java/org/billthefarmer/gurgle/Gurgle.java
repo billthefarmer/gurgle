@@ -308,10 +308,16 @@ public class Gurgle extends Activity
             registerForContextMenu(display[i / SIZE][i % SIZE]);
         }
 
+        View layout = findViewById(R.id.layout);
+        layout.setOnClickListener((v) ->
+        {
+            if (actionMode != null)
+                actionMode.finish();
+        });
+
         // Delay resizing
         grid.postDelayed(() ->
         {
-            View layout = findViewById(R.id.layout);
             float scaleX = (float) layout.getWidth() / grid.getWidth();
             float scaleY = (float) (layout.getHeight() -
                                     rows.getHeight()) / grid.getHeight();
@@ -341,13 +347,6 @@ public class Gurgle extends Activity
                 }
             }
         }, SWAP_DELAY);
-
-        View layout = findViewById(R.id.layout);
-        layout.setOnClickListener((v) ->
-        {
-            if (actionMode != null)
-                actionMode.finish();
-        });
 
         konfettiView = findViewById(R.id.konfettiView);
         EmitterConfig emitterConfig = new
