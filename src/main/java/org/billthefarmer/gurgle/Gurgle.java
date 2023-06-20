@@ -106,6 +106,7 @@ import nl.dionsegijn.konfetti.core.emitter.EmitterConfig;
 import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 // Gurgle class
+@SuppressWarnings("deprecation")
 public class Gurgle extends Activity
 {
     public static final String TAG = "Gurgle";
@@ -208,7 +209,6 @@ public class Gurgle extends Activity
 
     // On create
     @Override
-    @SuppressWarnings("deprecation")
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);

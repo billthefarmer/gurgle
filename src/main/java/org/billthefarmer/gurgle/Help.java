@@ -39,6 +39,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 // HelpActivity class
+@SuppressWarnings("deprecation")
 public class Help extends Activity
 {
     // On create

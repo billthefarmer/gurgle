@@ -39,6 +39,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 
 // SearchActivity
+@SuppressWarnings("deprecation")
 public class Search extends Activity
 {
     public static final String FORMAT =
