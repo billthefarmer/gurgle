@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="appName">Gurgle</string>
+    <string name="help">Segítség</string>
+    <string name="refresh">Frissítés</string>
+    <string name="share">Megosztás</string>
+    <string name="image">Kép</string>
+    <string name="options">Opciók</string>
+    <string name="confetti">Konfetti</string>
+    <string name="fanfare">Hangjelzés</string>
+    <string name="code">Kód</string>
+    <string name="qrCode">QR kód</string>
+    <string name="getCode">Kód beolvasása</string>
+    <string name="enterCode">Kód megadása</string>
+    <string name="about">Az alkalmazásról</string>
+    <string name="more">Továbbiak</string>
+
+    <string name="language">Nyelvek</string>
+    <string name="afrikaans">Délafrikai holland</string>
+    <string name="english">Angol</string>
+    <string name="italian">Olasz</string>
+    <string name="spanish">Spanyol</string>
+    <string name="catalan">Katalán</string>
+    <string name="french">Francia</string>
+    <string name="portuguese">Portugál</string>
+    <string name="german">Német</string>
+    <string name="dutch">Holland</string>
+    <string name="hungarian">Magyar</string>
+
+    <string name="theme">Megjelenés</string>
+    <string name="dark">Sötét</string>
+    <string name="blue">Kék</string>
+    <string name="cyan">Cián</string>
+    <string name="orange">Narancssárga</string>
+    <string name="purple">Lila</string>
+    <string name="black">Fekete</string>
+    <string name="light">Világos</string>
+    <string name="red">Piros</string>
+
+    <string name="highlight">Kiemelőszínek</string>
+    <string name="reset">Visszaállítás</string>
+    <string name="selectHighlight">
+    Kiemelőszínek kiválasztása
+  </string>
+
+    <string name="press">Nyomd meg az Entert</string>
+    <string name="finish">Előbb fejezd be a szót</string>
+    <!--<string name="guess">Guess the word first</string>-->
+    <string name="notListed">Nem található a szólistában</string>
+    <string name="solved">Már megoldottad, nyomd meg a frissítésgombot</string>
+    <string name="newCode">Új kód</string>
+    <string name="notRecognised">A kód felismerése sikertelen</string>
+
+    <string name="congratulations">
+    Gratulálok! %s -t sikeresen kitaláltad!
+  </string>
+
+    <string name="version" formatted="false"><a
+        href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nVerzió
+  %s\n\nCopyright \u00A9 2022 <a
+            href="https://github.com/billthefarmer">Bill
+  Farmer</a>\n\nSzótárak: <a
+            href="https://github.com/lexica">Lexica</a>\nKinézetek: <a
+            href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\nFrancia
+  nyelv és szótár: <a
+            href="https://github.com/tatref">tatref</a> és innen: <a
+            href="http://www.lexique.org">Lexique</a>\nKonfetti: <a
+            href="https://github.com/DanielMartinus/Konfetti">Konfetti</a>\n\nLicensz <a
+            href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
+  </string>
+
+</resources>
