@@ -153,6 +153,11 @@
           android:showAsAction="never"
           android:title="@string/afrikaans" />
 
+        <item
+            android:id="@+id/hungarian"
+            android:showAsAction="never"
+            android:title="@string/hungarian" />
+
     </menu>
   </item>
 

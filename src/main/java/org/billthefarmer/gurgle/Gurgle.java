@@ -144,8 +144,8 @@ public class Gurgle extends Activity
     public static final String E_ACCENTS[] = {"E", "È", "É", "Ê"};
     public static final String I_ACCENTS[] = {"I", "Ì", "Í", "Î"};
     public static final String N_ACCENTS[] = {"N", "Ñ"};
-    public static final String O_ACCENTS[] = {"O", "Ò", "Ó", "Ô"};
-    public static final String U_ACCENTS[] = {"U", "Ù", "Ú", "Û"};
+    public static final String O_ACCENTS[] = {"O", "Ò", "Ó", "Ô", "Ö", "Ő"};
+    public static final String U_ACCENTS[] = {"U", "Ù", "Ú", "Û", "Ü", "Ű"};
 
     public static final int GREY    = 0;
     public static final int DARK    = 1;
@@ -172,6 +172,8 @@ public class Gurgle extends Activity
     public static final int GERMAN     = 6;
     public static final int DUTCH      = 7;
     public static final int AFRIKAANS  = 8;
+
+    public static final int HUNGARIAN  = 9;
 
     public static final int SIZE = 5;
     public static final int ROWS = 6;
@@ -691,6 +693,10 @@ public class Gurgle extends Activity
         case R.id.afrikaans:
            setLanguage(AFRIKAANS);
            break;
+
+        case R.id.hungarian:
+            setLanguage(HUNGARIAN);
+            break;
 
         case R.id.getText:
             getText();
@@ -1439,6 +1445,10 @@ public class Gurgle extends Activity
 
         case AFRIKAANS:
 		return "af";
+
+        case HUNGARIAN:
+        	return "hu";
+
         }
     }
 
@@ -1492,6 +1502,10 @@ public class Gurgle extends Activity
 
         case AFRIKAANS:
             getActionBar().setSubtitle(R.string.afrikaans);
+            break;
+
+        case HUNGARIAN:
+            getActionBar().setSubtitle(R.string.hungarian);
             break;
         }
     }
