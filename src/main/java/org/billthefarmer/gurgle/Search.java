@@ -45,7 +45,8 @@ public class Search extends Activity
     public static final String FORMAT =
         "https://%s.wiktionary.org/wiki/%s";
 
-    public static final String FORMAT_HU = "https://wikiszotar.hu/ertelmezo-szotar/Speciális:Keresés?search=%s";
+    public static final String FORMAT_HU =
+        "https://wikiszotar.hu/ertelmezo-szotar/Speciális:Keresés?search=%s";
 
     private WebView webview;
 
@@ -151,12 +152,9 @@ public class Search extends Activity
 
 		catch (Exception e) {}
 
-        String url;
-            if (Locale.getDefault().getLanguage() == "hu")
-                url = String.format(Locale.getDefault(), FORMAT_HU, word);
-            else
-                url = String.format(Locale.getDefault(),
-                                           FORMAT, lang, word);
+                String url = (Locale.getDefault().getLanguage() == "hu")?
+                    String.format(Locale.getDefault(), FORMAT_HU, word):
+                    String.format(Locale.getDefault(), FORMAT, lang, word);
 
                 // Do web search
                 webview.loadUrl(url);

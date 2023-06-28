@@ -172,7 +172,6 @@ public class Gurgle extends Activity
     public static final int GERMAN     = 6;
     public static final int DUTCH      = 7;
     public static final int AFRIKAANS  = 8;
-
     public static final int HUNGARIAN  = 9;
 
     public static final int SIZE = 5;
