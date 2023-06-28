@@ -1447,7 +1447,7 @@ public class Gurgle extends Activity
 		return "af";
 
         case HUNGARIAN:
-        return "hu";
+        	return "hu";
 
         }
     }
