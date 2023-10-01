@@ -49,7 +49,7 @@ android {
     }
 
     dependencies {
-	implementation 'com.google.zxing:core:3.5.1'
-        implementation 'nl.dionsegijn:konfetti-xml:2.0.2'
+	implementation 'com.google.zxing:core:3.5.2'
+        implementation 'nl.dionsegijn:konfetti-xml:2.0.3'
     }
 }

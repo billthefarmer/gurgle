@@ -23,7 +23,6 @@
 
 package org.billthefarmer.gurgle;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -61,8 +60,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import android.support.v4.content.FileProvider;
 
@@ -108,6 +109,7 @@ import nl.dionsegijn.konfetti.xml.KonfettiView;
 // Gurgle class
 @SuppressWarnings("deprecation")
 public class Gurgle extends Activity
+    implements PopupMenu.OnMenuItemClickListener
 {
     public static final String TAG = "Gurgle";
     public static final String ROW = "row";
@@ -190,6 +192,7 @@ public class Gurgle extends Activity
     private ActionMode actionMode;
     private TextView display[][];
     private TextView actionView;
+    private Toolbar toolbar;
     private Toast toast;
     private String word;
     private Party party;
@@ -265,6 +268,20 @@ public class Gurgle extends Activity
         setContentView(R.layout.main);
 
         setLanguage();
+
+        // Find toolbar
+        ViewGroup root = (ViewGroup) getWindow().getDecorView();
+        toolbar = findToolbar(root);
+
+        // Set up navigation
+        toolbar.setNavigationIcon(R.drawable.ic_menu_white_36dp);
+        toolbar.setNavigationOnClickListener((v) ->
+        {
+            PopupMenu popup = new PopupMenu(this, v);
+            popup.inflate(R.menu.navigation);
+            popup.setOnMenuItemClickListener(this);
+            popup.show();
+        });
 
         keyboard = new HashMap<String, TextView>();
         ViewGroup rows = findViewById(R.id.keyboard);
@@ -796,6 +813,47 @@ public class Gurgle extends Activity
             Bitmap bitmap = data.getParcelableExtra(DATA);
             decodeImage(bitmap);
         }
+    }
+
+    // onMenuItemClick
+    @Override
+    public boolean onMenuItemClick(MenuItem item)
+    {
+        // Get id
+        int id = item.getItemId();
+        switch (id)
+        {
+        // Help
+        case R.id.help:
+            help();
+            break;
+
+        default:
+            return false;
+        }
+
+        return true;
+    }
+
+    // findToolbar
+    private Toolbar findToolbar(ViewGroup group)
+    {
+        View result = null;
+        final int count = group.getChildCount();
+        for (int i = 0; i < count; i++)
+        {
+            View view = group.getChildAt(i);
+            if (view instanceof Toolbar)
+                return (Toolbar) view;
+
+            if (view instanceof ViewGroup)
+                result = findToolbar((ViewGroup) view);
+
+            if (result != null)
+                break;
+        }
+
+        return (Toolbar) result;
     }
 
     // addAccents
