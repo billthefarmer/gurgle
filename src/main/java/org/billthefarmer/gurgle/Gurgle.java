@@ -273,7 +273,7 @@ public class Gurgle extends Activity
         toolbar = findViewById(getResources().getIdentifier("action_bar",
                                                             "id", "android"));
         // Set up navigation
-        toolbar.setNavigationIcon(R.drawable.ic_menu_white_36dp);
+        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
         toolbar.setNavigationOnClickListener((v) ->
         {
             PopupMenu popup = new PopupMenu(this, v);
@@ -300,14 +300,14 @@ public class Gurgle extends Activity
         }
 
         ImageView view = findViewById(R.id.enter);
-        view.setImageResource(swap? R.drawable.ic_backspace:
-                                    R.drawable.ic_enter);
+        view.setImageResource(swap? R.drawable.ic_backspace_white_24dp:
+                                    R.drawable.ic_keyboard_return_white_24dp);
         view.setOnClickListener(swap? (v) -> backspaceClicked(v):
                                       (v) -> enterClicked(v));
         view.setOnLongClickListener((v) -> swap(v));
         view = findViewById(R.id.back);
-        view.setImageResource(swap? R.drawable.ic_enter:
-                                    R.drawable.ic_backspace);
+        view.setImageResource(swap? R.drawable.ic_keyboard_return_white_24dp:
+                                    R.drawable.ic_backspace_white_24dp);
         view.setOnClickListener(swap? (v) -> enterClicked(v):
                                       (v) -> backspaceClicked(v));
         view.setOnLongClickListener((v) -> swap(v));

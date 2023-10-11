@@ -780,7 +780,7 @@
               android:background="@drawable/key"
               android:gravity="center"
               tools:ignore="ContentDescription"
-              android:src="@drawable/ic_enter" />
+              android:src="@drawable/ic_keyboard_return_white_24dp" />
 
           <TextView
               android:id="@+id/Z"
@@ -907,7 +907,7 @@
               android:background="@drawable/key"
               android:gravity="center"
               tools:ignore="ContentDescription"
-              android:src="@drawable/ic_backspace" />
+              android:src="@drawable/ic_backspace_white_24dp" />
 
         </LinearLayout>
 
