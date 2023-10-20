@@ -1,0 +1,2 @@
+ * Add navigation menu
+ * Update icons
