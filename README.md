@@ -51,6 +51,11 @@ checked that they haven't been used recently.
 ### Image
 Share an image of the current display.
 
+### Text
+Share the letters and colours of finished guesses. Select the
+[WordleSolver](https://github.com/billthefarmer/wordlesolver) app to
+pick the next guess.
+
 ### Code
 Display an alphanumeric code and a QR code which represents a new
 sequence of words to guess. This code may be shared with another copy
