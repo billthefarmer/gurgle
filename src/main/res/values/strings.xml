@@ -10,6 +10,7 @@
   <string name="confetti">Confetti</string>
   <string name="fanfare">Fanfare</string>
   <string name="code">Code</string>
+  <string name="text">Text</string>
   <string name="qrCode">QR code</string>
   <string name="getCode">Get code</string>
   <string name="enterCode">Enter code</string>

@@ -27,6 +27,11 @@
             android:showAsAction="never"
             android:title="@string/code" />
 
+        <item
+            android:id="@+id/text"
+            android:showAsAction="never"
+            android:title="@string/text" />
+
     </menu>
   </item>
 

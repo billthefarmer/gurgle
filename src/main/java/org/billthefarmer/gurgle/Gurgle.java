@@ -637,6 +637,10 @@ public class Gurgle extends Activity
             shareImage();
             break;
 
+        case R.id.text:
+            shareText();
+            break;
+
         case R.id.code:
             showCode();
             break;
@@ -1129,6 +1133,64 @@ public class Gurgle extends Activity
         if (BuildConfig.DEBUG)
             intent.putExtra(Intent.EXTRA_TEXT, word);
 
+        startActivity(Intent.createChooser(intent, null));
+    }
+
+    // shareText
+    private void shareText()
+    {
+        StringBuilder builder = new StringBuilder();
+        // Green letters
+        for (int c = 0; c < SIZE; c++)
+        {
+            String letter = ".";
+            for (int r = 0; r < row; r++)
+            {
+                TextView text = display[r][c];
+                if (text.getTextColors().getDefaultColor() == correct)
+                {
+                    letter = text.getText().toString();
+                    continue;
+                }
+            }
+
+            builder.append(letter);
+        }
+
+        builder.append(",");
+        // Yellow letters, one row
+        for (int c = 0; c < SIZE; c++)
+        {
+            String letter = ".";
+            for (int r = row - 1; r > -1; r--)
+            {
+                TextView text = display[r][c];
+                if (text.getTextColors().getDefaultColor() == contains)
+                {
+                    letter = text.getText().toString();
+                    continue;
+                }
+            }
+
+            builder.append(letter);
+        }
+
+        builder.append(",,,");
+        // Grey letters
+        for (int c = 0; c < SIZE; c++)
+        {
+            for (int r = 0; r < row; r++)
+            {
+                TextView text = display[r][c];
+                if (text.getTextColors().getDefaultColor() == wrong)
+                    builder.append(text.getText());
+            }
+        }
+
+        // Send intent
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_TEXT, builder.toString());
+        intent.setType(TEXT_PLAIN);
         startActivity(Intent.createChooser(intent, null));
     }
 

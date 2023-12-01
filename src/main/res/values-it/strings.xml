@@ -10,6 +10,7 @@
   <string name="confetti">Coriandoli</string>
   <string name="fanfare">Fanfara</string>
   <string name="code">Codice</string>
+  <string name="text">Testo</string>
   <string name="qrCode">Codice QR</string>
   <string name="getCode">Ottieni codice</string>
   <string name="enterCode">Inserisci codice</string>
