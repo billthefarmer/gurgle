@@ -74,7 +74,7 @@ Select coloured theme from the **Theme** button in the toolbar.
    each game. Reset to clear word.
 
 ## Dictionary
-Select the dictionary to look up a word meaning. Wictionary (online)
+Select the dictionary to look up a word meaning. Wiktionary (online)
 is built in, [Aard2](https://f-droid.org/en/packages/itkach.aard2/)
 and
 [Quickdic](https://f-droid.org/en/packages/de.reimardoeffinger.quickdic/)
