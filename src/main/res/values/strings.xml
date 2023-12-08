@@ -9,6 +9,11 @@
   <string name="options">Options</string>
   <string name="confetti">Confetti</string>
   <string name="fanfare">Fanfare</string>
+  <string name="word">Default word</string>
+  <string name="dict">Dictionary</string>
+  <string name="aard2">Aard2</string>
+  <string name="quickdic">Quickdic</string>
+  <string name="wikt">Wictionary</string>
   <string name="code">Code</string>
   <string name="text">Text</string>
   <string name="qrCode">QR code</string>

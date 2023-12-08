@@ -9,6 +9,11 @@
   <string name="options">Opciók</string>
   <string name="confetti">Konfetti</string>
   <string name="fanfare">Hangjelzés</string>
+  <string name="word">Alapértelmezett szó</string>
+  <string name="dict">Szótár</string>
+  <string name="aard2">Aard2</string>
+  <string name="quickdic">Quickdic</string>
+  <string name="wikt">Wictionary</string>
   <string name="code">Kód</string>
   <string name="text">Szöveg</string>
   <string name="qrCode">QR kód</string>

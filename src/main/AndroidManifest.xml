@@ -7,6 +7,15 @@
 
   <uses-permission android:name="android.permission.INTERNET" />
 
+  <queries>
+    <intent>
+      <action android:name="aard2.lookup" />
+    </intent>
+    <intent>
+      <action android:name="com.hughes.action.ACTION_SEARCH_DICT" />
+    </intent>
+  </queries>
+
   <meta-data
       android:name="android.webkit.WebView.MetricsOptOut"
       android:value="true" />
