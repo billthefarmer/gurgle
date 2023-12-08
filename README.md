@@ -66,6 +66,20 @@ code button shares the alphanumeric code.
 ## Themes
 Select coloured theme from the **Theme** button in the toolbar.
 
+## Options
+ * **Confetti** &ndash; Select confetti display on guessing word.
+ * **Fanfare** &ndash; Select fanfare on guessing word.
+ * **Default word** &ndash; Select default word. The first word
+   entered will become the default word entered at the beginning of
+   each game. Reset to clear word.
+
+## Dictionary
+Select the dictionary to look up a word meaning. Wictionary (online)
+is built in, [Aard2](https://f-droid.org/en/packages/itkach.aard2/)
+and
+[Quickdic](https://f-droid.org/en/packages/de.reimardoeffinger.quickdic/)
+are apps which can be installed from [F-Droid](https://f-droid.org/).
+
 ## Language
 Select **Language** from the menu.
 
