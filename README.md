@@ -69,7 +69,7 @@ Select coloured theme from the **Theme** button in the toolbar.
 ## Options
  * **Confetti** &ndash; Select confetti display on guessing word.
  * **Fanfare** &ndash; Select fanfare on guessing word.
- * **Default word** &ndash; Select default word. The first word
+ * **Default word** &ndash; Select to enable default word. The first word
    entered will become the default word entered at the beginning of
    each game. Reset to clear word.
 
