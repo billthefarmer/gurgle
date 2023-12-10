@@ -576,12 +576,12 @@ public class Gurgle extends Activity
             PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
 
-        editor.putInt(PREF_THEME, theme);
-        editor.putInt(PREF_WRONG, wrong);
-        editor.putInt(PREF_LANG, language);
         editor.putInt(PREF_CONT, contains);
         editor.putInt(PREF_CORR, correct);
         editor.putInt(PREF_DICT, dict);
+        editor.putInt(PREF_LANG, language);
+        editor.putInt(PREF_THEME, theme);
+        editor.putInt(PREF_WRONG, wrong);
         editor.putString(PREF_FIRST, first);
         editor.putBoolean(PREF_CONF, confetti);
         editor.putBoolean(PREF_FARE, fanfare);
@@ -1866,7 +1866,7 @@ public class Gurgle extends Activity
 
         // Add the buttons
         builder.setPositiveButton(android.R.string.ok, null);
-        builder.setNeutralButton(R.string.more, (d, i) ->
+        builder.setNeutralButton(R.string.help, (d, i) ->
         {
             showToast(word);
             solved = true;
