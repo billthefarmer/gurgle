@@ -207,6 +207,7 @@ public class Gurgle extends Activity
     private Map<String, TextView> keyboard;
     private KonfettiView konfettiView;
     private ActionMode actionMode;
+    private TextView selectedView;
     private TextView display[][];
     private TextView actionView;
     private Toolbar toolbar;
@@ -1000,6 +1001,14 @@ public class Gurgle extends Activity
             return;
         }
 
+        if (selectedView != null)
+        {
+            CharSequence s = ((TextView)v).getText();
+            selectedView.setText(s);
+            selectedView = null;
+            return;
+        }
+
         if (letter < SIZE)
         {
             while (letter < SIZE && locked[letter])
@@ -1772,6 +1781,30 @@ public class Gurgle extends Activity
         return true;
     }
 
+    // select
+    private void select(View view)
+    {
+        ViewGroup grid = findViewById(R.id.puzzle);
+        if (grid.indexOfChild(view) / SIZE != row)
+        {
+            showToast(R.string.finish);
+            return;
+        }
+
+        int col = grid.indexOfChild(view) % SIZE;
+        if (locked[col])
+        {
+            showToast(R.string.finish);
+            return;
+        }
+
+        if (selectedView != null)
+            selectedView.setText("");
+
+        selectedView = (TextView) view;
+        selectedView.setText("_");
+    }
+
     // search
     private void search(View view)
     {
@@ -1787,9 +1820,13 @@ public class Gurgle extends Activity
 
         if (guess.length() != SIZE)
         {
-            showToast(R.string.finish);
+            select(view);
             return;
         }
+        // {
+        //     showToast(R.string.finish);
+        //     return;
+        // }
 
         if (!Words.isWord(removeAccents(guess)))
         {
