@@ -30,8 +30,8 @@ android {
         applicationId "org.billthefarmer.gurgle"
         minSdkVersion 22
         targetSdkVersion 31
-        versionName "1.27"
-        versionCode 127
+        versionName "1.28"
+        versionCode 128
 
         buildConfigField "long", "BUILT", System.currentTimeMillis() + "L"
     }
@@ -50,8 +50,8 @@ android {
     }
 
     dependencies {
-	implementation 'com.google.zxing:core:3.5.2'
-        implementation 'nl.dionsegijn:konfetti-xml:2.0.3'
+	implementation 'com.google.zxing:core:3.5.3'
+        implementation 'nl.dionsegijn:konfetti-xml:2.0.4'
 	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
     }
 }

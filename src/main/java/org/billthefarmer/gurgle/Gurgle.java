@@ -605,6 +605,9 @@ public class Gurgle extends Activity
         outState.putBoolean(SOLVED, solved);
         outState.putBooleanArray(LOCKED, locked);
 
+        if (selectedView != null)
+            selectedView.setText("");
+
         ArrayList<String> letterList = new ArrayList<String>();
         ArrayList<Integer> colourList = new ArrayList<Integer>();
         for (TextView a[]: display)
@@ -1823,10 +1826,6 @@ public class Gurgle extends Activity
             select(view);
             return;
         }
-        // {
-        //     showToast(R.string.finish);
-        //     return;
-        // }
 
         if (!Words.isWord(removeAccents(guess)))
         {
