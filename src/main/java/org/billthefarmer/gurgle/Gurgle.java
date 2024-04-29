@@ -1184,6 +1184,7 @@ public class Gurgle extends Activity
         word = Words.getWord();
 
         locked = new boolean[SIZE];
+        selectedView = null;
         solved = false;
         letter = 0;
         row = 0;
@@ -1787,6 +1788,12 @@ public class Gurgle extends Activity
     // select
     private void select(View view)
     {
+        if (solved)
+        {
+            showToast(R.string.solved);
+            return;
+        }
+
         ViewGroup grid = findViewById(R.id.puzzle);
         if (grid.indexOfChild(view) / SIZE != row)
         {
