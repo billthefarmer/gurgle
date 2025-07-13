@@ -188,6 +188,7 @@ public class Gurgle extends Activity
     public static final int DUTCH      = 7;
     public static final int AFRIKAANS  = 8;
     public static final int HUNGARIAN  = 9;
+    public static final int GREEK  = 10;
 
     public static final int WIKTIONARY = 0;
     public static final int AARD2      = 1;
@@ -231,6 +232,62 @@ public class Gurgle extends Activity
     private int wrong;
     private int dict;
     private int row;
+
+    private static final Map<String, String> GREEK_UPPERCASE_KEYS = new HashMap<>();
+    static {
+        GREEK_UPPERCASE_KEYS.put("E", "Ε");
+        GREEK_UPPERCASE_KEYS.put("R", "Ρ");
+        GREEK_UPPERCASE_KEYS.put("T", "Τ");
+        GREEK_UPPERCASE_KEYS.put("Y", "Υ");
+        GREEK_UPPERCASE_KEYS.put("U", "Θ");
+        GREEK_UPPERCASE_KEYS.put("I", "Ι");
+        GREEK_UPPERCASE_KEYS.put("O", "Ο");
+        GREEK_UPPERCASE_KEYS.put("P", "Π");
+        GREEK_UPPERCASE_KEYS.put("A", "Α");
+        GREEK_UPPERCASE_KEYS.put("S", "Σ");
+        GREEK_UPPERCASE_KEYS.put("D", "Δ");
+        GREEK_UPPERCASE_KEYS.put("F", "Φ");
+        GREEK_UPPERCASE_KEYS.put("G", "Γ");
+        GREEK_UPPERCASE_KEYS.put("H", "Η");
+        GREEK_UPPERCASE_KEYS.put("J", "Ξ");
+        GREEK_UPPERCASE_KEYS.put("K", "Κ");
+        GREEK_UPPERCASE_KEYS.put("L", "Λ");
+        GREEK_UPPERCASE_KEYS.put("Z", "Ζ");
+        GREEK_UPPERCASE_KEYS.put("X", "Χ");
+        GREEK_UPPERCASE_KEYS.put("C", "Ψ");
+        GREEK_UPPERCASE_KEYS.put("V", "Ω");
+        GREEK_UPPERCASE_KEYS.put("B", "Β");
+        GREEK_UPPERCASE_KEYS.put("N", "Ν");
+        GREEK_UPPERCASE_KEYS.put("M", "Μ");
+    }
+
+    private static final Map<String, String> GREEK_LETTER_TO_KEY = new HashMap<>();
+    static {
+        GREEK_LETTER_TO_KEY.put("Ε", "E");
+        GREEK_LETTER_TO_KEY.put("Ρ", "R");
+        GREEK_LETTER_TO_KEY.put("Τ", "T");
+        GREEK_LETTER_TO_KEY.put("Υ", "Y");
+        GREEK_LETTER_TO_KEY.put("Θ", "U");
+        GREEK_LETTER_TO_KEY.put("Ι", "I");
+        GREEK_LETTER_TO_KEY.put("Ο", "O");
+        GREEK_LETTER_TO_KEY.put("Π", "P");
+        GREEK_LETTER_TO_KEY.put("Α", "A");
+        GREEK_LETTER_TO_KEY.put("Σ", "S");
+        GREEK_LETTER_TO_KEY.put("Δ", "D");
+        GREEK_LETTER_TO_KEY.put("Φ", "F");
+        GREEK_LETTER_TO_KEY.put("Γ", "G");
+        GREEK_LETTER_TO_KEY.put("Η", "H");
+        GREEK_LETTER_TO_KEY.put("Ξ", "J");
+        GREEK_LETTER_TO_KEY.put("Κ", "K");
+        GREEK_LETTER_TO_KEY.put("Λ", "L");
+        GREEK_LETTER_TO_KEY.put("Ζ", "Z");
+        GREEK_LETTER_TO_KEY.put("Χ", "X");
+        GREEK_LETTER_TO_KEY.put("Ψ", "C");
+        GREEK_LETTER_TO_KEY.put("Ω", "V");
+        GREEK_LETTER_TO_KEY.put("Β", "B");
+        GREEK_LETTER_TO_KEY.put("Ν", "N");
+        GREEK_LETTER_TO_KEY.put("Μ", "M");
+    }
 
     // On create
     @Override
@@ -291,7 +348,7 @@ public class Gurgle extends Activity
 
         setContentView(R.layout.main);
 
-        setLanguage();
+        
 
         // Find toolbar
         toolbar = findViewById(getResources().getIdentifier("action_bar",
@@ -307,22 +364,21 @@ public class Gurgle extends Activity
         });
 
         keyboard = new HashMap<String, TextView>();
-        ViewGroup rows = findViewById(R.id.keyboard);
-        for (int r = 0; r < rows.getChildCount(); r++)
-        {
-            ViewGroup row = (ViewGroup) rows.getChildAt(r);
-            for (int i = 0; i < row.getChildCount(); i++)
-            {
-                View view = row.getChildAt(i);
-                if (view instanceof TextView)
-                {
-                    view.setOnClickListener((v) -> keyClicked(v));
-                    keyboard.put(((TextView) view).getText().toString(),
-                                 (TextView) view);
-                }
+        ViewGroup keyboardLayout = findViewById(R.id.keyboard);
+        String[] letters = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+                            "A", "S", "D", "F", "G", "H", "J", "K", "L",
+                            "Z", "X", "C", "V", "B", "N", "M"};
+
+        for (String letter : letters) {
+            TextView key = findViewById(getResources().getIdentifier(letter, "id", getPackageName()));
+            if (key != null) {
+                key.setOnClickListener((v) -> keyClicked(v));
+                keyboard.put(letter, key);
             }
         }
 
+        setLanguage();
+        
         ImageView view = findViewById(R.id.enter);
         view.setImageResource(swap? R.drawable.ic_backspace_white_24dp:
                                     R.drawable.ic_keyboard_return_white_24dp);
@@ -361,7 +417,7 @@ public class Gurgle extends Activity
         {
             float scaleX = (float) layout.getWidth() / grid.getWidth();
             float scaleY = (float) (layout.getHeight() -
-                                    rows.getHeight()) / grid.getHeight();
+                                    keyboardLayout.getHeight()) / grid.getHeight();
             float scale = Math.min(scaleX, scaleY);
             for (int i = 0; i < grid.getChildCount(); i++)
             {
@@ -370,10 +426,11 @@ public class Gurgle extends Activity
                 v.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                               v.getTextSize() * scale);
             }
-            scale = (float) layout.getWidth() / rows.getWidth();
-            for (int r = 0; r < rows.getChildCount(); r++)
+
+            scale = (float) layout.getWidth() / keyboardLayout.getWidth();
+            for (int r = 0; r < keyboardLayout.getChildCount(); r++)
             {
-                ViewGroup row = (ViewGroup) rows.getChildAt(r);
+                ViewGroup row = (ViewGroup) keyboardLayout.getChildAt(r);
                 for (int i = 0; i < row.getChildCount(); i++)
                 {
                     View v = row.getChildAt(i);
@@ -445,15 +502,15 @@ public class Gurgle extends Activity
             solved = savedInstanceState.getBoolean(SOLVED);
             locked = savedInstanceState.getBooleanArray(LOCKED);
 
-            List<String> letters =
+            List<String> savedLetters =
                 savedInstanceState.getStringArrayList(LETTERS);
             List<Integer> colours =
                 savedInstanceState.getIntegerArrayList(COLOURS);
 
-            for (int i = 0; i < letters.size(); i++)
+            for (int i = 0; i < savedLetters.size(); i++)
             {
                 TextView text = display[i / SIZE][i % SIZE];
-                text.setText(letters.get(i));
+                text.setText(savedLetters.get(i));
                 text.setTextColor(colours.get(i));
             }
 
@@ -536,15 +593,15 @@ public class Gurgle extends Activity
         solved = savedInstanceState.getBoolean(SOLVED);
         locked = savedInstanceState.getBooleanArray(LOCKED);
 
-        List<String> letters =
+        List<String> savedLetters =
             savedInstanceState.getStringArrayList(LETTERS);
         List<Integer> colours =
             savedInstanceState.getIntegerArrayList(COLOURS);
 
-        for (int i = 0; i < letters.size(); i++)
+        for (int i = 0; i < savedLetters.size(); i++)
         {
             TextView text = display[i / SIZE][i % SIZE];
-            text.setText(letters.get(i));
+            text.setText(savedLetters.get(i));
             text.setTextColor(colours.get(i));
         }
 
@@ -771,6 +828,10 @@ public class Gurgle extends Activity
             setLanguage(HUNGARIAN);
             break;
 
+        case R.id.greek:
+            setLanguage(GREEK);
+            break;
+        
         case R.id.getText:
             getText();
             break;
@@ -1044,7 +1105,8 @@ public class Gurgle extends Activity
             return;
         }
 
-        if (!Words.isWord(guess.toString()))
+        String guessedWord = guess.toString();
+        if (!Words.isWord(guessedWord))
         {
             showToast(R.string.notListed);
             return;
@@ -1052,10 +1114,10 @@ public class Gurgle extends Activity
 
         // Save default word
         if (use && row == 0 &&
-            ((first != null && first.isEmpty()) || first == null))
-            first = guess.toString();
+                ((first != null && first.isEmpty()) || first == null))
+            first = guessedWord;
 
-        if (word.contentEquals(guess))
+        if (word.contentEquals(guessedWord))
         {
             if (fanfare)
             {
@@ -1075,7 +1137,13 @@ public class Gurgle extends Activity
         {
             String testLetter = test.substring(i, i + 1);
             String guessLetter = guess.substring(i, i + 1);
-            TextView key = keyboard.get(guessLetter);
+            TextView key = null;
+            if (language == GREEK) {
+                String latinKey = GREEK_LETTER_TO_KEY.get(guessLetter);
+                if (latinKey != null) key = keyboard.get(latinKey);
+            } else {
+                key = keyboard.get(guessLetter);
+            }
             TextView let = display[row][i];
 
             if (testLetter.contentEquals(guessLetter))
@@ -1089,11 +1157,17 @@ public class Gurgle extends Activity
         for (int i = 0; i < display[row].length; i++)
         {
             String guessLetter = guess.substring(i, i + 1);
-            TextView key = keyboard.get(guessLetter);
+            TextView key = null;
+            if (language == GREEK) {
+                String latinKey = GREEK_LETTER_TO_KEY.get(guessLetter);
+                key = keyboard.get(latinKey);
+            } else {
+                key = keyboard.get(guessLetter);
+            }
             TextView let = display[row][i];
 
             if (test.toString().contains(guessLetter) &&
-                let.getTextColors().getDefaultColor() != correct)
+                    let.getTextColors().getDefaultColor() != correct)
             {
                 let.setTextColor(contains);
                 int index = test.indexOf(guessLetter);
@@ -1102,14 +1176,13 @@ public class Gurgle extends Activity
                 if (key.getTextColors().getDefaultColor() != correct)
                     key.setTextColor(contains);
             }
-
             else
             {
                 if (let.getTextColors().getDefaultColor() != correct &&
-                    let.getTextColors().getDefaultColor() != contains)
+                        let.getTextColors().getDefaultColor() != contains)
                     let.setTextColor(wrong);
                 if (key.getTextColors().getDefaultColor() != correct &&
-                    key.getTextColors().getDefaultColor() != contains)
+                        key.getTextColors().getDefaultColor() != contains)
                     key.setTextColor(wrong);
             }
         }
@@ -1157,25 +1230,37 @@ public class Gurgle extends Activity
     }
 
     // refresh
-    private void refresh()
-    {
-        for (TextView r[]: display)
-        {
-            for (TextView t: r)
-            {
+    private void refresh() {
+        // Ensure display array is properly initialized
+        if (display == null || display[0] == null) {
+            display = new TextView[ROWS][];
+            for (int i = 0; i < display.length; i++) {
+                display[i] = new TextView[SIZE];
+            }
+            ViewGroup grid = findViewById(R.id.puzzle);
+            for (int i = 0; i < grid.getChildCount(); i++) {
+                display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
+            }
+        }
+
+        // Clear display
+        for (TextView r[] : display) {
+            for (TextView t : r) {
                 t.setText("");
                 t.setTextColor(getColour(WHITE));
             }
         }
 
-        for (TextView t: keyboard.values().toArray(new TextView[0]))
+        // Clear keyboard
+        if (keyboard != null) {
+            for (TextView t : keyboard.values().toArray(new TextView[0])) {
                 t.setTextColor(getColour(WHITE));
+            }
+        }
 
         // Fill in default word
-        if (use && first != null && !first.isEmpty())
-        {
-            for (int i = 0; i < first.length(); i++)
-            {
+        if (use && first != null && !first.isEmpty()){
+            for (int i = 0; i < first.length(); i++){
                 TextView text = display[0][i];
                 text.setText(first.substring(i, i+1));
             }
@@ -1633,7 +1718,42 @@ public class Gurgle extends Activity
 
         case HUNGARIAN:
         	return "hu";
+        
+        case GREEK:
+        	return "el";
 
+        }
+    }
+
+    private void setKeyboardLanguage(int lang) {
+        // Show all keys first (in case Q and W were hidden before for Greek)
+        for (TextView key : keyboard.values()) {
+            key.setVisibility(View.VISIBLE);
+        }
+        if (lang == GREEK) {
+            // Hide the Q and W keys
+            TextView qKey = keyboard.get("Q");
+            TextView wKey = keyboard.get("W");
+            if (qKey != null) {
+                qKey.setVisibility(View.GONE);
+            }
+            if (wKey != null) {
+                wKey.setVisibility(View.GONE);
+            }
+            // Set all other keys to uppercase Greek
+            for (Map.Entry<String, TextView> entry : keyboard.entrySet()) {
+                String key = entry.getKey();
+                TextView tv = entry.getValue();
+                if (GREEK_UPPERCASE_KEYS.containsKey(key)) {
+                    tv.setText(GREEK_UPPERCASE_KEYS.get(key));
+                }
+            }
+        } else {
+            // Restore all keys for non-Greek
+            for (Map.Entry<String, TextView> entry : keyboard.entrySet()) {
+                entry.getValue().setText(entry.getKey());
+                entry.getValue().setVisibility(View.VISIBLE);
+            }
         }
     }
 
@@ -1649,6 +1769,8 @@ public class Gurgle extends Activity
     private void setLanguage()
     {
         Words.setLanguage(this, language);
+
+        setKeyboardLanguage(language);
 
         switch (language)
         {
@@ -1691,6 +1813,10 @@ public class Gurgle extends Activity
 
         case HUNGARIAN:
             getActionBar().setSubtitle(R.string.hungarian);
+            break;
+        
+        case GREEK:
+            getActionBar().setSubtitle(R.string.greek);
             break;
         }
     }
