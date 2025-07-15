@@ -56,6 +56,6 @@ android {
     dependencies {
 	implementation 'com.google.zxing:core:3.5.3'
         implementation 'nl.dionsegijn:konfetti-xml:2.0.5'
-	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.4'
+	coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.1.5'
     }
 }
