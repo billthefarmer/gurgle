@@ -39,7 +39,8 @@ android {
     lintOptions {
         disable 'IconDensities', 'SetJavaScriptEnabled', 'OldTargetApi',
 	    'NonConstantResourceId', 'ExpiredTargetSdkVersion',
-            'ClickableViewAccessibility', 'AndroidGradlePluginVersion'
+            'ClickableViewAccessibility', 'AndroidGradlePluginVersion',
+            'GradleDependency'
         // abortOnError false
     }
 
