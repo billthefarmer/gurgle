@@ -1,0 +1,2 @@
+* Add Greek language and translation
+* Update Spanish language
