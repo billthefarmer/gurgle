@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="appName">Gurgle</string>
+  <string name="help">Βοήθεια</string>
+  <string name="refresh">Ανανέωση</string>
+  <string name="share">Κοινή χρήση</string>
+  <string name="image">Εικόνα</string>
+  <string name="options">Επιλογές</string>
+  <string name="confetti">Κονφέτι</string>
+  <string name="fanfare">Φανφάρα</string>
+  <string name="word">Προεπιλεγμένη λέξη</string>
+  <string name="dict">Λεξικό</string>
+  <string name="aard2">Aard2</string>
+  <string name="quickdic">Quickdic</string>
+  <string name="wikt">Wictionary</string>
+  <string name="code">Κωδικός</string>
+  <string name="text">Κείμενο</string>
+  <string name="qrCode">Κωδικός QR</string>
+  <string name="getCode">Λήψη κωδικού</string>
+  <string name="enterCode">Εισαγωγή κωδικού</string>
+  <string name="about">Σχετικά</string>
+
+  <string name="language">Γλώσσα</string>
+  <string name="afrikaans">Αφρικάανς</string>
+  <string name="english">Αγγλικά</string>
+  <string name="italian">Ιταλικά</string>
+  <string name="spanish">Ισπανικά</string>
+  <string name="catalan">Καταλανικά</string>
+  <string name="french">Γαλλικά</string>
+  <string name="portuguese">Πορτογαλικά</string>
+  <string name="german">Γερμανικά</string>
+  <string name="dutch">Ολλανδικά</string>
+  <string name="hungarian">Ουγγρικά</string>
+  <string name="greek">Ελληνικά</string>
+
+  <string name="theme">Θέμα</string>
+  <string name="dark">Σκούρο</string>
+  <string name="blue">Μπλε</string>
+  <string name="cyan">Κυανό</string>
+  <string name="orange">Πορτοκαλί</string>
+  <string name="purple">Μωβ</string>
+  <string name="black">Μαύρο</string>
+  <string name="light">Ανοιχτό</string>
+  <string name="red">Κόκκινο</string>
+
+  <string name="highlight">Χρώματα επισήμανσης</string>
+  <string name="reset">Επαναφορά</string>
+  <string name="selectHighlight">
+    Επιλέξτε χρώματα επισήμανσης
+  </string>
+
+  <string name="press">Πατήστε enter</string>
+  <string name="finish">Ολοκληρώστε πρώτα τη λέξη</string>
+  <!--<string name="guess">Guess the word first</string>-->
+  <string name="notListed">Δεν είναι στη λίστα λέξεων</string>
+  <string name="solved">Λύθηκε, πατήστε ανανέωση</string>
+  <string name="newCode">Ορίστηκε νέος κωδικός</string>
+  <string name="notRecognised">Ο κωδικός δεν αναγνωρίστηκε</string>
+
+  <string name="congratulations">
+    Συγχαρητήρια! Έχετε μαντέψει σωστά τη λέξη %s
+  </string>
+
+  <string name="version" formatted="false"><a
+  href="https://github.com/billthefarmer/gurgle/releases/latest">%s</a>\n\nΔημιουργήθηκε
+  %s\n\nΠνευματικά δικαιώματα © 2022 <a
+  href="https://github.com/billthefarmer">Bill
+  Farmer</a>\n\nΛεξικά από <a
+  href="https://github.com/lexica">Lexica</a>\nΘέματα από <a
+  href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\nΓαλλική
+  γλώσσα και φορτωτής λεξικού από <a
+  href="https://github.com/tatref">tatref</a> και <a
+  href="http://www.lexique.org">Lexique</a>\nΕλληνική γλώσσα και ελληνικό πληκτρολόγιο από <a
+  href="https://github.com/ManosMrgk">ManosMrgk</a>\nΚονφέτι από <a
+  href="https://github.com/DanielMartinus/Konfetti">Konfetti</a>\n\nΆδεια <a
+  href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
+  </string>
+
+</resources>

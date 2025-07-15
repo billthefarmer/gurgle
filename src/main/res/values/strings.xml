@@ -32,6 +32,7 @@
   <string name="german">German</string>
   <string name="dutch">Dutch</string>
   <string name="hungarian">Hungarian</string>
+  <string name="greek">Greek</string>
 
   <string name="theme">Theme</string>
   <string name="dark">Dark</string>
@@ -70,7 +71,8 @@
   href="https://github.com/PoorLazyCoder">PoorLazyCoder</a>\nFrench
   language and dictionary loader from <a
   href="https://github.com/tatref">tatref</a> and <a
-  href="http://www.lexique.org">Lexique</a>\nConfetti from <a
+  href="http://www.lexique.org">Lexique</a>\nGreek language and keyboard from <a
+  href="https://github.com/ManosMrgk">ManosMrgk</a>\nConfetti from <a
   href="https://github.com/DanielMartinus/Konfetti">Konfetti</a>\n\nLicence <a
   href="https://www.gnu.org/licenses/gpl.txt">GNU GPLv3</a>
   </string>

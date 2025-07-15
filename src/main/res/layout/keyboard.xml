@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/keyboard"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+      
+      <TextView android:id="@+id/Q"
+          style="@style/KeyboardKey"
+          android:text="Q" />
+
+      <TextView android:id="@+id/W"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="W" />
+
+      <TextView android:id="@+id/E"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="E" />
+
+      <TextView android:id="@+id/R"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="R" />
+
+      <TextView android:id="@+id/T"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="T" />
+
+      <TextView android:id="@+id/Y"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="Y" />
+
+      <TextView android:id="@+id/U"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="U" />
+
+      <TextView android:id="@+id/I"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="I" />
+
+      <TextView android:id="@+id/O"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="O" />
+
+      <TextView android:id="@+id/P"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="P" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+      
+      <TextView android:id="@+id/A"
+          style="@style/KeyboardKey"
+          android:text="A" />
+
+      <TextView android:id="@+id/S"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="S" />
+
+      <TextView android:id="@+id/D"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="D" />
+
+      <TextView android:id="@+id/F"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="F" />
+
+      <TextView android:id="@+id/G"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="G" />
+
+      <TextView android:id="@+id/H"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="H" />
+
+      <TextView android:id="@+id/J"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="J" />
+
+      <TextView android:id="@+id/K"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="K" />
+
+      <TextView android:id="@+id/L"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="L" />
+  </LinearLayout>
+
+  <LinearLayout
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="6dp"
+      android:gravity="center"
+      android:orientation="horizontal"
+      tools:ignore="HardcodedText">
+      
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:minWidth="49dp"
+        android:background="@drawable/key"
+        android:gravity="center"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/ic_backspace_white_24dp" />
+
+      <TextView android:id="@+id/Z"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="Z" />
+
+      <TextView android:id="@+id/X"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="X" />
+
+      <TextView android:id="@+id/C"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="C" />
+
+      <TextView android:id="@+id/V"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="V" />
+
+      <TextView android:id="@+id/B"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="B" />
+
+      <TextView android:id="@+id/N"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="N" />
+
+      <TextView android:id="@+id/M"
+          style="@style/KeyboardKey"
+          android:layout_marginLeft="2dp"
+          android:text="M" />
+
+       <ImageView
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="2dp"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="7dp"
+        android:paddingBottom="7dp"
+        android:minWidth="49dp"
+        android:background="@drawable/key"
+        android:gravity="center"
+        tools:ignore="ContentDescription"
+        android:src="@drawable/ic_keyboard_return_white_24dp" />
+  </LinearLayout>
+</LinearLayout>

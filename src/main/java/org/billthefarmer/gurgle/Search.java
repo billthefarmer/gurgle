@@ -48,6 +48,8 @@ public class Search extends Activity
     public static final String FORMAT_HU =
         "https://wikiszotar.hu/ertelmezo-szotar/Speciális:Keresés?search=%s";
 
+    public static final String FORMAT_EL = "https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/triantafyllides/search.html?lq=%s&dq=";
+
     private WebView webview;
 
     // Called when the activity is first created
@@ -151,12 +153,23 @@ public class Search extends Activity
 		}
 
 		catch (Exception e) {}
+        
+                Locale locale   = Locale.getDefault();
+                String language = locale.getLanguage();
+                String url;
 
-                String url = (Locale.getDefault().getLanguage() == "hu")?
-                    String.format(Locale.getDefault(), FORMAT_HU, word):
-                    String.format(Locale.getDefault(), FORMAT, lang, word);
-
+                if ("hu".equals(language)) {
+                    url = String.format(locale, FORMAT_HU, word);
+                } else if (lang.equals("el")) {
+                    url = String.format(locale, FORMAT_EL, word);
+                } else {
+                    url = String.format(locale, FORMAT, language, word);
+                }
                 // Do web search
+                WebSettings webSettings = webview.getSettings();
+                webSettings.setLoadWithOverviewMode(true);
+                webSettings.setUseWideViewPort(true);
+                
                 webview.loadUrl(url);
             }
         }

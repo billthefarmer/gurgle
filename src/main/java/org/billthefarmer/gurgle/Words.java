@@ -63,6 +63,8 @@ public class Words
     public static final String DUTCH_FILE       = "Dutch.txt";
     public static final String AFRIKAANS_FILE   = "Afrikaans.txt";
     public static final String HUNGARIAN_FILE   = "Hungarian.txt";
+    public static final String GREEK_FILE       = "Greek.txt";
+    public static final String GREEK_LONG       = "Greek-long.txt";
 
     private static final int MAX_USED = 256;
 
@@ -163,6 +165,11 @@ public class Words
         case Gurgle.HUNGARIAN:
             readWords(context, HUNGARIAN_FILE, guess);
             words = new HashSet<String>(guess);
+            break;
+        case Gurgle.GREEK:
+            readWords(context, GREEK_FILE, guess);
+            words = new HashSet<String>(guess);
+            readWords(context, GREEK_LONG, words);
             break;
         }
     }
