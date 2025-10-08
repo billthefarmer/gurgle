@@ -158,6 +158,10 @@ public class Search extends Activity
                 String language = locale.getLanguage();
                 String url;
 
+                // Language dependent search. If the device language
+                // is Hungarian, search with Hungarian site, if the
+                // app language is Greek, search with Greek site,
+                // else search Wictionary with the app language.
                 if ("hu".equals(language))
                     url = String.format(locale, FORMAT_HU, word);
 
