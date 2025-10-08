@@ -158,13 +158,15 @@ public class Search extends Activity
                 String language = locale.getLanguage();
                 String url;
 
-                if ("hu".equals(language)) {
+                if ("hu".equals(language))
                     url = String.format(locale, FORMAT_HU, word);
-                } else if (lang.equals("el")) {
+
+                else if ("el".equals(lang))
                     url = String.format(locale, FORMAT_EL, word);
-                } else {
-                    url = String.format(locale, FORMAT, language, word);
-                }
+
+                else
+                    url = String.format(locale, FORMAT, lang, word);
+
                 // Do web search
                 WebSettings webSettings = webview.getSettings();
                 webSettings.setLoadWithOverviewMode(true);
