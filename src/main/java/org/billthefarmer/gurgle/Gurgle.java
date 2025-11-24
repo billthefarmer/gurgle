@@ -2018,7 +2018,7 @@ public class Gurgle extends Activity
             return;
         }
 
-        if (!Words.isWord(removeAccents(guess)))
+        if (!Words.isWord(removeAccents(guess)) && (language == SWEDISH && !Words.isWord(guess.toString())))
         {
             showToast(R.string.notListed);
             return;
