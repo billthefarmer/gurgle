@@ -199,6 +199,11 @@
             android:showAsAction="never"
             android:title="@string/greek" />
 
+        <item
+            android:id="@+id/swedish"
+            android:showAsAction="never"
+            android:title="@string/swedish" />
+
     </menu>
   </item>
 

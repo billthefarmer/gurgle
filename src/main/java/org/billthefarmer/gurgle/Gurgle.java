@@ -188,7 +188,8 @@ public class Gurgle extends Activity
     public static final int DUTCH      = 7;
     public static final int AFRIKAANS  = 8;
     public static final int HUNGARIAN  = 9;
-    public static final int GREEK  = 10;
+    public static final int GREEK      = 10;
+    public static final int SWEDISH    = 11;
 
     public static final int WIKTIONARY = 0;
     public static final int AARD2      = 1;
@@ -365,8 +366,8 @@ public class Gurgle extends Activity
 
         keyboard = new HashMap<String, TextView>();
         ViewGroup keyboardLayout = findViewById(R.id.keyboard);
-        String[] letters = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-                            "A", "S", "D", "F", "G", "H", "J", "K", "L",
+        String[] letters = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "Å",
+                            "A", "S", "D", "F", "G", "H", "J", "K", "L", "Ö", "Ä",
                             "Z", "X", "C", "V", "B", "N", "M"};
 
         for (String letter : letters) {
@@ -831,7 +832,11 @@ public class Gurgle extends Activity
         case R.id.greek:
             setLanguage(GREEK);
             break;
-        
+
+        case R.id.swedish:
+            setLanguage(SWEDISH);
+            break;
+
         case R.id.getText:
             getText();
             break;
@@ -1273,6 +1278,34 @@ public class Gurgle extends Activity
         solved = false;
         letter = 0;
         row = 0;
+    }
+
+    // resizeKeyboard
+    private void resizeKeyboard()
+    {
+        ViewGroup keyboardLayout = findViewById(R.id.keyboard);
+        ViewGroup grid = findViewById(R.id.puzzle);
+        View layout = findViewById(R.id.layout);
+        grid.postDelayed(() ->
+            {
+                float scale = (float) layout.getWidth() / keyboardLayout.getWidth();
+                for (int r = 0; r < keyboardLayout.getChildCount(); r++)
+                {
+                    ViewGroup row = (ViewGroup) keyboardLayout.getChildAt(r);
+                    for (int i = 0; i < row.getChildCount(); i++)
+                    {
+                        View v = row.getChildAt(i);
+                        if (v instanceof TextView)
+                        {
+                            v.setMinimumWidth
+                                (Math.round(v.getMinimumWidth() * scale));
+                            ((TextView) v).setTextSize
+                                (TypedValue.COMPLEX_UNIT_PX,
+                                ((TextView) v).getTextSize() * scale);
+                        }
+                    }
+                }
+            }, SWAP_DELAY);
     }
 
     // shareImage
@@ -1722,6 +1755,9 @@ public class Gurgle extends Activity
         case GREEK:
         	return "el";
 
+        case SWEDISH:
+        	return "sv";
+
         }
     }
 
@@ -1755,6 +1791,22 @@ public class Gurgle extends Activity
                 entry.getValue().setVisibility(View.VISIBLE);
             }
         }
+
+        // Hide swedish keys if not swedish
+        if (lang != SWEDISH) {
+            TextView swedishKey1 = keyboard.get("Å");
+            TextView swedishKey2 = keyboard.get("Ä");
+            TextView swedishKey3 = keyboard.get("Ö");
+            if (swedishKey1 != null) {
+                swedishKey1.setVisibility(View.GONE);
+            }
+            if (swedishKey2 != null) {
+                swedishKey2.setVisibility(View.GONE);
+            }
+            if (swedishKey3 != null) {
+                swedishKey3.setVisibility(View.GONE);
+            }
+        }
     }
 
     // setLanguage
@@ -1763,6 +1815,8 @@ public class Gurgle extends Activity
         language = l;
         setLanguage();
         refresh();
+        // Resize in case of different keyboard
+        resizeKeyboard();
     }
 
     // setLanguage
@@ -1817,6 +1871,10 @@ public class Gurgle extends Activity
         
         case GREEK:
             getActionBar().setSubtitle(R.string.greek);
+            break;
+
+        case SWEDISH:
+            getActionBar().setSubtitle(R.string.swedish);
             break;
         }
     }

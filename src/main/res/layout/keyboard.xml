@@ -63,6 +63,11 @@
           style="@style/KeyboardKey"
           android:layout_marginLeft="2dp"
           android:text="P" />
+
+      <TextView android:id="@+id/Å"
+                style="@style/KeyboardKey"
+                android:layout_marginLeft="2dp"
+                android:text="Å" />
   </LinearLayout>
 
   <LinearLayout
@@ -116,6 +121,16 @@
           style="@style/KeyboardKey"
           android:layout_marginLeft="2dp"
           android:text="L" />
+
+      <TextView android:id="@+id/Ö"
+                style="@style/KeyboardKey"
+                android:layout_marginLeft="2dp"
+                android:text="Ö" />
+
+      <TextView android:id="@+id/Ä"
+                style="@style/KeyboardKey"
+                android:layout_marginLeft="2dp"
+                android:text="Ä" />
   </LinearLayout>
 
   <LinearLayout
