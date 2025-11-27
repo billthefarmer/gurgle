@@ -1143,12 +1143,17 @@ public class Gurgle extends Activity
             String testLetter = test.substring(i, i + 1);
             String guessLetter = guess.substring(i, i + 1);
             TextView key = null;
-            if (language == GREEK) {
+            if (language == GREEK)
+            {
                 String latinKey = GREEK_LETTER_TO_KEY.get(guessLetter);
                 if (latinKey != null) key = keyboard.get(latinKey);
-            } else {
+            }
+
+            else
+            {
                 key = keyboard.get(guessLetter);
             }
+
             TextView let = display[row][i];
 
             if (testLetter.contentEquals(guessLetter))
@@ -1163,12 +1168,17 @@ public class Gurgle extends Activity
         {
             String guessLetter = guess.substring(i, i + 1);
             TextView key = null;
-            if (language == GREEK) {
+            if (language == GREEK)
+            {
                 String latinKey = GREEK_LETTER_TO_KEY.get(guessLetter);
                 key = keyboard.get(latinKey);
-            } else {
+            }
+
+            else
+            {
                 key = keyboard.get(guessLetter);
             }
+
             TextView let = display[row][i];
 
             if (test.toString().contains(guessLetter) &&
@@ -1738,16 +1748,17 @@ public class Gurgle extends Activity
         for (TextView key : keyboard.values()) {
             key.setVisibility(View.VISIBLE);
         }
-        if (lang == GREEK) {
+        if (lang == GREEK)
+        {
             // Hide the Q and W keys
             TextView qKey = keyboard.get("Q");
             TextView wKey = keyboard.get("W");
-            if (qKey != null) {
+            if (qKey != null)
                 qKey.setVisibility(View.GONE);
-            }
-            if (wKey != null) {
+
+            if (wKey != null)
                 wKey.setVisibility(View.GONE);
-            }
+
             // Set all other keys to uppercase Greek
             for (Map.Entry<String, TextView> entry : keyboard.entrySet()) {
                 String key = entry.getKey();
@@ -1756,7 +1767,10 @@ public class Gurgle extends Activity
                     tv.setText(GREEK_UPPERCASE_KEYS.get(key));
                 }
             }
-        } else {
+        }
+
+        else
+        {
             // Restore all keys for non-Greek
             for (Map.Entry<String, TextView> entry : keyboard.entrySet()) {
                 entry.getValue().setText(entry.getKey());
