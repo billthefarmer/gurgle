@@ -154,7 +154,7 @@ public class Gurgle extends Activity
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
-    public static final String A_ACCENTS[] = {"A", "À", "Á", "Â"};
+    public static final String A_ACCENTS[] = {"A", "À", "Á", "Â", "Å", "Å"};
     public static final String C_ACCENTS[] = {"C", "Ç"};
     public static final String E_ACCENTS[] = {"E", "È", "É", "Ê"};
     public static final String I_ACCENTS[] = {"I", "Ì", "Í", "Î"};
@@ -188,7 +188,8 @@ public class Gurgle extends Activity
     public static final int DUTCH      = 7;
     public static final int AFRIKAANS  = 8;
     public static final int HUNGARIAN  = 9;
-    public static final int GREEK  = 10;
+    public static final int GREEK      = 10;
+    public static final int SWEDISH    = 11;
 
     public static final int WIKTIONARY = 0;
     public static final int AARD2      = 1;
@@ -831,7 +832,11 @@ public class Gurgle extends Activity
         case R.id.greek:
             setLanguage(GREEK);
             break;
-        
+
+        case R.id.swedish:
+            setLanguage(SWEDISH);
+            break;
+
         case R.id.getText:
             getText();
             break;
@@ -1722,6 +1727,9 @@ public class Gurgle extends Activity
         case GREEK:
         	return "el";
 
+        case SWEDISH:
+        	return "sv";
+
         }
     }
 
@@ -1817,6 +1825,10 @@ public class Gurgle extends Activity
         
         case GREEK:
             getActionBar().setSubtitle(R.string.greek);
+            break;
+
+        case SWEDISH:
+            getActionBar().setSubtitle(R.string.swedish);
             break;
         }
     }
