@@ -1062,6 +1062,11 @@ public class Gurgle extends Activity
     // keyClicked
     public void keyClicked(View v)
     {
+        inputLetter(((TextView)v).getText().toString());
+    }
+
+    private void inputLetter(String s)
+    {
         if (actionMode != null)
             actionMode.finish();
 
@@ -1073,7 +1078,6 @@ public class Gurgle extends Activity
 
         if (selectedView != null)
         {
-            CharSequence s = ((TextView)v).getText();
             selectedView.setText(s);
             selectedView = null;
             return;
@@ -1086,16 +1090,61 @@ public class Gurgle extends Activity
 
             if (letter < SIZE)
             {
-                CharSequence s = ((TextView)v).getText();
                 display[row][letter++].setText(s);
             }
-
             else
                 showToast(R.string.press);
         }
-
         else
             showToast(R.string.press);
+    }
+	// Handle physical keyboard input
+	
+    @Override
+    public boolean onKeyUp(int keyCode, android.view.KeyEvent event)
+    {
+
+        if (keyCode == android.view.KeyEvent.KEYCODE_ENTER)
+        {
+            enterClicked(null);
+            return true;
+        }
+
+
+        if (keyCode == android.view.KeyEvent.KEYCODE_DEL)
+        {
+            backspaceClicked(null);
+            return true;
+        }
+
+
+        int unicode = event.getUnicodeChar();
+        if (unicode > 0)
+        {
+            String s = String.valueOf((char) unicode).toUpperCase();
+
+
+            if (language == GREEK && GREEK_UPPERCASE_KEYS.containsKey(s))
+            {
+                s = GREEK_UPPERCASE_KEYS.get(s);
+            }
+
+
+            boolean isValidKey = keyboard.containsKey(s);
+
+
+            if (!isValidKey && language == GREEK) {
+                isValidKey = GREEK_LETTER_TO_KEY.containsKey(s);
+            }
+
+            if (isValidKey)
+            {
+                inputLetter(s);
+                return true;
+            }
+        }
+
+        return super.onKeyUp(keyCode, event);
     }
 
     // enterClicked
