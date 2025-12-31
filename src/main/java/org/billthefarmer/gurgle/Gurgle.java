@@ -154,7 +154,7 @@ public class Gurgle extends Activity
     public static final String FILE_PROVIDER =
         "org.billthefarmer.gurgle.fileprovider";
 
-    public static final String A_ACCENTS[] = {"A", "À", "Á", "Â", "Å", "Å"};
+    public static final String A_ACCENTS[] = {"A", "À", "Á", "Â", "Ä", "Å"};
     public static final String C_ACCENTS[] = {"C", "Ç"};
     public static final String E_ACCENTS[] = {"E", "È", "É", "Ê"};
     public static final String I_ACCENTS[] = {"I", "Ì", "Í", "Î"};
@@ -1739,7 +1739,6 @@ public class Gurgle extends Activity
 
         case SWEDISH:
         	return "sv";
-
         }
     }
 
