@@ -29,6 +29,7 @@ import android.app.Dialog;
 import android.app.SearchManager;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.view.KeyEvent;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -106,6 +107,7 @@ import nl.dionsegijn.konfetti.core.PartyFactory;
 import nl.dionsegijn.konfetti.core.Spread;
 import nl.dionsegijn.konfetti.core.emitter.Emitter;
 import nl.dionsegijn.konfetti.core.emitter.EmitterConfig;
+import org.billthefarmer.gurgle.BuildConfig;
 import nl.dionsegijn.konfetti.xml.KonfettiView;
 
 // Gurgle class
@@ -952,6 +954,112 @@ public class Gurgle extends Activity
             Bitmap bitmap = data.getParcelableExtra(DATA);
             decodeImage(bitmap);
         }
+    }
+
+    // onKeyDown - handle physical keyboard input
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        // Handle letter keys A-Z
+        if (keyCode >= KeyEvent.KEYCODE_A && keyCode <= KeyEvent.KEYCODE_Z)
+        {
+            char c = (char) ('A' + (keyCode - KeyEvent.KEYCODE_A));
+            String inputLetter = String.valueOf(c);
+
+            // For Greek, convert Latin to Greek
+            if (language == GREEK)
+            {
+                // Q and W don't have Greek equivalents, ignore them
+                if (inputLetter.equals("Q") || inputLetter.equals("W"))
+                    return true;
+
+                String greekLetter = GREEK_UPPERCASE_KEYS.get(inputLetter);
+                if (greekLetter != null)
+                    inputLetter = greekLetter;
+            }
+
+            handleKeyInput(inputLetter);
+            return true;
+        }
+
+        // Handle Backspace/Delete key
+        if (keyCode == KeyEvent.KEYCODE_DEL ||
+                keyCode == KeyEvent.KEYCODE_FORWARD_DEL)
+        {
+            backspaceClicked(null);
+            return true;
+        }
+
+        // Consume Enter here to prevent default behavior
+        if (keyCode == KeyEvent.KEYCODE_ENTER ||
+                keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER)
+        {
+            return true;
+        }
+
+        return super.onKeyDown(keyCode, event);
+    }
+
+    // onKeyUp - handle Enter key on release
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event)
+    {
+        // Handle Enter key
+        if (keyCode == KeyEvent.KEYCODE_ENTER ||
+                keyCode == KeyEvent.KEYCODE_NUMPAD_ENTER)
+        {
+            enterClicked(null);
+            return true;
+        }
+
+        return super.onKeyUp(keyCode, event);
+    }
+
+    // handleKeyInput - helper method to handle letter input from physical keyboard
+    private void handleKeyInput(String inputLetter)
+    {
+        if (actionMode != null)
+            actionMode.finish();
+
+        if (solved)
+        {
+            showToast(R.string.solved);
+            return;
+        }
+
+        if (selectedView != null)
+        {
+            selectedView.setText(inputLetter);
+            selectedView = null;
+            return;
+        }
+
+        if (letter < SIZE)
+        {
+            while (letter < SIZE && locked[letter])
+                letter++;
+
+            if (letter < SIZE)
+            {
+                display[row][letter++].setText(inputLetter);
+            }
+            else
+                showToast(R.string.press);
+        }
+        else
+            showToast(R.string.press);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event)
+    {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_ENTER &&
+                event.getAction() == KeyEvent.ACTION_UP)
+        {
+            enterClicked(null);
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 
     // onMenuItemClick
