@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Add accents on Gurgle</title>
-    <link>http://localhost:1313/gurgle/add-accents/</link>
+    <link>https://billthefarmer.github.io/gurgle/add-accents/</link>
     <description>Recent content in Add accents on Gurgle</description>
     <generator>Hugo</generator>
     <language>en-gb</language>
     <copyright>Copyright &amp;copy; 2006 Bill Farmer</copyright>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="http://localhost:1313/gurgle/add-accents/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://billthefarmer.github.io/gurgle/add-accents/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

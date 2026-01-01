@@ -2,59 +2,59 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/gurgle/introduction/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/introduction/</loc>
     <lastmod>2022-01-14T12:47:15+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/guess/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/guess/</loc>
     <lastmod>2022-01-14T14:26:09+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/display/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/display/</loc>
     <lastmod>2022-01-14T15:41:44+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/lock-letters/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/lock-letters/</loc>
     <lastmod>2022-09-18T10:05:38+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/add-accents/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/add-accents/</loc>
     <lastmod>2022-09-18T10:07:37+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/swap/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/swap/</loc>
     <lastmod>2023-06-14T19:18:03+01:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/meaning/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/meaning/</loc>
     <lastmod>2022-01-29T10:49:36+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/refresh/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/refresh/</loc>
     <lastmod>2022-01-14T15:42:48+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/share/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/share/</loc>
     <lastmod>2022-02-12T19:07:37+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/themes/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/themes/</loc>
     <lastmod>2022-01-29T10:51:07+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/options/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/options/</loc>
     <lastmod>2023-12-08T15:45:31+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/dictionary/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/dictionary/</loc>
     <lastmod>2023-12-08T15:46:02+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/language/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/language/</loc>
     <lastmod>2022-01-29T10:51:22+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/get-code/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/get-code/</loc>
     <lastmod>2022-02-12T19:12:34+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/highlight/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/highlight/</loc>
     <lastmod>2022-03-02T18:26:27+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/cheat/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/cheat/</loc>
     <lastmod>2022-01-14T15:43:08+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/</loc>
     <lastmod>2023-12-08T15:46:02+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/gurgle/categories/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/categories/</loc>
   </url><url>
-    <loc>http://localhost:1313/gurgle/tags/</loc>
+    <loc>https://billthefarmer.github.io/gurgle/tags/</loc>
   </url>
 </urlset>
