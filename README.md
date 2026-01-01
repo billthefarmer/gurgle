@@ -12,11 +12,12 @@ Fairly simple android word game.
 
 ## Guess those words
 Tap letters on the keyboard to enter a guess. Use the **Back** key to
-backspace. Letters may also be entered by tapping a slot to select,
-then tapping a letter. This can also be used to change letters. When
-you have finished a guess, tap the **Enter** key. If you have guessed
-the word correctly, a fanfare will play and a short message will
-appear. Tap the word for it's definition.
+backspace. You may use an external keyboard. Letters may also be
+entered by tapping a slot to select, then tapping a letter. This can
+also be used to change letters. When you have finished a guess, tap
+the **Enter** key. If you have guessed the word correctly, a fanfare
+will play and a short message will appear. Tap the word for it's
+definition.
 
 ## Display colours
 Letters which are in the word but in the wrong place will turn
