@@ -236,7 +236,8 @@ public class Gurgle extends Activity
     private int dict;
     private int row;
 
-    private static final Map<String, String> GREEK_UPPERCASE_KEYS = new HashMap<>();
+    private static final Map<String, String> GREEK_UPPERCASE_KEYS =
+        new HashMap<>();
     static {
         GREEK_UPPERCASE_KEYS.put("E", "Ε");
         GREEK_UPPERCASE_KEYS.put("R", "Ρ");
@@ -264,7 +265,8 @@ public class Gurgle extends Activity
         GREEK_UPPERCASE_KEYS.put("M", "Μ");
     }
 
-    private static final Map<String, String> GREEK_LETTER_TO_KEY = new HashMap<>();
+    private static final Map<String, String> GREEK_LETTER_TO_KEY =
+        new HashMap<>();
     static {
         GREEK_LETTER_TO_KEY.put("Ε", "E");
         GREEK_LETTER_TO_KEY.put("Ρ", "R");
@@ -372,9 +374,13 @@ public class Gurgle extends Activity
                             "A", "S", "D", "F", "G", "H", "J", "K", "L",
                             "Z", "X", "C", "V", "B", "N", "M"};
 
-        for (String letter : letters) {
-            TextView key = findViewById(getResources().getIdentifier(letter, "id", getPackageName()));
-            if (key != null) {
+        for (String letter : letters)
+        {
+            TextView key = findViewById(getResources()
+                                        .getIdentifier(letter, "id",
+                                                       getPackageName()));
+            if (key != null)
+            {
                 key.setOnClickListener((v) -> keyClicked(v));
                 keyboard.put(letter, key);
             }
@@ -1015,7 +1021,8 @@ public class Gurgle extends Activity
         return super.onKeyUp(keyCode, event);
     }
 
-    // handleKeyInput - helper method to handle letter input from physical keyboard
+    // handleKeyInput - helper method to handle letter input from
+    // physical keyboard
     private void handleKeyInput(String inputLetter)
     {
         if (actionMode != null)
@@ -1353,37 +1360,42 @@ public class Gurgle extends Activity
     }
 
     // refresh
-    private void refresh() {
+    private void refresh()
+    {
         // Ensure display array is properly initialized
-        if (display == null || display[0] == null) {
+        if (display == null || display[0] == null)
+        {
             display = new TextView[ROWS][];
-            for (int i = 0; i < display.length; i++) {
+            for (int i = 0; i < display.length; i++)
                 display[i] = new TextView[SIZE];
-            }
+
             ViewGroup grid = findViewById(R.id.puzzle);
-            for (int i = 0; i < grid.getChildCount(); i++) {
+            for (int i = 0; i < grid.getChildCount(); i++)
                 display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
-            }
         }
 
         // Clear display
-        for (TextView r[] : display) {
-            for (TextView t : r) {
+        for (TextView r[] : display)
+        {
+            for (TextView t : r)
+            {
                 t.setText("");
                 t.setTextColor(getColour(WHITE));
             }
         }
 
         // Clear keyboard
-        if (keyboard != null) {
-            for (TextView t : keyboard.values().toArray(new TextView[0])) {
+        if (keyboard != null)
+        {
+            for (TextView t : keyboard.values().toArray(new TextView[0]))
                 t.setTextColor(getColour(WHITE));
-            }
         }
 
         // Fill in default word
-        if (use && first != null && !first.isEmpty()){
-            for (int i = 0; i < first.length(); i++){
+        if (use && first != null && !first.isEmpty())
+        {
+            for (int i = 0; i < first.length(); i++)
+            {
                 TextView text = display[0][i];
                 text.setText(first.substring(i, i+1));
             }
@@ -1850,11 +1862,12 @@ public class Gurgle extends Activity
         }
     }
 
-    private void setKeyboardLanguage(int lang) {
+    private void setKeyboardLanguage(int lang)
+    {
         // Show all keys first (in case Q and W were hidden before for Greek)
-        for (TextView key : keyboard.values()) {
+        for (TextView key : keyboard.values())
             key.setVisibility(View.VISIBLE);
-        }
+
         if (lang == GREEK)
         {
             // Hide the Q and W keys
@@ -1867,19 +1880,21 @@ public class Gurgle extends Activity
                 wKey.setVisibility(View.GONE);
 
             // Set all other keys to uppercase Greek
-            for (Map.Entry<String, TextView> entry : keyboard.entrySet()) {
+            for (Map.Entry<String, TextView> entry : keyboard.entrySet())
+            {
                 String key = entry.getKey();
                 TextView tv = entry.getValue();
-                if (GREEK_UPPERCASE_KEYS.containsKey(key)) {
+                if (GREEK_UPPERCASE_KEYS.containsKey(key))
                     tv.setText(GREEK_UPPERCASE_KEYS.get(key));
-                }
+
             }
         }
 
         else
         {
             // Restore all keys for non-Greek
-            for (Map.Entry<String, TextView> entry : keyboard.entrySet()) {
+            for (Map.Entry<String, TextView> entry : keyboard.entrySet())
+            {
                 entry.getValue().setText(entry.getKey());
                 entry.getValue().setVisibility(View.VISIBLE);
             }
