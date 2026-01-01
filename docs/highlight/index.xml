@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Highlight colours on Gurgle</title>
-    <link>https://billthefarmer.github.io/gurgle/highlight/</link>
+    <link>http://localhost:1313/gurgle/highlight/</link>
     <description>Recent content in Highlight colours on Gurgle</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-gb</language>
     <copyright>Copyright &amp;copy; 2006 Bill Farmer</copyright>
     <lastBuildDate></lastBuildDate>
-    <atom:link href="https://billthefarmer.github.io/gurgle/highlight/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/gurgle/highlight/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
