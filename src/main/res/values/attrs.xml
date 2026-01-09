@@ -10,6 +10,9 @@
     <attr name="key_normal"  format="reference" />
     <attr name="key_pressed"  format="reference" />
 
+    <attr name="menu_refresh"  format="reference" />
+    <attr name="menu_share"  format="reference" />
+
   </declare-styleable>
 
 </resources>

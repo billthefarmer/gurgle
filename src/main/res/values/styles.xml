@@ -17,6 +17,9 @@
       @style/textAppearanceLargeBold
     </item>
 
+    <item name="menu_refresh">@drawable/ic_refresh_white_24dp</item>
+    <item name="menu_share">@drawable/ic_share_white_24dp</item>
+
   </style>
 
   <style name="AppLightBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
@@ -30,6 +33,25 @@
       @style/textAppearanceLargeBold
     </item>
 
+    <item name="menu_refresh">@drawable/ic_refresh_white_24dp</item>
+    <item name="menu_share">@drawable/ic_share_white_24dp</item>
+
+  </style>
+
+  <style name="AppWhiteBaseTheme" parent="android:Theme.Material.Light">
+    <!--
+        Theme customizations available in newer API levels can go in
+        res/values-vXX/styles.xml, while customizations related to
+        backward-compatibility can go here.
+    -->
+
+    <item name="android:textAppearanceLarge">
+      @style/textAppearanceLargeBold
+    </item>
+
+    <item name="menu_refresh">@drawable/ic_refresh_black_24dp</item>
+    <item name="menu_share">@drawable/ic_share_black_24dp</item>
+
   </style>
 
   <style name="ActionBarBaseStyle"
@@ -42,6 +64,9 @@
         All customizations that are NOT specific to a particular
         API-level can go here.
     -->
+
+    <item name="menu_refresh">@drawable/ic_refresh_white_24dp</item>
+    <item name="menu_share">@drawable/ic_share_white_24dp</item>
 
     <item name="dialog_bgcolour">@color/dark_background</item>
 
@@ -170,6 +195,22 @@
 
     <item name="box_bgcolour">@color/light_box_background</item>
     <item name="box_bdcolour">@color/light_box_border</item>
+    <item name="key_normal">@color/light_key_normal</item>
+    <item name="key_pressed">@color/light_key_pressed</item>
+
+  </style>
+
+  <!-- Application theme. -->
+  <style name="AppWhiteTheme" parent="AppWhiteBaseTheme">
+    <!--
+        All customizations that are NOT specific to a particular
+        API-level can go here.
+    -->
+    <item name="android:windowBackground">@color/white_background</item>
+    <item name="dialog_bgcolour">@color/white_background</item>
+
+    <item name="box_bgcolour">@color/white_background</item>
+    <item name="box_bdcolour">@color/white_box_border</item>
     <item name="key_normal">@color/light_key_normal</item>
     <item name="key_pressed">@color/light_key_pressed</item>
 

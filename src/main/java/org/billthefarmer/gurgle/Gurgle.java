@@ -349,6 +349,10 @@ public class Gurgle extends Activity
         case LIGHT:
             setTheme(R.style.AppLightTheme);
             break;
+
+        case WHITE:
+            setTheme(R.style.AppWhiteTheme);
+            break;
         }
 
         setContentView(R.layout.main);
@@ -359,7 +363,17 @@ public class Gurgle extends Activity
         toolbar = findViewById(getResources().getIdentifier("action_bar",
                                                             "id", "android"));
         // Set up navigation
-        toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+        switch (theme)
+        {
+        case WHITE:
+            toolbar.setNavigationIcon(R.drawable.ic_menu_black_24dp);
+            break;
+
+        default:
+            toolbar.setNavigationIcon(R.drawable.ic_menu_white_24dp);
+            break;
+        }
+
         toolbar.setNavigationOnClickListener((v) ->
         {
             PopupMenu popup = new PopupMenu(this, v);
@@ -795,6 +809,10 @@ public class Gurgle extends Activity
 
         case R.id.light:
             theme(LIGHT);
+            break;
+
+        case R.id.white:
+            theme(WHITE);
             break;
 
         case R.id.english:

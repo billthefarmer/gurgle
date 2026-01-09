@@ -43,6 +43,7 @@
   <string name="purple">Purple</string>
   <string name="black">Black</string>
   <string name="light">Light</string>
+  <string translatable="false" name="white">White</string>
   <string name="red">Red</string>
 
   <string name="highlight">Highlight colours</string>
