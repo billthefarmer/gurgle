@@ -43,6 +43,7 @@
   <string name="purple">Viola</string>
   <string name="black">Nero</string>
   <string name="light">Chiaro</string>
+  <string name="white">Bianco</string>
   <string name="red">Rosso</string>
 
   <string name="highlight">Colore lettere</string>
