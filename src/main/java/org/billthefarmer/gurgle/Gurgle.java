@@ -357,8 +357,6 @@ public class Gurgle extends Activity
 
         setContentView(R.layout.main);
 
-        
-
         // Find toolbar
         toolbar = findViewById(getResources().getIdentifier("action_bar",
                                                             "id", "android"));
@@ -423,6 +421,7 @@ public class Gurgle extends Activity
         for (int i = 0; i < grid.getChildCount(); i++)
         {
             display[i / SIZE][i % SIZE] = (TextView) grid.getChildAt(i);
+            display[i / SIZE][i % SIZE].setTextColor(getColour(WHITE));
             display[i / SIZE][i % SIZE].setOnClickListener((v) -> search(v));
             display[i / SIZE][i % SIZE].setOnLongClickListener((v) -> lock(v));
             registerForContextMenu(display[i / SIZE][i % SIZE]);
@@ -1727,8 +1726,7 @@ public class Gurgle extends Activity
         builder.setTitle(R.string.selectHighlight);
         builder.setIcon(R.drawable.ic_launcher);
 
-        View view = ((LayoutInflater) builder.getContext()
-                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE))
+        View view = ((LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE))
             .inflate(R.layout.colours, null);
         builder.setView(view);
 
@@ -1830,7 +1828,7 @@ public class Gurgle extends Activity
             return 0xff00ff00;
 
         case GREY:
-            return 0x3fffffff;
+            return 0xff7f7f7f;
         }
 
         return 0;

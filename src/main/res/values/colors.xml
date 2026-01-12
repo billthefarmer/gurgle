@@ -56,11 +56,12 @@
   <!-- light theme -->
   <color name="light_key_normal">#202020</color>
   <color name="light_key_pressed">#444444</color>
-  <color name="light_box_background">#808080</color>
+  <color name="light_box_background">#dfdfdf</color>
   <color name="light_box_border">@android:color/black</color>
 
   <!--  white theme  -->
   <color name="white_background">@android:color/white</color>
+  <color name="white_box_background">#dfdfdf</color>
   <color name="white_box_border">@android:color/black</color>
 
 </resources>

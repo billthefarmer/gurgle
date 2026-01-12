@@ -5,6 +5,8 @@
 
     <attr name="dialog_bgcolour" format="reference" />
 
+    <attr name="text_colour" format="reference" />
+
     <attr name="box_bgcolour"  format="reference" />
     <attr name="box_bdcolour"  format="reference" />
     <attr name="key_normal"  format="reference" />
