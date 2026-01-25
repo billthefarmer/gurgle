@@ -110,6 +110,13 @@
           android:title="@string/fanfare" />
 
       <item
+          android:id="@+id/auto"
+          android:checkable="true"
+          android:checked="false"
+          android:showAsAction="never"
+          android:title="@string/auto" />
+
+      <item
           android:id="@+id/word"
           android:checkable="true"
           android:checked="false"

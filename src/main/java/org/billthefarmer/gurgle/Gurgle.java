@@ -121,6 +121,7 @@ public class Gurgle extends Activity
     public static final String KEYS = "keys";
     public static final String DATA = "data";
     public static final String LANG = "lang";
+    public static final String AUTO = "auto";
     public static final String WORD = "word";
     public static final String FIRST = "first";
     public static final String SOLVED = "solved";
@@ -147,6 +148,7 @@ public class Gurgle extends Activity
     public static final String PREF_FARE = "pref_fare";
     public static final String PREF_LANG = "pref_lang";
     public static final String PREF_SWAP = "pref_swap";
+    public static final String PREF_AUTO = "pref_auto";
     public static final String PREF_USE = "pref_use";
 
     public static final String AARD2_LOOKUP = "aard2.lookup";
@@ -225,6 +227,7 @@ public class Gurgle extends Activity
     private boolean locked[];
     private boolean solved;
     private boolean swap;
+    private boolean auto;
     private boolean use;
 
     private int language;
@@ -311,6 +314,7 @@ public class Gurgle extends Activity
         first = preferences.getString(PREF_FIRST, "");
         language = preferences.getInt(PREF_LANG, ENGLISH);
         swap = preferences.getBoolean(PREF_SWAP, false);
+        auto = preferences.getBoolean(PREF_AUTO, false);
         theme = preferences.getInt(PREF_THEME, DARK);
         use = preferences.getBoolean(PREF_USE, false);
         wrong = preferences.getInt(PREF_WRONG, getColour(GREY));
@@ -518,6 +522,7 @@ public class Gurgle extends Activity
         {
             row = savedInstanceState.getInt(ROW);
             use = savedInstanceState.getBoolean(USE);
+            auto = savedInstanceState.getString(AUTO);
             word = savedInstanceState.getString(WORD);
             first = savedInstanceState.getString(FIRST);
             letter = savedInstanceState.getInt(LETTER);
@@ -610,6 +615,7 @@ public class Gurgle extends Activity
         super.onRestoreInstanceState(savedInstanceState);
 
         row = savedInstanceState.getInt(ROW);
+        auto = savedInstanceState.getString(AUTO);
         word = savedInstanceState.getString(WORD);
         letter = savedInstanceState.getInt(LETTER);
         solved = savedInstanceState.getBoolean(SOLVED);
@@ -666,6 +672,7 @@ public class Gurgle extends Activity
         editor.putBoolean(PREF_CONF, confetti);
         editor.putBoolean(PREF_FARE, fanfare);
         editor.putBoolean(PREF_SWAP, swap);
+        editor.putBoolean(PREF_AUTO, auto);
         editor.putBoolean(PREF_USE, use);
         editor.apply();
     }
@@ -678,6 +685,7 @@ public class Gurgle extends Activity
 
         outState.putInt(ROW, row);
         outState.putBoolean(USE, use);
+        outState.putString(AUTO, auto);
         outState.putString(WORD, word);
         outState.putString(FIRST, first);
         outState.putInt(LETTER, letter);
@@ -731,6 +739,7 @@ public class Gurgle extends Activity
     {
         menu.findItem(R.id.confetti).setChecked(confetti);
         menu.findItem(R.id.fanfare).setChecked(fanfare);
+        menu.findItem(R.id.auto).setChecked(auto);
         menu.findItem(R.id.word).setChecked(use);
 
         MenuItem item = menu.findItem(R.id.dict);
@@ -884,6 +893,10 @@ public class Gurgle extends Activity
 
         case R.id.word:
             word(item);
+            break;
+
+        case R.id.auto:
+            auto(item);
             break;
 
         case R.id.aard2:
@@ -1066,7 +1079,20 @@ public class Gurgle extends Activity
             if (letter < SIZE)
             {
                 display[row][letter++].setText(inputLetter);
+
+                // Auto enter correct letters
+                if (auto && row > 0)
+                {
+                    while (letter < SIZE && display[row - 1][letter]
+                           .getTextColors().getDefaultColor() == correct)
+                    {
+                        display[row][letter]
+                            .setText(display[row - 1][letter].getText());
+                        letter++;
+                    }
+                }
             }
+
             else
                 showToast(R.string.press);
         }
@@ -1219,6 +1245,18 @@ public class Gurgle extends Activity
             {
                 CharSequence s = ((TextView)v).getText();
                 display[row][letter++].setText(s);
+
+                // Auto enter correct letters
+                if (auto && row > 0)
+                {
+                    while (letter < SIZE && display[row - 1][letter]
+                           .getTextColors().getDefaultColor() == correct)
+                    {
+                        display[row][letter]
+                            .setText(display[row - 1][letter].getText());
+                        letter++;
+                    }
+                }
             }
 
             else
@@ -2008,6 +2046,13 @@ public class Gurgle extends Activity
         // Clear default word
         if (!use)
             first = null;
+    }
+
+    // auto
+    private void auto(MenuItem item)
+    {
+        auto = !auto;
+        item.setChecked(auto);
     }
 
     // aard2
