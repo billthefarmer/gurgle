@@ -522,7 +522,7 @@ public class Gurgle extends Activity
         {
             row = savedInstanceState.getInt(ROW);
             use = savedInstanceState.getBoolean(USE);
-            auto = savedInstanceState.getString(AUTO);
+            auto = savedInstanceState.getBoolean(AUTO);
             word = savedInstanceState.getString(WORD);
             first = savedInstanceState.getString(FIRST);
             letter = savedInstanceState.getInt(LETTER);
@@ -615,7 +615,7 @@ public class Gurgle extends Activity
         super.onRestoreInstanceState(savedInstanceState);
 
         row = savedInstanceState.getInt(ROW);
-        auto = savedInstanceState.getString(AUTO);
+        auto = savedInstanceState.getBoolean(AUTO);
         word = savedInstanceState.getString(WORD);
         letter = savedInstanceState.getInt(LETTER);
         solved = savedInstanceState.getBoolean(SOLVED);
@@ -685,7 +685,7 @@ public class Gurgle extends Activity
 
         outState.putInt(ROW, row);
         outState.putBoolean(USE, use);
-        outState.putString(AUTO, auto);
+        outState.putBoolean(AUTO, auto);
         outState.putString(WORD, word);
         outState.putString(FIRST, first);
         outState.putInt(LETTER, letter);
