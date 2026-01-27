@@ -194,6 +194,7 @@ public class Gurgle extends Activity
     public static final int HUNGARIAN  = 9;
     public static final int GREEK      = 10;
     public static final int SWEDISH    = 11;
+    public static final int DANISH     = 12;
 
     public static final int WIKTIONARY = 0;
     public static final int AARD2      = 1;
@@ -869,6 +870,10 @@ public class Gurgle extends Activity
 
         case R.id.swedish:
             setLanguage(SWEDISH);
+            break;
+
+        case R.id.danish:
+            setLanguage(DANISH);
             break;
 
         case R.id.getText:
@@ -1879,40 +1884,43 @@ public class Gurgle extends Activity
         {
         default:
         case ENGLISH:
-		return "en";
+            return "en";
 
         case ITALIAN:
-		return "it";
+            return "it";
 
         case SPANISH:
-		return "es";
+            return "es";
 
         case CATALAN:
-		return "ca";
+            return "ca";
 
         case FRENCH:
-		return "fr";
+            return "fr";
 
         case PORTUGUESE:
-		return "pt";
+            return "pt";
 
         case GERMAN:
-		return "de";
+            return "de";
 
         case DUTCH:
-		return "nl";
+            return "nl";
 
         case AFRIKAANS:
-		return "af";
+            return "af";
 
         case HUNGARIAN:
-        	return "hu";
+            return "hu";
         
         case GREEK:
-        	return "el";
+            return "el";
 
         case SWEDISH:
-        	return "sv";
+            return "sv";
+
+        case DANISH:
+            return "da";
         }
     }
 
@@ -2019,6 +2027,10 @@ public class Gurgle extends Activity
 
         case SWEDISH:
             getActionBar().setSubtitle(R.string.swedish);
+            break;
+
+        case DANISH:
+            getActionBar().setSubtitle(R.string.danish);
             break;
         }
     }

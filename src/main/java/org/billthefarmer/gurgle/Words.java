@@ -66,6 +66,7 @@ public class Words
     public static final String GREEK_FILE       = "Greek.txt";
     public static final String GREEK_LONG       = "Greek-long.txt";
     public static final String SWEDISH_FILE     = "Swedish.txt";
+    public static final String DANISH_FILE      = "Danish.txt";
 
     private static final int MAX_USED = 256;
 
@@ -176,6 +177,11 @@ public class Words
 
         case Gurgle.SWEDISH:
             readWords(context, SWEDISH_FILE, guess);
+            words = new HashSet<String>(guess);
+            break;
+
+        case Gurgle.DANISH:
+            readWords(context, DANISH_FILE, guess);
             words = new HashSet<String>(guess);
             break;
         }
