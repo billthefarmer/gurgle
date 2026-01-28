@@ -68,7 +68,7 @@ public class Words
     public static final String SWEDISH_FILE     = "Swedish.txt";
     public static final String DANISH_FILE      = "Danish.txt";
 
-    private static final int MAX_USED = 256;
+    private static final int MAX_USED = 1024;
 
     private static Random random;
     private static Deque<String> used;
