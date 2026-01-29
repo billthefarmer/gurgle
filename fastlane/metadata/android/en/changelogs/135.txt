@@ -1,0 +1,1 @@
+ * Add Danish language, increase used word list size
