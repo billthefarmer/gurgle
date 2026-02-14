@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="NewApi">
 
   <!--
       Base application theme for API 23+. This theme completely replaces
@@ -8,6 +10,8 @@
   -->
   <style name="AppBaseTheme" parent="android:Theme.Material">
     <!-- API 24 theme customizations can go here. -->
+
+    <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
 
     <item name="android:colorBackgroundFloating">
       ?attr/dialog_bgcolour
@@ -20,6 +24,8 @@
 
   <style name="AppLightBaseTheme" parent="android:Theme.Material.Light.DarkActionBar">
     <!-- API 24 theme customizations can go here. -->
+
+    <item name="android:windowOptOutEdgeToEdgeEnforcement">true</item>
 
     <item name="android:colorBackgroundFloating">
       ?attr/dialog_bgcolour
