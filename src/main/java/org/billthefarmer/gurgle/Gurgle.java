@@ -1845,7 +1845,7 @@ public class Gurgle extends Activity
                 ((TextView) those.getChildAt(4)).setTextColor(colour);
             }
 
-            return false;
+            return v.performClick();
         };
 
         view = dialog.findViewById(R.id.contains);

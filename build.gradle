@@ -37,10 +37,8 @@ android {
     }
 
     lintOptions {
-        disable 'IconDensities', 'SetJavaScriptEnabled', 'OldTargetApi',
-	    'NonConstantResourceId', 'ExpiredTargetSdkVersion',
-            'ClickableViewAccessibility', 'AndroidGradlePluginVersion',
-            'GradleDependency', 'DiscouragedApi'
+        disable 'OldTargetApi', 'NonConstantResourceId', 'AndroidGradlePluginVersion',
+	'DiscouragedApi', 'SetJavaScriptEnabled', 'GradleDependency'
         // abortOnError false
     }
 
